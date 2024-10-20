@@ -1,1 +1,56 @@
-{\rtf1}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    font-size: 100%;
+    background: #00053b;
+    color: white;
+}
+h1 {
+    font-size: 3rem;
+}
+span {
+    font-size: 1.5rem;
+    font-variant: small-caps;
+}
+img {
+    display: inline-block;
+}
+.intro-container {
+    height: 80vh;
+    overflow: hidden;
+    position: relative;
+}
+.image-container {
+    display: grid;
+    grid-template-areas: "stack";
+    position: relative;
+    height: 100%;
+    width: 100%;
+}
+.image-container > * {
+    grid-area: stack;
+}
+.bg {
+    z-index: -1;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+.cabinet {
+    z-index: 1;
+    position: absolute;
+    right: -500px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: clamp(1200px, 100%, 1500px);
+}
+.text-container {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+}
