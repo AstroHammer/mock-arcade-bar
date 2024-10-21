@@ -78,11 +78,22 @@ img {
 .text-container {
     position: absolute;
     left: 0;
-    right: 0;
     top: 50%;
     transform: translateY(-50%);
     max-width: 500px;
     margin-left: clamp(5rem, 10vw, 50rem);
+    line-height: 60px;
+}
+.first-title {
+    text-align: left;
+}
+.second-title {
+    text-align: center;
+    font-size: 7rem;
+    color: gray;
+}
+.third-title {
+    text-align: right;
 }
 .dark-bg {
     position: absolute;
