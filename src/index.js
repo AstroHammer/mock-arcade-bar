@@ -1,7 +1,7 @@
-import { gsap } from "./gsap";
+import { gsap } from "gsap";
 
 /* The following plugin is a Club GSAP perk */
-import { SplitText } from "./gsap/SplitText.js";
+import { SplitText } from "gsap/SplitText";
 
 
 gsap.registerPlugin(SplitText);
