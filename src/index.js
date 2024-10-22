@@ -13,5 +13,5 @@ gsap.from(split.chars, {
     duration: 1,
     y: 100,
     autoAlpha: 0,
-    stagger: 0.05
+    stagger: 0.10
 });
