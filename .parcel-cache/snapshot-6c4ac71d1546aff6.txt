@@ -1,4 +1,4 @@
-6113
+6115
 134C:\Users\House Emu\Desktop\mock-arcade-website\node_modules\@parcel\optimizer-svgo\node_modules\csso\lib\restructure\7-mergeRuleset.js133740229767382896 0
 75C:\Users\House Emu\Desktop\mock-arcade-website\node_modules\chalk\readme.md133740229766992889 0
 110C:\Users\House Emu\Desktop\mock-arcade-website\node_modules\posthtml\node_modules\posthtml-parser\package.json133740229766552894 0
@@ -10,7 +10,7 @@
 77C:\Users\House Emu\Desktop\mock-arcade-website\node_modules\parcel\src\cli.js133740229766867892 0
 53C:\Users\House Emu\Desktop\mock-arcade-website\.npmrc133740266522538635 0
 133C:\Users\House Emu\Desktop\mock-arcade-website\node_modules\@parcel\optimizer-htmlnano\node_modules\css-tree\lib\syntax\pseudo\dir.js133740229771332892 0
-51C:\Users\House Emu\Desktop\mock-arcade-website\dist133741080885480573 1
+51C:\Users\House Emu\Desktop\mock-arcade-website\dist133741084913021116 1
 77C:\Users\House Emu\Desktop\mock-arcade-website\node_modules\parcel\lib\bin.js133740229765592889 0
 115C:\Users\House Emu\Desktop\mock-arcade-website\node_modules\@parcel\optimizer-svgo\node_modules\css-tree\lib\parser133740229773632897 1
 66C:\Users\House Emu\Desktop\mock-arcade-website\node_modules\@lezer133740229751977197 1
@@ -58,7 +58,7 @@
 115C:\Users\House Emu\Desktop\mock-arcade-website\node_modules\htmlnano\docs\versioned_docs\version-2.0.0\020-usage.md133740229771897902 0
 74C:\Users\House Emu\Desktop\mock-arcade-website\node_modules\weak-lru-cache133740229767617893 1
 102C:\Users\House Emu\Desktop\mock-arcade-website\node_modules\caniuse-lite\data\features\script-async.js133740229778467892 0
-59C:\Users\House Emu\Desktop\mock-arcade-website\src\index.js133740974941144860 0
+59C:\Users\House Emu\Desktop\mock-arcade-website\src\index.js133741084332151153 0
 96C:\Users\House Emu\Desktop\mock-arcade-website\node_modules\@swc\helpers\_\_dispose\package.json133740229772367895 0
 71C:\Users\House Emu\Desktop\mock-arcade-website\node_modules\gsap\all.js133740247429873730 0
 96C:\Users\House Emu\Desktop\mock-arcade-website\node_modules\@swc\helpers\esm\_sliced_to_array.js133740229776112897 0
@@ -170,6 +170,7 @@
 68C:\Users\House Emu\Desktop\mock-arcade-website\node_modules\domutils133740229768882894 1
 132C:\Users\House Emu\Desktop\mock-arcade-website\node_modules\@parcel\optimizer-svgo\node_modules\css-tree\lib\syntax\config\walker.js133740229774002893 0
 78C:\Users\House Emu\Desktop\mock-arcade-website\src\styles\foreground-back1.png133740015619171052 0
+69C:\Users\House Emu\Desktop\mock-arcade-website\dist\index.6c213249.js133741084912971114 0
 83C:\Users\House Emu\Desktop\mock-arcade-website\node_modules\escalade\sync\index.mjs133740229767232894 0
 97C:\Users\House Emu\Desktop\mock-arcade-website\node_modules\csso\node_modules\css-tree\cjs\syntax133740229772052890 1
 79C:\Users\House Emu\Desktop\mock-arcade-website\src\styles\foreground-front1.png133740015297246012 0
@@ -1911,7 +1912,7 @@
 136C:\Users\House Emu\Desktop\mock-arcade-website\node_modules\msgpackr-extract\node_modules\.bin\node-gyp-build-optional-packages-optional133740229781207892 0
 112C:\Users\House Emu\Desktop\mock-arcade-website\node_modules\@parcel\optimizer-svgo\node_modules\mdn-data\LICENSE133740229765242891 0
 140C:\Users\House Emu\Desktop\mock-arcade-website\node_modules\msgpackr-extract\node_modules\.bin\node-gyp-build-optional-packages-optional.ps1133740229781207892 0
-62C:\Users\House Emu\Desktop\mock-arcade-website\dist\index.html133741080885415575 0
+62C:\Users\House Emu\Desktop\mock-arcade-website\dist\index.html133741084912966108 0
 78C:\Users\House Emu\Desktop\mock-arcade-website\node_modules\js-tokens\index.js133740229765737891 0
 94C:\Users\House Emu\Desktop\mock-arcade-website\node_modules\caniuse-lite\dist\lib\supported.js133740229778797895 0
 136C:\Users\House Emu\Desktop\mock-arcade-website\node_modules\@parcel\optimizer-htmlnano\node_modules\css-tree\lib\syntax\config\walker.js133740229773982892 0
@@ -5330,6 +5331,7 @@
 88C:\Users\House Emu\Desktop\mock-arcade-website\node_modules\@parcel\packager-css\LICENSE133740229765212891 0
 93C:\Users\House Emu\Desktop\mock-arcade-website\node_modules\@parcel\packager-css\package.json133740229766377891 0
 96C:\Users\House Emu\Desktop\mock-arcade-website\node_modules\@parcel\package-manager\package.json133740229770647896 0
+73C:\Users\House Emu\Desktop\mock-arcade-website\dist\index.6c213249.js.map133741084913016123 0
 87C:\Users\House Emu\Desktop\mock-arcade-website\node_modules\@parcel\package-manager\src133740229770567890 1
 88C:\Users\House Emu\Desktop\mock-arcade-website\node_modules\@parcel\package-manager\test133740229770522893 1
 105C:\Users\House Emu\Desktop\mock-arcade-website\node_modules\@parcel\bundler-default\lib\DefaultBundler.js133740229765872893 0
