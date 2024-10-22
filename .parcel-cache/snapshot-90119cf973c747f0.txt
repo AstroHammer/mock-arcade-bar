@@ -49,7 +49,7 @@
 138C:\Users\House Emu\Desktop\mock-arcade-website\node_modules\@parcel\optimizer-htmlnano\node_modules\css-tree\lib\syntax\node\Identifier.js133740229771907890 0
 79C:\Users\House Emu\Desktop\mock-arcade-website\node_modules\svgo\lib\builtin.js133740229769182895 0
 61C:\Users\House Emu\Desktop\mock-arcade-website\src\.gitignore133740235203548752 0
-61C:\Users\House Emu\Desktop\mock-arcade-website\src\index.html133740255246650127 0
+61C:\Users\House Emu\Desktop\mock-arcade-website\src\index.html133740971599660232 0
 86C:\Users\House Emu\Desktop\mock-arcade-website\node_modules\node-releases\package.json133740229766097898 0
 108C:\Users\House Emu\Desktop\mock-arcade-website\node_modules\csso\cjs\restructure\prepare\processSelector.cjs133740229770532891 0
 88C:\Users\House Emu\Desktop\mock-arcade-website\node_modules\posthtml-render\changelog.md133740229766287899 0
@@ -62,7 +62,7 @@
 115C:\Users\House Emu\Desktop\mock-arcade-website\node_modules\htmlnano\docs\versioned_docs\version-2.0.0\020-usage.md133740229771897902 0
 74C:\Users\House Emu\Desktop\mock-arcade-website\node_modules\weak-lru-cache133740229767617893 1
 102C:\Users\House Emu\Desktop\mock-arcade-website\node_modules\caniuse-lite\data\features\script-async.js133740229778467892 0
-59C:\Users\House Emu\Desktop\mock-arcade-website\src\index.js133740252786070294 0
+59C:\Users\House Emu\Desktop\mock-arcade-website\src\index.js133740973024416125 0
 96C:\Users\House Emu\Desktop\mock-arcade-website\node_modules\@swc\helpers\_\_dispose\package.json133740229772367895 0
 71C:\Users\House Emu\Desktop\mock-arcade-website\node_modules\gsap\all.js133740247429873730 0
 96C:\Users\House Emu\Desktop\mock-arcade-website\node_modules\@swc\helpers\esm\_sliced_to_array.js133740229776112897 0
