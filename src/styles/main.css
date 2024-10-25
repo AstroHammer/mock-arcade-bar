@@ -163,11 +163,6 @@ img {
     margin: 0 auto;
     margin-bottom: 30px;
 }
-.entree-container {
-    position: relative;
-    max-width: 1000px;
-    margin: 0 auto;
-}
 .menu-wrapper {
     display: flex;
     align-items: center;
@@ -176,6 +171,7 @@ img {
     bottom: 0;
     z-index: 1;
 }
+
 .right-side-menu {
     align-self: flex-start;
     padding-top: 5%;
@@ -184,6 +180,7 @@ img {
     color: gold;
     font-weight: bold;
     font-size: 2.2rem;
+    font-size: clamp(.5rem, 3vw, 2.2rem);
     text-align: center;
     display: block;
     padding-bottom: 2%;
@@ -195,16 +192,24 @@ small {
 .app-desc {
     text-align: center;
     font-size: 1.05rem;
+    font-size: clamp(.3rem, 2vw, 1.05rem);
     padding-bottom: 5%;
 }
 .inner-menu {
-    max-width: 65%;
+    width: 80%;
     margin: 0 auto;
+}
+.right-side-menu, .left-side-menu {
+    width: 50%;
+}
+.menu-title {
+    
+    display: block;
 }
 
 
-
-
 .entree-container {
-    border: 1px solid yellow;
+    position: relative;
+    max-width: 1000px;
+    margin: 0 auto;
 }
