@@ -4,5 +4,6 @@ import { gsap } from "gsap";
 // import { SplitText } from "gsap/SplitText";
 // gsap.registerPlugin(SplitText);
 
+import Rellax from "rellax";
 
-var rellax = new Rellax('.rellax');
+let rellax = new Rellax('.rellax');
