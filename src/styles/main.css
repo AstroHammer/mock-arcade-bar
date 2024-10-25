@@ -150,11 +150,11 @@ img {
     box-shadow: 0 0 100px 150px black;
 }
 .apps {
-    filter: drop-shadow(0 0 7px #0B9EF5) drop-shadow(0 0 7px #0B9EF5);
+    filter: drop-shadow(0 0 10px #0B9EF5) drop-shadow(0 0 10px #0B9EF5);
     display: flex;
 }
 .entree {
-    filter: drop-shadow(0 0 7px magenta) drop-shadow(0 0 7px magenta);
+    filter: drop-shadow(0 0 10px magenta) drop-shadow(0 0 10px magenta);
     display: flex;
 }
 .apps-container {
