@@ -195,6 +195,9 @@ small {
     font-size: clamp(.3rem, 2vw, 1.05rem);
     padding-bottom: 5%;
 }
+.app-misc {
+    font-size: clamp(.2rem, 1.5vw, 1rem);
+}
 .inner-menu {
     width: 80%;
     margin: 0 auto;
