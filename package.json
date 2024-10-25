@@ -12,6 +12,7 @@
     "parcel": "^2.12.0"
   },
   "dependencies": {
-    "gsap": "npm:@gsap/shockingly@^3.12.5"
+    "gsap": "npm:@gsap/shockingly@^3.12.5",
+    "rellax": "^1.12.1"
   }
 }
