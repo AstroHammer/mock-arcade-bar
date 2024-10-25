@@ -51,10 +51,11 @@ img {
     width: 100%;
 }
 .bg {
-    z-index: -2;
+    z-index: -4;
 }
 .cabinet {
     object-position: top right;
+    z-index: -2;
 }
 .border {
     aspect-ratio: 1522/454;
@@ -73,7 +74,7 @@ img {
     mix-blend-mode: hard-light;
 }
 .coins {
-    z-index: -1;
+    z-index: -3;
 }
 .text-container {
     position: absolute;
@@ -140,4 +141,70 @@ img {
 }
 .op-info:nth-child(4) {
     margin-top: 30px;
+}
+
+.section-2 {
+    padding: 2% 0 2% 0;
+    margin-bottom: 500px;
+    background: black;
+    box-shadow: 0 0 100px 150px black;
+}
+.apps {
+    filter: drop-shadow(0 0 7px blue) drop-shadow(0 0 7px blue);
+    display: flex;
+}
+.entree {
+    filter: drop-shadow(0 0 7px magenta) drop-shadow(0 0 7px magenta);
+    display: flex;
+}
+.apps-container {
+    position: relative;
+    max-width: 1000px;
+    margin: 0 auto;
+    margin-bottom: 30px;
+}
+.entree-container {
+    position: relative;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+.menu-wrapper {
+    display: flex;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    z-index: 1;
+}
+.right-side-menu {
+    align-self: flex-start;
+    padding-top: 5%;
+}
+.app-title {
+    color: gold;
+    font-weight: bold;
+    font-size: 2.2rem;
+    text-align: center;
+    display: block;
+    padding-bottom: 2%;
+}
+small {
+    text-align: center;
+    display: block;
+}
+.app-desc {
+    text-align: center;
+    font-size: 1.05rem;
+    padding-bottom: 5%;
+}
+.inner-menu {
+    max-width: 65%;
+    margin: 0 auto;
+}
+
+
+
+
+.entree-container {
+    border: 1px solid yellow;
 }
