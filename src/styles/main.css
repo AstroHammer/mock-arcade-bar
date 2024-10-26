@@ -104,6 +104,8 @@ img {
 }
 
 
+
+
 .section-1 {
     padding: 200px 0;
 }
@@ -142,7 +144,6 @@ img {
 .op-info:nth-child(4) {
     margin-top: 30px;
 }
-
 .section-2 {
     padding: 2% 0 2% 0;
     margin-bottom: 200px;
@@ -171,7 +172,6 @@ img {
     bottom: 0;
     z-index: 1;
 }
-
 .right-side-menu {
     align-self: flex-start;
     padding-top: 5%;
@@ -209,13 +209,15 @@ small {
     
     display: block;
 }
-
-
 .entree-container {
     position: relative;
     max-width: 1000px;
     margin: 0 auto;
 }
+
+
+
+
 
 
 .section-3 {
@@ -228,20 +230,68 @@ small {
 }
 
 
+
+
+
+
+
 .section-4 {
-    position: relative;
-    max-width: 1000px;
+    max-width: 1150px;
     margin: 0 auto;
 }
-.img-container {
-    width: 25%;
-    display: inline-block;
+.collage-container {
+    display: flex;
+    flex-wrap: wrap;
+    /* padding: ; */
 }
-
+.column {
+    flex: 25%;
+    padding: 0 4px;
+}
+/* @media screen and (width < 900px) {
+    .column {
+        flex: 33.3333%;
+    }
+} */
 .collage-img {
     width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-    padding: 2.5%;
+}
+
+
+
+
+.footer {
+    padding: 100px 0;
+    max-width: 1500px;
+    margin: 0 auto;
+}
+.footer-tophalf {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.footer-title-container {
+    max-width: 300px;
+    line-height: 40px;
+}
+.footer-title-container .second-title {
+    font-size: 4rem;
+}
+.footer-title-container .first-title,
+.footer-title-container .third-title {
+    font-size: 1.5rem;
+}
+.footer-sep {
+    height: 1px;
+    background: linear-gradient(transparent, gray 10%, gray 90%, transparent);
+    margin: 10px 0;
+}
+.footer-btmhalf {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.footer-svg {
+    vertical-align:bottom;
+    margin: 0 2px;
 }
