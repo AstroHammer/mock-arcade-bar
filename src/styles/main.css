@@ -281,6 +281,33 @@ small {
 .footer-title-container .third-title {
     font-size: 1.5rem;
 }
+.locations {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+.location {
+    margin: 0 20px;
+}
+.location * {
+    font-size: 1rem;
+}
+.momentary * {
+    font-size: 1.2rem;
+}
+.footer-title {
+    display: block;
+    text-align: center;
+}
+.address-nextline {
+    display: block;
+    text-align: center;
+}
+.center {
+    text-align: center;
+    display: inline-block;
+}
 .footer-sep {
     height: 1px;
     background: linear-gradient(transparent, gray 10%, gray 90%, transparent);
