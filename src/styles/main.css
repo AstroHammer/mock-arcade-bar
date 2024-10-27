@@ -261,34 +261,60 @@ small {
 
 
 .footer {
-    padding: 100px 0;
+    background: black;
+    box-shadow: 0px -20px 75px 50px black;
+    margin-top: 200px;
+    overflow: hidden;
+}
+.footer-wrapper {
     max-width: 1500px;
     margin: 0 auto;
-}
-.footer-tophalf {
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
     align-items: center;
 }
 .footer-title-container {
-    max-width: 300px;
-    line-height: 40px;
+    max-width: 375px;
+    line-height: 45px;
+    padding: 100px 0;
+    margin: 0 auto;
+}
+.title-svg {
+
+}
+.blue-svg {
+    filter:drop-shadow(0 0 10px #0B9EF5) drop-shadow(0 0 10px #0B9EF5);
+}
+.purple-svg {
+    filter:drop-shadow(0 0 10px magenta) drop-shadow(0 0 10px magenta);
+}
+.holder {
+    width: 100%;
+    position: relative;
 }
 .footer-title-container .second-title {
-    font-size: 4rem;
+    font-size: 5rem;
+    font-size: clamp(1rem, 5vw, 5rem);
 }
 .footer-title-container .first-title,
 .footer-title-container .third-title {
-    font-size: 1.5rem;
+    font-size: 2rem;
+    font-size: clamp(.7rem, 3vw, 2rem);
 }
-.locations {
+.footer-tophalf {
     display: flex;
-    flex-wrap: wrap;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
 }
-.location {
-    margin: 0 20px;
+.footer-tophalf,
+.footer-btmhalf {
+    padding: 0 20px;
+}
+.locations {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
 }
 .location * {
     font-size: 1rem;
@@ -306,17 +332,43 @@ small {
 }
 .center {
     text-align: center;
-    display: inline-block;
+    display: block;
 }
 .footer-sep {
     height: 1px;
-    background: linear-gradient(transparent, gray 10%, gray 90%, transparent);
-    margin: 10px 0;
+    width: 50%;
+    display: inline-block;
+    background: gray;
+    margin: 10px 0; 
 }
+.footer-sep-container {
+    width: 100%;
+    padding: 0 20px;
+}
+/* .left-wave {
+    background: linear-gradient(to left, magenta, #0B9EF5, magenta, #0B9EF5 ); 
+    background-size: 300%;
+    animation: wave-left .5s linear infinite reverse backwards;
+    background-position: right;
+}
+.right-wave {
+    background: linear-gradient(to right, magenta, #0B9EF5, transparent);
+    background-size: 200%;
+    animation: wave-right .5s linear infinite reverse;
+}
+@keyframes wave-left {
+    100% {
+        background-position: left;
+    }
+}
+@keyframes wave-right {
+
+} */
 .footer-btmhalf {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding-bottom: 20px;
 }
 .footer-svg {
     vertical-align:bottom;
