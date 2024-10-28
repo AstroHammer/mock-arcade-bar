@@ -472,3 +472,9 @@ small {
         margin-top: 10px;
     }
 }
+
+
+.bs-container {
+    max-width: 1000px;
+    margin: 0 auto;
+}
