@@ -144,8 +144,12 @@ img {
 .op-info:nth-child(4) {
     margin-top: 30px;
 }
+
+
+
+
 .section-2 {
-    padding: 2% 0 2% 0;
+    padding: 2% 0;
     margin-bottom: 200px;
     background: black;
     box-shadow: 0 0 100px 150px black;
@@ -166,18 +170,20 @@ img {
 }
 .menu-wrapper {
     display: flex;
-    align-items: center;
+    /* align-items: center; */
     position: absolute;
-    top: 0;
-    bottom: 0;
+    /* top: 0;
+    bottom: 0; */
     z-index: 1;
 }
-.right-side-menu {
-    align-self: flex-start;
-    padding-top: 5%;
+.top-menu {
+    top: 14.5%;
+}
+.bottom-menu {
+    top: 52%;
 }
 .app-title {
-    color: gold;
+    color: #F7E40A;
     font-weight: bold;
     font-size: 2.2rem;
     font-size: clamp(.5rem, 3vw, 2.2rem);
@@ -187,23 +193,64 @@ img {
 }
 small {
     text-align: center;
-    display: block;
+    /* display: block; */
+}
+.r-dis {
+    margin-left: 3%;
+}
+p {
+    color: #dddddd;
 }
 .app-desc {
     text-align: center;
     font-size: 1.05rem;
-    font-size: clamp(.3rem, 2vw, 1.05rem);
-    padding-bottom: 5%;
+    font-size: clamp(.2rem, 2vw, 1.05rem);
 }
 .app-misc {
     font-size: clamp(.2rem, 1.5vw, 1rem);
 }
 .inner-menu {
-    width: 80%;
+    /* width: 80%;
+    margin: 0 auto; */
+}
+.tl-m {
+    width: 50%;
+}
+.tr-m {
+    width: 50%;
+    margin-top: 1%;
+}
+.hf > .app-desc {
+    width: 60%;
     margin: 0 auto;
 }
-.right-side-menu, .left-side-menu {
-    width: 50%;
+.gt > .app-desc {
+    max-width: 55%;
+    margin: 0 auto;
+}
+.cqd > .app-desc{
+    max-width: 60%;
+    margin: 0 auto;
+}
+.hw > .app-desc {
+    max-width: 65%;
+    margin: 0 auto;
+}
+.llf > .app-desc {
+    max-width: 54%;
+    margin: 0 auto;
+}
+.bpn > .app-desc {
+    max-width: 60%;
+    margin: 0 auto;
+}
+.mnc > .app-desc {
+    max-width: 65%;
+    margin: 0 auto;
+}
+.app-misc {
+    display: block;
+    text-align: center;
 }
 .menu-title {
     
@@ -438,7 +485,7 @@ small {
 }
 
 /* footer-info response */
-@media screen and (width < 1000px) {
+@media screen and (width < 881px) {
     .footer-tophalf {
         height: 220px;
     }
