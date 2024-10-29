@@ -279,26 +279,14 @@ img {
     width: 100%;
     margin: 3rem 0 2rem 0;
 }
-/* .footer-title-container .second-title {
-    font-size: 5rem;
-    font-size: clamp(1rem, 5vw, 5rem);
-}
-.footer-title-container .first-title,
-.footer-title-container .third-title {
-    font-size: 2rem;
-    font-size: clamp(.7rem, 3vw, 2rem);
-} */
 .footer-tophalf {
     display: flex;
     justify-content: space-evenly;
-    align-items: center;
-    /* border: 1px solid red; */
     width: 100%;
     padding: 0 1rem 0 1rem;
     height: 139px;
 }
 .location-container {
-    /* border: 1px solid red; */
     width: 33%;
 }
 .locations {
