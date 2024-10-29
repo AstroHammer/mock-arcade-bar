@@ -327,10 +327,10 @@ p {
     margin: 0 auto;
 }
 .blue-svg {
-    filter:drop-shadow(0 0 10px #0B9EF5) drop-shadow(0 0 10px #0B9EF5);
+    filter:drop-shadow(0 0 10px #0B9EF5) drop-shadow(0 0 7px #0B9EF5) drop-shadow(0 0 1px #0B9EF5);
 }
 .purple-svg {
-    filter:drop-shadow(0 0 10px magenta) drop-shadow(0 0 10px magenta);
+    filter:drop-shadow(0 0 10px magenta) drop-shadow(0 0 7px magenta) drop-shadow(0 0 10px rgb(122, 18, 122));
 }
 .holder {
     width: 100%;
