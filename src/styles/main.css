@@ -115,16 +115,17 @@ img {
     margin-top: 100px;
 }
 .s1-p {
-    font-size: 2rem;
+    font-size: clamp(.7rem, 5vw, 2rem);
     text-align: center;
     padding: 0 5%;
 }
 .s1-b {
-    padding: 20px 75px;
+    padding: 1rem 2rem;
     border-radius: 50px;
-    background: lightblue;
+    background: rgb(28, 202, 255);
     font-weight: bold;
-    font-size: 1.2rem;
+    font-size: clamp(.8rem, 3vw, 1.2rem);
+    border: none;
 }
 .s1-bc {
     display: flex;
@@ -139,10 +140,20 @@ img {
     align-items: center;
 }
 .op-info {
-    font-size: 3rem;
+    font-size: clamp(1rem, 5vw, 2.5rem);
+}
+.op-info:nth-child(1) {
+    margin-bottom: 20px;
+    font-size: clamp(2rem, 8vw, 4rem);
 }
 .op-info:nth-child(4) {
-    margin-top: 30px;
+    margin-top: 10px;
+}
+.op-info:nth-child(5) {
+    margin-bottom: 50px;
+}
+.op-info:nth-child(6) {
+    margin-bottom: 100px;
 }
 
 
@@ -216,7 +227,7 @@ img {
     text-align: center;
 }
 .section3-title {
-    font-size: 3.5rem;
+    font-size: clamp(1.3rem, 6vw, 3.5rem);
 }
 
 
@@ -232,17 +243,11 @@ img {
 .collage-container {
     display: flex;
     flex-wrap: wrap;
-    /* padding: ; */
 }
 .column {
     flex: 25%;
-    padding: 0 4px;
+    padding: 0 1%;
 }
-/* @media screen and (width < 900px) {
-    .column {
-        flex: 33.3333%;
-    }
-} */
 .collage-img {
     width: 100%;
 }
