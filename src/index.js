@@ -6,68 +6,64 @@
 // let rellax = new Rellax('.rellax');
 
 
-//psuedo-code for modal dialog carousel
 
-//clicking image causes event
-//container that takes up entire viewport is displayed (black bg with low opacity)
-//a centered child container will contain the carousel
 
+//IMAGE COLLAGE / CUSTOM MODAL CAROUSEL
 const image = document.querySelectorAll('.img-container');
 const modal = document.querySelector('.modal');
 const closeModalX = document.querySelector('.close-modal');
-
-image.forEach(image => {
-    image.addEventListener('click', openModal);
-})
-closeModalX.addEventListener('click', exitModal);
-
-function openModal() {
-    modal.classList.remove('deactivated-modal');
-    closeModalX.classList.add('animated-exit');
-}
-function exitModal() {
-    modal.classList.add('deactivated-modal');
-}
-
 const track = document.querySelector('.inner-carousel');
 const slides = Array.from(track.children);
 const slideWidth = slides[0].getBoundingClientRect().width;
 
-
-
+// position each slide side by side
 const setSlidePosition = (slide, index) => {
     slide.style.left = slideWidth * index + 'px';
 }
-// slides.forEach(setSlidePosition);
+slides.forEach(setSlidePosition);
 
+//add click listener to all images, store and send the image that has been clicked to openModal function
+image.forEach(image => {
+    image.addEventListener('click', () => {
+        openModal(image);
+    });
+})
+//add class to previously clicked image, reveal modal, send previously clicked image to exitModalListener function
+function openModal(image) {
+    image.classList.add('active-slide')
+    modal.classList.remove('deactivated-modal');
+    //if previously clicked image has an active class, run a function to position the carousel at that image upon opening the Modal
+    if(image.classList.contains('active-slide')) {
+        getSlidePos(image);
+    }
+    //
+    addExitModalListener(image);
+}
+//add listener to exit button, carry and transfer previously clicked image to exitModal function
+function addExitModalListener(image) {
+    closeModalX.addEventListener('click', () => {
+        exitModal(image);
+    });
+}
+//remove class to previously clicked image and hide Modal, back to collage
+function exitModal(image) {
+    image.classList.remove('active-slide');
+    modal.classList.add('deactivated-modal');
+}
 
+//get value of attribute on previously clicked collage image, change from string to number
+function getSlidePos(image) {
+    let selectedSlide = Number(image.getAttribute('data-slide'));
+    //loop through array, use iteration as index and send out the elementnode that matches with selectedSlide value
+    for(let i = 0; i < slides.length; i++) {
+        if (i === selectedSlide) {
+            moveToSlide(track, slides[i]);
+        }
+    }
+}
+//when clickin collage image, carousel is translated to that image in the carousel
+const moveToSlide = (track, targetSlide) => {
+    // track.style.transition = 'transform 250ms ease-in';
+    track.style.transform = 'translateX(-' + targetSlide.style.left + ')';
+}
 
-
-
-// attempt at increasing width of SVG dynamically as the viewport gets smaller
-// let previousWidth = window.innerWidth;
-// const container = document.querySelector('.holder');
-
-// function adjustContainerWidth() {
-//     const currentWidth = window.innerWidth;
-//     const widthChange = currentWidth - previousWidth; // Calculate the change in width
-
-//     // Get the current width in pixels
-//     const currentContainerWidth = parseFloat(getComputedStyle(container).width);
-
-//     if (widthChange > 0) { // Viewport has increased
-//         // Decrease the width by the pixel change
-//         const newWidth = Math.max(0, currentContainerWidth - widthChange); // Ensure it doesn't go negative
-//         container.style.width = `${newWidth}px`;
-//     } else if (widthChange < 0) { // Viewport has decreased
-//         // Increase the width by the absolute pixel change
-//         const newWidth = currentContainerWidth + Math.abs(widthChange);
-//         container.style.width = `${newWidth}px`;
-//     }
-
-//     localStorage.setItem('containerWidth', container.style.width.replace('px', ''));
-
-//     previousWidth = currentWidth; // Update previousWidth for next resize
-// }
-
-// window.addEventListener('resize', adjustContainerWidth);
