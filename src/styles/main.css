@@ -103,59 +103,111 @@ img {
     background: rgba(0, 0, 0, .4);
     z-index: -1;
 }
-
+.s1-b {
+    cursor: pointer;
+}
 
 
 
 .section-1 {
-    padding: 200px 0;
+    padding: 0 1rem 300px 1rem;
+    position: relative;
 }
 .s1-pc {
     max-width: 1400px;
     margin: 0 auto;
-    margin-top: 100px;
+    position: relative;
+    padding: 300px 0;
+}
+.text-intro {
+    font-size: clamp(1.7rem, 5.8vw, 3.5rem);
+    max-width: 950px;
+    font-weight: bold;
+    margin-bottom: 1rem;
+    line-height: clamp(1.8rem, 5.8vw, 3.6rem);
+    font-family: "Orbitron";
 }
 .s1-p {
-    font-size: clamp(.7rem, 5vw, 2rem);
-    text-align: center;
-    padding: 0 5%;
-}
-.s1-b {
-    padding: 1rem 2rem;
-    border-radius: 50px;
-    background: rgb(28, 202, 255);
-    font-weight: bold;
-    font-size: clamp(.8rem, 3vw, 1.2rem);
-    border: none;
+    font-size: clamp(.7rem, 2.5vw, 1.3rem);
+    max-width: 750px;
+    font-family: "Orbitron";
+    letter-spacing: .2rem;
+    color: rgb(189, 189, 189);
 }
 .s1-bc {
     display: flex;
     align-items: center;
-    justify-content: center;
-    margin: 50px 0;
+    margin: 3rem 0;
+}
+.s1-b {
+    padding: 1rem 2rem;
+    border-radius: 50px;
+    background: #006BFF;
+    font-weight: bold;
+    font-size: clamp(.7rem, 2vw, 1rem);
+    border: none;
+    font-family: "Orbitron";
+    color: white;
 }
 .hours-container {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
+    align-items: flex-end;
+    font-family:"Orbitron";
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 1rem;
+    text-align: right;
+    margin-bottom: 250px;
+    position: relative;
 }
 .op-info {
-    font-size: clamp(1rem, 5vw, 2.5rem);
+    font-size: clamp(1rem, 5vw, 2rem);
 }
 .op-info:nth-child(1) {
     margin-bottom: 20px;
-    font-size: clamp(2rem, 8vw, 4rem);
+    font-size: clamp(2rem, 8vw, 3rem);
+    font-weight: 900;
+}
+.op-info:nth-child(2) {
+    font-weight: 700;
+}
+.op-info:nth-child(3) {
+    font-weight: 400;
+    color: rgb(189, 189, 189);
 }
 .op-info:nth-child(4) {
+    font-weight: 700;
     margin-top: 10px;
 }
 .op-info:nth-child(5) {
     margin-bottom: 50px;
+    font-weight: 400;
+    color: rgb(189, 189, 189);
 }
 .op-info:nth-child(6) {
     margin-bottom: 100px;
+    font-weight: 700;
 }
+.food-specials {
+    max-width: 1400px;
+    margin: 0 auto;
+    font-family: "Orbitron";
+    text-align: center;
+}
+.watch-food {
+    font-size: clamp(1.5rem, 5vw, 3rem);
+    font-weight: 600;
+}
+.lcd, .rcd {
+    position: absolute;
+}
+.lcd {
+    top: 0;
+    pointer-events: none;
+}
+
 
 
 
@@ -229,6 +281,8 @@ img {
 }
 .section3-title {
     font-size: clamp(1.3rem, 6vw, 3.5rem);
+    font-family: "Orbitron";
+    font-weight: bolder;
 }
 
 
@@ -435,6 +489,7 @@ img {
 }
 .location-container {
     width: 33%;
+    font-family: "Orbitron";
 }
 .locations {
     display: flex;
@@ -462,6 +517,7 @@ img {
 .cnc, .cec {
     width: 33%;
     height: 100%;
+    font-family: "Orbitron";
 }
 .footer-title {
     display: block;
@@ -470,6 +526,7 @@ img {
 }
 .big-title {
     font-size: 1.6rem;
+    font-weight: bold;
 }
 .address-nextline {
     display: block;
