@@ -204,11 +204,48 @@ img {
     position: absolute;
 }
 .lcd {
-    top: 0;
-    pointer-events: none;
+    top: 10%;
+    transform: translateY(-10%);
+
 }
-
-
+@media screen and (width < 930px) {
+    .border-svg {
+        width: 300%;
+    }
+    .lcd {
+        top: 10%;
+        transform: translateY(-10%);
+    }
+}
+@media screen and (width < 800px) {
+    .border-svg {
+        width: 270%
+    }
+    .lcd {
+        top: 10%;
+        transform: translateY(-10%);
+    }
+}
+@media screen and (width < 600px) {
+    .border-svg {
+        width: 220%;
+    }
+    .lcd {
+        top: 50%;
+        transform: translateY(-45%);
+    }
+}
+@media screen and (width < 400px) {
+    .border-svg {
+        width: 500px;
+        height: 900px;
+        
+    }
+    .lcd {
+        top: 50%;
+        transform: translate(-15% ,-45%);
+    }
+}
 
 
 
