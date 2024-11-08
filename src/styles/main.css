@@ -110,14 +110,13 @@ img {
 
 
 .section-1 {
-    padding: 0 1rem 300px 1rem;
     position: relative;
 }
 .s1-pc {
     max-width: 1400px;
     margin: 0 auto;
     position: relative;
-    padding: 300px 0;
+    padding: 300px 1rem;
     overflow: hidden;
 }
 .text-intro {
@@ -160,34 +159,35 @@ img {
     margin: 0 auto;
     padding: 0 1rem;
     text-align: right;
-    margin-bottom: 250px;
+    padding: 300px 0;
     position: relative;
+    overflow:hidden;
 }
 .op-info {
     font-size: clamp(1rem, 5vw, 2rem);
 }
-.op-info:nth-child(1) {
+.op-info:nth-child(2) {
     margin-bottom: 20px;
     font-size: clamp(2rem, 8vw, 3rem);
     font-weight: 900;
 }
-.op-info:nth-child(2) {
+.op-info:nth-child(3) {
     font-weight: 700;
 }
-.op-info:nth-child(3) {
+.op-info:nth-child(4) {
     font-weight: 400;
     color: rgb(189, 189, 189);
 }
-.op-info:nth-child(4) {
+.op-info:nth-child(5) {
     font-weight: 700;
     margin-top: 10px;
 }
-.op-info:nth-child(5) {
+.op-info:nth-child(6) {
     margin-bottom: 50px;
     font-weight: 400;
     color: rgb(189, 189, 189);
 }
-.op-info:nth-child(6) {
+.op-info:nth-child(7) {
     margin-bottom: 100px;
     font-weight: 700;
 }
@@ -207,44 +207,76 @@ img {
 .lcd {
     top: 10%;
     transform: translateY(-10%);
-
 }
+.rcd {
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%, -20%);
+}
+.left-border-svg {
+    filter: drop-shadow(0 0 10px #FF00FF) drop-shadow(0 0 5px #8d008d);
+}
+
 @media screen and (width < 930px) {
-    .border-svg {
+    .left-border-svg {
         width: 300%;
     }
     .lcd {
         top: 10%;
         transform: translateY(-10%);
     }
+    .right-border-svg {
+        width: 60%;
+    }
+    .rcd {
+
+    }
 }
 @media screen and (width < 800px) {
-    .border-svg {
+    .left-border-svg {
         width: 270%
     }
     .lcd {
-        top: 10%;
-        transform: translateY(-10%);
+        top: 5%;
+        transform: translateY(-5%);
+    }
+    .right-border-svg {
+        
+    }
+    .rcd {
+        
     }
 }
 @media screen and (width < 600px) {
-    .border-svg {
+    .left-border-svg {
         width: 220%;
     }
     .lcd {
         top: 50%;
         transform: translateY(-45%);
     }
+    .right-border-svg {
+        
+    }
+    .rcd {
+        
+    }
 }
 @media screen and (width < 400px) {
-    .border-svg {
+    .left-border-svg {
         width: 500px;
         height: 900px;
         
     }
     .lcd {
         top: 50%;
-        transform: translate(-15% ,-45%);
+        transform: translate(-10% ,-45%);
+    }
+    .right-border-svg {
+        
+    }
+    .rcd {
+        
     }
 }
 
