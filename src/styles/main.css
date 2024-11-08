@@ -174,7 +174,7 @@ img {
     overflow:hidden;
 }
 .op-info {
-    font-size: clamp(1rem, 3vw, 2rem);
+    font-size: clamp(1rem, 3.4vw, 2rem);
 }
 .op-info:nth-child(1) {
     margin-bottom: 20px;
@@ -203,9 +203,12 @@ img {
 }
 .food-specials {
     max-width: 1400px;
-    margin: 500px auto;
+    bottom: 0;
     font-family: "Orbitron";
     text-align: center;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
 }
 .watch-food {
     font-size: clamp(1.5rem, 5vw, 3rem);
@@ -223,7 +226,10 @@ img {
     top: 0;
     bottom: 0;
 }
-.left-border-svg, .right-border-svg {
+.left-border-svg {
+    filter: drop-shadow(0 0 5px #0B9EF5) drop-shadow(0 0 5px #0b72ad);
+}
+.right-border-svg {
     filter: drop-shadow(0 0 5px #FF00FF) drop-shadow(0 0 5px #8d008d);
 }
 @media screen and (width < 1300px) {
@@ -240,12 +246,43 @@ img {
     .left-border-svg {
         width: 300%;
     }
+    .section-1-wrapper {
+        height: 1700px;
+    }
+    .rcd {
+        top: 15%;
+        transform: translateY(-15%);
+    }
+    .right-border-svg {
+        width: 180%;
+    }
 }
 @media screen and (width < 800px) {
     .left-border-svg {
         width: 270%
     }
-
+    .section-1-wrapper {
+        height: 1600px;
+    }
+    .rcd {
+        top: 25%;
+        transform: translateY(-25%);
+    }
+    .right-border-svg {
+        width: 160%;
+    }
+}
+@media screen and (width < 700px) {
+    .section-1-wrapper {
+        height: 1500px;
+    }
+    .right-border-svg {
+        width: 140%;
+    }
+    .rcd {
+        top: 35%;
+        transform: translateY(-35%);
+    }
 }
 @media screen and (width < 600px) {
     .left-border-svg {
@@ -256,6 +293,9 @@ img {
         transform: translateY(-30%);
     }
 
+}
+@media screen and (width < 500px) {
+    
 }
 @media screen and (width < 400px) {
     .left-border-svg {
@@ -288,6 +328,7 @@ img {
     z-index: 4;
     padding: 2% 0;
     margin-bottom: 200px;
+    margin-top: 200px;
     background: black;
     box-shadow: 0 0 100px 150px black;
     overflow: hidden;
