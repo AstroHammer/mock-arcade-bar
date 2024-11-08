@@ -267,6 +267,17 @@ img {
         top: 31%;
         transform: translate(-10% ,-31%);
     }
+    .section-1-wrapper {
+        height: 1500px;
+    }
+    .rcd {
+        top: 35%;
+        transform: translateY(-35%);
+    }
+    .right-border-svg {
+        width: 300px;
+        height: 450px;
+    }
 
 }
 
