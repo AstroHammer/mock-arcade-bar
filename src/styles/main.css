@@ -118,6 +118,7 @@ img {
     margin: 0 auto;
     position: relative;
     padding: 300px 0;
+    overflow: hidden;
 }
 .text-intro {
     font-size: clamp(1.7rem, 5.8vw, 3.5rem);
