@@ -169,7 +169,7 @@ img {
     margin: 0 auto;
     padding: 0 1rem;
     text-align: right;
-    padding: 300px 0;
+    padding: 300px 1rem;
     position: relative;
     overflow:hidden;
 }
@@ -275,7 +275,7 @@ img {
         transform: translateY(-35%);
     }
     .right-border-svg {
-        width: 300px;
+        width: 320px;
         height: 450px;
     }
 
