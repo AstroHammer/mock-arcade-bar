@@ -193,13 +193,23 @@ img {
     margin-top: 10px;
 }
 .op-info:nth-child(5) {
-    margin-bottom: 50px;
+    margin-bottom: 20px;
     font-weight: 400;
     color: rgb(189, 189, 189);
 }
-.op-info:nth-child(6) {
-    margin-bottom: 100px;
-    font-weight: 700;
+.give-call {
+    display: flex;
+    align-items: center;
+}
+.give-call > .op-info {
+    font-size: clamp(.6rem, 2vw, 1rem);
+    font-weight: 400;
+    margin: 0 7px;
+    letter-spacing: 2px;
+}
+.warning-svg {
+    width: clamp(.6rem, 2vw, 1.5rem);
+    height: clamp(.6rem, 2vw, 1.5rem);
 }
 .food-specials {
     max-width: 1400px;
