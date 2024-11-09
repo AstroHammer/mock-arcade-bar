@@ -187,7 +187,7 @@ button {
     margin: 0 auto;
     padding: 0 1rem;
     text-align: right;
-    padding: 300px 1rem 200px 1rem;
+    padding: 300px 1rem 140px 1rem;
     /* position: relative; */
     overflow:hidden;
 }
@@ -272,7 +272,9 @@ button {
     inset: 0;
     transform: translateY(8%);
 }
-
+.specials-comment {
+    padding: 0 1rem;
+}
 
 .left-border-svg {
     filter: drop-shadow(0 0 5px #0B9EF5) drop-shadow(0 0 5px #0b72ad);
@@ -351,9 +353,6 @@ button {
     }
 
 }
-@media screen and (width < 500px) {
-    
-}
 @media screen and (width < 400px) {
     .left-border-svg {
         width: 500px;
@@ -364,7 +363,7 @@ button {
         transform: translate(-10% ,-31%);
     }
     .section-1-wrapper {
-        height: 1500px;
+        height: 1375px;
     }
     .rcd {
         top: 35%;
