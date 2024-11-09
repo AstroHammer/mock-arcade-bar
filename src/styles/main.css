@@ -19,6 +19,9 @@ span {
 img {
     display: inline-block;
 }
+button {
+    cursor: pointer;
+}
 .intro-container {
     height: 80vh;
     overflow: hidden;
@@ -238,9 +241,10 @@ img {
 }
 .lcd, .rcd {
     position: absolute;
+    pointer-events: none;
 }
 .lcd {
-    top: 0;
+    top: 7px;
     bottom: 0;
 }
 .rcd {
@@ -283,15 +287,12 @@ img {
 }
 @media screen and (width < 1100px) {
     .section-1-wrapper {
-        height: 1900px;
+        height: 1800px;
     }
 }
 @media screen and (width < 930px) {
     .left-border-svg {
         width: 300%;
-    }
-    .section-1-wrapper {
-        height: 1700px;
     }
     .rcd {
         top: 15%;
@@ -324,7 +325,7 @@ img {
 }
 @media screen and (width < 700px) {
     .section-1-wrapper {
-        height: 1500px;
+        height: 1550px;
     }
     .right-border-svg {
         width: 140%;
@@ -356,8 +357,7 @@ img {
 @media screen and (width < 400px) {
     .left-border-svg {
         width: 500px;
-        height: 940px;
-        
+        height: 770px;
     }
     .lcd {
         top: 31%;
@@ -377,9 +377,12 @@ img {
     .special-border {
         width: 300%;
     }
-
 }
-
+@media screen and (width < 310px) {
+    .section-1-wrapper, .food-specials, .section-2, .section-3, .section-4, .footer {
+        width: 310px;
+    }
+}
 
 
 .section-2 {
@@ -748,7 +751,9 @@ img {
     vertical-align:bottom;
     margin: 0 2px;
 }
-
+.copyright {
+    text-align: center;
+}
 
 
 
@@ -824,10 +829,4 @@ img {
     .svg-container {
         margin-top: 10px;
     }
-}
-
-
-.bs-container {
-    max-width: 1000px;
-    margin: 0 auto;
 }
