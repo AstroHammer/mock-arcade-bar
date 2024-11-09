@@ -152,7 +152,7 @@ img {
 .s1-pbc {
     display: flex;
     align-items: center;
-    margin-top: 3rem;
+    margin-top: 2rem;
 }
 .s1-b {
     padding: 1rem 2rem;
@@ -232,11 +232,11 @@ img {
     font-family: "Orbitron";
     text-align: center;
     position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
+    left: 0;
+    right: 0;
 }
 .watch-food {
-    font-size: clamp(1.5rem, 5vw, 3rem);
+    font-size: clamp(1.5rem, 4vw, 3rem);
     font-weight: 600;
 }
 .lcd, .rcd {
@@ -251,6 +251,18 @@ img {
     top: 0;
     bottom: 0;
 }
+.special-border {
+    position: absolute;
+    top: 0;
+    left: 52%;
+    transform: translateX(-52%);
+}
+.sb-c {
+    position: relative;
+}
+
+
+
 .left-border-svg {
     filter: drop-shadow(0 0 5px #0B9EF5) drop-shadow(0 0 5px #0b72ad);
 }
@@ -281,6 +293,9 @@ img {
     .right-border-svg {
         width: 180%;
     }
+    .special-border {
+        width: 150%;
+    }
 }
 @media screen and (width < 800px) {
     .left-border-svg {
@@ -296,6 +311,9 @@ img {
     .right-border-svg {
         width: 160%;
     }
+    .special-border {
+        width: 170%;
+    }
 }
 @media screen and (width < 700px) {
     .section-1-wrapper {
@@ -308,6 +326,9 @@ img {
         top: 35%;
         transform: translateY(-35%);
     }
+    .special-border {
+        width: 180%;
+    }
 }
 @media screen and (width < 600px) {
     .left-border-svg {
@@ -316,6 +337,9 @@ img {
     .lcd {
         top: 30%;
         transform: translateY(-30%);
+    }
+    .special-border {
+        width: 190%;
     }
 
 }
@@ -343,6 +367,9 @@ img {
         width: 320px;
         height: 450px;
     }
+    .special-border {
+        width: 300%;
+    }
 
 }
 
@@ -353,7 +380,7 @@ img {
     z-index: 4;
     padding: 2% 0;
     margin-bottom: 200px;
-    margin-top: 200px;
+    margin-top: 400px;
     background: black;
     box-shadow: 0 0 100px 150px black;
     overflow: hidden;
