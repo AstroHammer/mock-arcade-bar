@@ -67,3 +67,21 @@ const moveToSlide = (track, targetSlide) => {
     track.style.transform = 'translateX(-' + targetSlide.style.left + ')';
 }
 
+
+
+//svg manipulation
+
+const topSVG = document.querySelector('.cb-top');
+const btmSVG = document.querySelector('.cb-btm')
+window.addEventListener('resize', adjustBorderTop);
+const topSVGHeight = topSVG.clientHeight;
+topSVG.style.top = -topSVGHeight + "px";
+const btmSVGHeight = btmSVG.clientHeight;
+btmSVG.style.bottom = -btmSVGHeight + "px";
+
+function adjustBorderTop() {
+    const topSVGHeight = topSVG.clientHeight;
+    topSVG.style.top = -topSVGHeight + "px";
+    const btmSVGHeight = btmSVG.clientHeight;
+    btmSVG.style.bottom = -btmSVGHeight + "px";
+}

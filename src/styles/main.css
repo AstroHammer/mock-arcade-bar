@@ -276,11 +276,12 @@ button {
     padding: 0 1rem;
 }
 .left-border-svg {
-    filter: drop-shadow(0 0 5px #0B9EF5) drop-shadow(0 0 5px #0b72ad);
+    filter: drop-shadow(0 0 7px #0B9EF5) drop-shadow(0 0 7px #0b72ad);
 }
 .right-border-svg {
-    filter: drop-shadow(0 0 5px #FF00FF) drop-shadow(0 0 5px #8d008d);
+    filter: drop-shadow(0 0 7px #FF00FF) drop-shadow(0 0 7px #8d008d);
 }
+
 @media screen and (width < 1150px) {
     .section-1-wrapper {
         height: 1550px;
@@ -385,7 +386,7 @@ button {
     position: relative;
     z-index: 4;
     padding: 2% 0;
-    margin-bottom: 200px;
+    /* margin-bottom: 200px; */
     margin-top: 300px;
     background: black;
     box-shadow: 0 0 100px 150px black;
@@ -464,10 +465,15 @@ button {
 .section-4 {
     max-width: 1150px;
     margin: 0 auto;
+    position: relative;
+    padding-top: 200px;
+    padding-bottom: 200px;
 }
 .collage-container {
     display: flex;
     flex-wrap: wrap;
+    position: relative;
+    padding: 0 50px;
 }
 .column {
     flex: 25%;
@@ -615,16 +621,33 @@ button {
     filter:drop-shadow(2px 2px 5px white) drop-shadow(2px 2px 5px rgba(255, 255, 255, 0.288)) drop-shadow(-2px -2px 5px rgba(255, 255, 255, 0.288)) drop-shadow(-2px -2px 5px rgba(255, 255, 255, 0.288));
     transition: filter .1s linear;
 }
+.collage-border-svg {
+    position: absolute;
+    top: 0;
+}
 
-
-
+.cb-svg-c {
+    position: absolute;
+}
+.cb-top {
+    top: 0;
+    left: 0;
+    right: 0;
+}
+.cb-btm {
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+.cb-mid {
+    inset:0;
+}
 
 
 
 .footer {
     background: black;
     box-shadow: 0px -20px 75px 50px black;
-    margin-top: 200px;
     overflow: hidden;
 }
 .footer-wrapper {
