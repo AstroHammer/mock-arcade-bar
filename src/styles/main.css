@@ -264,6 +264,7 @@ button {
     left: 52%;
     transform: translateX(-52%);
     height:100%;
+    width: 100%;
 }
 .special-hexes {
     position: absolute;
