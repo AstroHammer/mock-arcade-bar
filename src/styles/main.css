@@ -632,7 +632,12 @@ button {
     position: absolute;
     top: 0;
 }
-
+svg {
+    overflow: visible;
+}
+.clip {
+    
+}
 .cb-svg-c {
     position: absolute;
 }
@@ -678,10 +683,10 @@ button {
     margin: 0 auto;
 }
 .blue-svg {
-    filter:drop-shadow(0 0 10px #0B9EF5) drop-shadow(0 0 7px #0B9EF5) drop-shadow(0 0 1px #0B9EF5);
+    filter:drop-shadow(0 0 7px #0B9EF5) drop-shadow(0 0 7px #0B9EF5);
 }
 .purple-svg {
-    filter:drop-shadow(0 0 10px magenta) drop-shadow(0 0 7px magenta) drop-shadow(0 0 10px rgb(122, 18, 122));
+    filter: drop-shadow(0 0 7px #FF00FF) drop-shadow(0 0 7px #FF00FF);
 }
 .holder {
     width: 100%;
