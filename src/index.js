@@ -1,5 +1,8 @@
-// import { gsap } from "gsap";
+import { gsap } from "gsap";
 
+gsap.registerPlugin(DrawSVGPlugin);
+
+gsap.from(".draw-me", {duration: 1, drawSVG: 0});
 
 // import Rellax from "rellax";
 
