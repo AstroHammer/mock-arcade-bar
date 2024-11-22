@@ -45,6 +45,12 @@ button {
     top: 0;
     width: 100%;
 }
+.blue-pulse {
+    filter:drop-shadow(0 0 2px lightblue) drop-shadow(0 0 2px lightblue);
+}
+.purple-pulse {
+    filter:drop-shadow(0 0 2px lightpink) drop-shadow(0 0 2px lightpink);
+}
 .parallax-image {
     object-fit: cover;
     object-position: center;

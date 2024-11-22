@@ -593,7 +593,14 @@ var _drawSVGPlugin = require("gsap/DrawSVGPlugin");
     ease: "power1.inOut",
     drawSVG: 0
 });
-// gsap.fromTo(".pulse", {drawSVG: "2% 0"}, {duration: 3, delay: 5, repeat: -1, drawSVG: "100% 102%"});
+(0, _gsap.gsap).fromTo(".pulse", {
+    drawSVG: "2% 0"
+}, {
+    duration: 3,
+    delay: 5,
+    repeat: -1,
+    drawSVG: "100% 102%"
+});
 // import Rellax from "rellax";
 // let rellax = new Rellax('.rellax');
 //IMAGE COLLAGE / CUSTOM MODAL CAROUSEL
