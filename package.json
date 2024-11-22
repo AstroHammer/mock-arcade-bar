@@ -7,12 +7,11 @@
   },
   "author": "",
   "license": "ISC",
-  "description": "arcade-libraries",
-  "devDependencies": {
-    "parcel": "^2.12.0"
-  },
+  "description": "",
   "dependencies": {
-    "gsap": "npm:@gsap/shockingly@^3.12.5",
-    "rellax": "^1.12.1"
+    "gsap": "npm:@gsap/shockingly@^3.12.5"
+  },
+  "devDependencies": {
+    "parcel": "^2.13.0"
   }
 }

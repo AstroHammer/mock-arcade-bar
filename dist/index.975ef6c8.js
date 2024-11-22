@@ -73,7 +73,7 @@
         localRequire,
         module,
         module.exports,
-        this
+        globalObject
       );
     }
 
@@ -142,7 +142,7 @@
       this[globalName] = mainExports;
     }
   }
-})({"farZc":[function(require,module,exports) {
+})({"dyKFB":[function(require,module,exports,__globalThis) {
 var global = arguments[3];
 var HMR_HOST = null;
 var HMR_PORT = null;
@@ -197,7 +197,7 @@ declare var __parcel__import__: (string) => Promise<void>;
 declare var __parcel__importScripts__: (string) => Promise<void>;
 declare var globalThis: typeof self;
 declare var ServiceWorkerGlobalScope: Object;
-*/ var OVERLAY_ID = "__parcel__error__overlay__";
+*/ var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
 function Module(moduleName) {
     OldModule.call(this, moduleName);
@@ -218,38 +218,38 @@ module.bundle.Module = Module;
 module.bundle.hotData = {};
 var checkedAssets /*: {|[string]: boolean|} */ , assetsToDispose /*: Array<[ParcelRequire, string]> */ , assetsToAccept /*: Array<[ParcelRequire, string]> */ ;
 function getHostname() {
-    return HMR_HOST || (location.protocol.indexOf("http") === 0 ? location.hostname : "localhost");
+    return HMR_HOST || (location.protocol.indexOf('http') === 0 ? location.hostname : 'localhost');
 }
 function getPort() {
     return HMR_PORT || location.port;
 }
 // eslint-disable-next-line no-redeclare
 var parent = module.bundle.parent;
-if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== "undefined") {
+if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
     var hostname = getHostname();
     var port = getPort();
-    var protocol = HMR_SECURE || location.protocol == "https:" && ![
-        "localhost",
-        "127.0.0.1",
-        "0.0.0.0"
-    ].includes(hostname) ? "wss" : "ws";
+    var protocol = HMR_SECURE || location.protocol == 'https:' && ![
+        'localhost',
+        '127.0.0.1',
+        '0.0.0.0'
+    ].includes(hostname) ? 'wss' : 'ws';
     var ws;
-    if (HMR_USE_SSE) ws = new EventSource("/__parcel_hmr");
+    if (HMR_USE_SSE) ws = new EventSource('/__parcel_hmr');
     else try {
-        ws = new WebSocket(protocol + "://" + hostname + (port ? ":" + port : "") + "/");
+        ws = new WebSocket(protocol + '://' + hostname + (port ? ':' + port : '') + '/');
     } catch (err) {
         if (err.message) console.error(err.message);
         ws = {};
     }
     // Web extension context
-    var extCtx = typeof browser === "undefined" ? typeof chrome === "undefined" ? null : chrome : browser;
+    var extCtx = typeof browser === 'undefined' ? typeof chrome === 'undefined' ? null : chrome : browser;
     // Safari doesn't support sourceURL in error stacks.
     // eval may also be disabled via CSP, so do a quick check.
     var supportsSourceURL = false;
     try {
         (0, eval)('throw new Error("test"); //# sourceURL=test.js');
     } catch (err) {
-        supportsSourceURL = err.stack.includes("test.js");
+        supportsSourceURL = err.stack.includes('test.js');
     }
     // $FlowFixMe
     ws.onmessage = async function(event /*: {data: string, ...} */ ) {
@@ -257,18 +257,19 @@ if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== "undefined") {
         assetsToAccept = [];
         assetsToDispose = [];
         var data /*: HMRMessage */  = JSON.parse(event.data);
-        if (data.type === "update") {
+        if (data.type === 'reload') fullReload();
+        else if (data.type === 'update') {
             // Remove error overlay if there is one
-            if (typeof document !== "undefined") removeErrorOverlay();
+            if (typeof document !== 'undefined') removeErrorOverlay();
             let assets = data.assets.filter((asset)=>asset.envHash === HMR_ENV_HASH);
             // Handle HMR Update
             let handled = assets.every((asset)=>{
-                return asset.type === "css" || asset.type === "js" && hmrAcceptCheck(module.bundle.root, asset.id, asset.depsByBundle);
+                return asset.type === 'css' || asset.type === 'js' && hmrAcceptCheck(module.bundle.root, asset.id, asset.depsByBundle);
             });
             if (handled) {
                 console.clear();
                 // Dispatch custom event so other runtimes (e.g React Refresh) are aware.
-                if (typeof window !== "undefined" && typeof CustomEvent !== "undefined") window.dispatchEvent(new CustomEvent("parcelhmraccept"));
+                if (typeof window !== 'undefined' && typeof CustomEvent !== 'undefined') window.dispatchEvent(new CustomEvent('parcelhmraccept'));
                 await hmrApplyUpdates(assets);
                 // Dispose all old assets.
                 let processedAssets = {} /*: {|[string]: boolean|} */ ;
@@ -290,13 +291,13 @@ if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== "undefined") {
                 }
             } else fullReload();
         }
-        if (data.type === "error") {
+        if (data.type === 'error') {
             // Log parcel errors to console
             for (let ansiDiagnostic of data.diagnostics.ansi){
                 let stack = ansiDiagnostic.codeframe ? ansiDiagnostic.codeframe : ansiDiagnostic.stack;
-                console.error("\uD83D\uDEA8 [parcel]: " + ansiDiagnostic.message + "\n" + stack + "\n\n" + ansiDiagnostic.hints.join("\n"));
+                console.error("\uD83D\uDEA8 [parcel]: " + ansiDiagnostic.message + '\n' + stack + '\n\n' + ansiDiagnostic.hints.join('\n'));
             }
-            if (typeof document !== "undefined") {
+            if (typeof document !== 'undefined') {
                 // Render the fancy html overlay
                 removeErrorOverlay();
                 var overlay = createErrorOverlay(data.diagnostics.html);
@@ -322,7 +323,7 @@ function removeErrorOverlay() {
     }
 }
 function createErrorOverlay(diagnostics) {
-    var overlay = document.createElement("div");
+    var overlay = document.createElement('div');
     overlay.id = OVERLAY_ID;
     let errorHTML = '<div style="background: black; opacity: 0.85; font-size: 16px; color: white; position: fixed; height: 100%; width: 100%; top: 0px; left: 0px; padding: 30px; font-family: Menlo, Consolas, monospace; z-index: 9999;">';
     for (let diagnostic of diagnostics){
@@ -330,7 +331,7 @@ function createErrorOverlay(diagnostics) {
             return `${p}
 <a href="/__parcel_launch_editor?file=${encodeURIComponent(frame.location)}" style="text-decoration: underline; color: #888" onclick="fetch(this.href); return false">${frame.location}</a>
 ${frame.code}`;
-        }, "") : diagnostic.stack;
+        }, '') : diagnostic.stack;
         errorHTML += `
       <div>
         <div style="font-size: 18px; font-weight: bold; margin-top: 20px;">
@@ -338,18 +339,18 @@ ${frame.code}`;
         </div>
         <pre>${stack}</pre>
         <div>
-          ${diagnostic.hints.map((hint)=>"<div>\uD83D\uDCA1 " + hint + "</div>").join("")}
+          ${diagnostic.hints.map((hint)=>"<div>\uD83D\uDCA1 " + hint + '</div>').join('')}
         </div>
-        ${diagnostic.documentation ? `<div>\u{1F4DD} <a style="color: violet" href="${diagnostic.documentation}" target="_blank">Learn more</a></div>` : ""}
+        ${diagnostic.documentation ? `<div>\u{1F4DD} <a style="color: violet" href="${diagnostic.documentation}" target="_blank">Learn more</a></div>` : ''}
       </div>
     `;
     }
-    errorHTML += "</div>";
+    errorHTML += '</div>';
     overlay.innerHTML = errorHTML;
     return overlay;
 }
 function fullReload() {
-    if ("reload" in location) location.reload();
+    if ('reload' in location) location.reload();
     else if (extCtx && extCtx.runtime && extCtx.runtime.reload) extCtx.runtime.reload();
 }
 function getParents(bundle, id) /*: Array<[ParcelRequire, string]> */ {
@@ -368,15 +369,15 @@ function getParents(bundle, id) /*: Array<[ParcelRequire, string]> */ {
     return parents;
 }
 function updateLink(link) {
-    var href = link.getAttribute("href");
+    var href = link.getAttribute('href');
     if (!href) return;
     var newLink = link.cloneNode();
     newLink.onload = function() {
         if (link.parentNode !== null) // $FlowFixMe
         link.parentNode.removeChild(link);
     };
-    newLink.setAttribute("href", // $FlowFixMe
-    href.split("?")[0] + "?" + Date.now());
+    newLink.setAttribute('href', // $FlowFixMe
+    href.split('?')[0] + '?' + Date.now());
     // $FlowFixMe
     link.parentNode.insertBefore(newLink, link.nextSibling);
 }
@@ -387,9 +388,9 @@ function reloadCSS() {
         var links = document.querySelectorAll('link[rel="stylesheet"]');
         for(var i = 0; i < links.length; i++){
             // $FlowFixMe[incompatible-type]
-            var href /*: string */  = links[i].getAttribute("href");
+            var href /*: string */  = links[i].getAttribute('href');
             var hostname = getHostname();
-            var servedFromHMRServer = hostname === "localhost" ? new RegExp("^(https?:\\/\\/(0.0.0.0|127.0.0.1)|localhost):" + getPort()).test(href) : href.indexOf(hostname + ":" + getPort());
+            var servedFromHMRServer = hostname === 'localhost' ? new RegExp('^(https?:\\/\\/(0.0.0.0|127.0.0.1)|localhost):' + getPort()).test(href) : href.indexOf(hostname + ':' + getPort());
             var absolute = /^https?:\/\//i.test(href) && href.indexOf(location.origin) !== 0 && !servedFromHMRServer;
             if (!absolute) updateLink(links[i]);
         }
@@ -397,23 +398,23 @@ function reloadCSS() {
     }, 50);
 }
 function hmrDownload(asset) {
-    if (asset.type === "js") {
-        if (typeof document !== "undefined") {
-            let script = document.createElement("script");
-            script.src = asset.url + "?t=" + Date.now();
-            if (asset.outputFormat === "esmodule") script.type = "module";
+    if (asset.type === 'js') {
+        if (typeof document !== 'undefined') {
+            let script = document.createElement('script');
+            script.src = asset.url + '?t=' + Date.now();
+            if (asset.outputFormat === 'esmodule') script.type = 'module';
             return new Promise((resolve, reject)=>{
                 var _document$head;
                 script.onload = ()=>resolve(script);
                 script.onerror = reject;
                 (_document$head = document.head) === null || _document$head === void 0 || _document$head.appendChild(script);
             });
-        } else if (typeof importScripts === "function") {
+        } else if (typeof importScripts === 'function') {
             // Worker scripts
-            if (asset.outputFormat === "esmodule") return import(asset.url + "?t=" + Date.now());
+            if (asset.outputFormat === 'esmodule') return import(asset.url + '?t=' + Date.now());
             else return new Promise((resolve, reject)=>{
                 try {
-                    importScripts(asset.url + "?t=" + Date.now());
+                    importScripts(asset.url + '?t=' + Date.now());
                     resolve();
                 } catch (err) {
                     reject(err);
@@ -437,7 +438,7 @@ async function hmrApplyUpdates(assets) {
                 var _hmrDownload;
                 return (_hmrDownload = hmrDownload(asset)) === null || _hmrDownload === void 0 ? void 0 : _hmrDownload.catch((err)=>{
                     // Web extension fix
-                    if (extCtx && extCtx.runtime && extCtx.runtime.getManifest().manifest_version == 3 && typeof ServiceWorkerGlobalScope != "undefined" && global instanceof ServiceWorkerGlobalScope) {
+                    if (extCtx && extCtx.runtime && extCtx.runtime.getManifest().manifest_version == 3 && typeof ServiceWorkerGlobalScope != 'undefined' && global instanceof ServiceWorkerGlobalScope) {
                         extCtx.runtime.reload();
                         return;
                     }
@@ -462,8 +463,8 @@ async function hmrApplyUpdates(assets) {
 function hmrApply(bundle /*: ParcelRequire */ , asset /*:  HMRAsset */ ) {
     var modules = bundle.modules;
     if (!modules) return;
-    if (asset.type === "css") reloadCSS();
-    else if (asset.type === "js") {
+    if (asset.type === 'css') reloadCSS();
+    else if (asset.type === 'js') {
         let deps = asset.depsByBundle[bundle.HMR_BUNDLE_ID];
         if (deps) {
             if (modules[asset.id]) {
@@ -583,7 +584,7 @@ function hmrAccept(bundle /*: ParcelRequire */ , id /*: string */ ) {
     });
 }
 
-},{}],"8lqZg":[function(require,module,exports) {
+},{}],"8lqZg":[function(require,module,exports,__globalThis) {
 var _gsap = require("gsap");
 var _drawSVGPlugin = require("gsap/DrawSVGPlugin");
 (0, _gsap.gsap).registerPlugin((0, _drawSVGPlugin.DrawSVGPlugin));
@@ -592,69 +593,62 @@ var _drawSVGPlugin = require("gsap/DrawSVGPlugin");
     ease: "power1.inOut",
     drawSVG: 0
 });
-(0, _gsap.gsap).fromTo(".pulse", {
-    drawSVG: "2% 0"
-}, {
-    duration: 3,
-    delay: 5,
-    repeat: -1,
-    drawSVG: "100% 102%"
-});
+// gsap.fromTo(".pulse", {drawSVG: "2% 0"}, {duration: 3, delay: 5, repeat: -1, drawSVG: "100% 102%"});
 // import Rellax from "rellax";
 // let rellax = new Rellax('.rellax');
 //IMAGE COLLAGE / CUSTOM MODAL CAROUSEL
-const image = document.querySelectorAll(".img-container");
-const modal = document.querySelector(".modal");
-const closeModalX = document.querySelector(".close-modal");
-const track = document.querySelector(".inner-carousel");
+const image = document.querySelectorAll('.img-container');
+const modal = document.querySelector('.modal');
+const closeModalX = document.querySelector('.close-modal');
+const track = document.querySelector('.inner-carousel');
 const slides = Array.from(track.children);
 const slideWidth = slides[0].getBoundingClientRect().width;
 // position each slide side by side
 const setSlidePosition = (slide, index)=>{
-    slide.style.left = slideWidth * index + "px";
+    slide.style.left = slideWidth * index + 'px';
 };
 slides.forEach(setSlidePosition);
 //add click listener to all images, store and send the image that has been clicked to openModal function
 image.forEach((image)=>{
-    image.addEventListener("click", ()=>{
+    image.addEventListener('click', ()=>{
         openModal(image);
     });
 });
 //add class to previously clicked image, reveal modal, send previously clicked image to exitModalListener function
 function openModal(image) {
-    image.classList.add("active-slide");
-    modal.classList.remove("deactivated-modal");
+    image.classList.add('active-slide');
+    modal.classList.remove('deactivated-modal');
     //if previously clicked image has an active class, run a function to position the carousel at that image upon opening the Modal
-    if (image.classList.contains("active-slide")) getSlidePos(image);
+    if (image.classList.contains('active-slide')) getSlidePos(image);
     //
     addExitModalListener(image);
 }
 //add listener to exit button, carry and transfer previously clicked image to exitModal function
 function addExitModalListener(image) {
-    closeModalX.addEventListener("click", ()=>{
+    closeModalX.addEventListener('click', ()=>{
         exitModal(image);
     });
 }
 //remove class to previously clicked image and hide Modal, back to collage
 function exitModal(image) {
-    image.classList.remove("active-slide");
-    modal.classList.add("deactivated-modal");
+    image.classList.remove('active-slide');
+    modal.classList.add('deactivated-modal');
 }
 //get value of attribute on previously clicked collage image, change from string to number
 function getSlidePos(image) {
-    let selectedSlide = Number(image.getAttribute("data-slide"));
+    let selectedSlide = Number(image.getAttribute('data-slide'));
     //loop through array, use iteration as index and send out the elementnode that matches with selectedSlide value
     for(let i = 0; i < slides.length; i++)if (i === selectedSlide) moveToSlide(track, slides[i]);
 }
 //when clickin collage image, carousel is translated to that image in the carousel
 const moveToSlide = (track, targetSlide)=>{
     // track.style.transition = 'transform 250ms ease-in';
-    track.style.transform = "translateX(-" + targetSlide.style.left + ")";
+    track.style.transform = 'translateX(-' + targetSlide.style.left + ')';
 };
 //svg manipulation
-const topSVG = document.querySelector(".cb-top");
-const btmSVG = document.querySelector(".cb-btm");
-window.addEventListener("resize", adjustBorderTop);
+const topSVG = document.querySelector('.cb-top');
+const btmSVG = document.querySelector('.cb-btm');
+window.addEventListener('resize', adjustBorderTop);
 const topSVGHeight = topSVG.clientHeight;
 topSVG.style.top = -topSVGHeight + "px";
 const btmSVGHeight = btmSVG.clientHeight;
@@ -666,7 +660,7 @@ function adjustBorderTop() {
     btmSVG.style.bottom = -btmSVGHeight + "px";
 }
 
-},{"gsap":"fPSuC","gsap/DrawSVGPlugin":"htWnw"}],"fPSuC":[function(require,module,exports) {
+},{"gsap":"fPSuC","gsap/DrawSVGPlugin":"htWnw"}],"fPSuC":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "gsap", ()=>gsapWithCSS);
@@ -699,7 +693,7 @@ var _csspluginJs = require("./CSSPlugin.js");
 var gsapWithCSS = (0, _gsapCoreJs.gsap).registerPlugin((0, _csspluginJs.CSSPlugin)) || (0, _gsapCoreJs.gsap), // to protect from tree shaking
 TweenMaxWithCSS = gsapWithCSS.core.Tween;
 
-},{"./gsap-core.js":"05eeC","./CSSPlugin.js":"l02JQ","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"05eeC":[function(require,module,exports) {
+},{"./gsap-core.js":"05eeC","./CSSPlugin.js":"l02JQ","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"05eeC":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "GSCache", ()=>GSCache);
@@ -3723,20 +3717,20 @@ _coreReady = 1;
 _windowExists() && _wake();
 var Power0 = _easeMap.Power0, Power1 = _easeMap.Power1, Power2 = _easeMap.Power2, Power3 = _easeMap.Power3, Power4 = _easeMap.Power4, Linear = _easeMap.Linear, Quad = _easeMap.Quad, Cubic = _easeMap.Cubic, Quart = _easeMap.Quart, Quint = _easeMap.Quint, Strong = _easeMap.Strong, Elastic = _easeMap.Elastic, Back = _easeMap.Back, SteppedEase = _easeMap.SteppedEase, Bounce = _easeMap.Bounce, Sine = _easeMap.Sine, Expo = _easeMap.Expo, Circ = _easeMap.Circ;
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"gkKU3":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"gkKU3":[function(require,module,exports,__globalThis) {
 exports.interopDefault = function(a) {
     return a && a.__esModule ? a : {
         default: a
     };
 };
 exports.defineInteropFlag = function(a) {
-    Object.defineProperty(a, "__esModule", {
+    Object.defineProperty(a, '__esModule', {
         value: true
     });
 };
 exports.exportAll = function(source, dest) {
     Object.keys(source).forEach(function(key) {
-        if (key === "default" || key === "__esModule" || Object.prototype.hasOwnProperty.call(dest, key)) return;
+        if (key === 'default' || key === '__esModule' || Object.prototype.hasOwnProperty.call(dest, key)) return;
         Object.defineProperty(dest, key, {
             enumerable: true,
             get: function() {
@@ -3753,7 +3747,7 @@ exports.export = function(dest, destName, get) {
     });
 };
 
-},{}],"l02JQ":[function(require,module,exports) {
+},{}],"l02JQ":[function(require,module,exports,__globalThis) {
 /*!
  * CSSPlugin 3.12.5
  * https://gsap.com
@@ -4720,7 +4714,7 @@ var CSSPlugin = {
 });
 (0, _gsapCoreJs.gsap).registerPlugin(CSSPlugin);
 
-},{"./gsap-core.js":"05eeC","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"htWnw":[function(require,module,exports) {
+},{"./gsap-core.js":"05eeC","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"htWnw":[function(require,module,exports,__globalThis) {
 /*!
  * DrawSVGPlugin 3.12.5
  * https://gsap.com
@@ -4951,6 +4945,6 @@ var DrawSVGPlugin = {
 };
 _getGSAP() && gsap.registerPlugin(DrawSVGPlugin);
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}]},["farZc","8lqZg"], "8lqZg", "parcelRequiree80a")
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}]},["dyKFB","8lqZg"], "8lqZg", "parcelRequire94c2")
 
 //# sourceMappingURL=index.975ef6c8.js.map
