@@ -5,8 +5,8 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 gsap.registerPlugin(DrawSVGPlugin);
 gsap.registerPlugin(ScrollTrigger);
 
-gsap.from(".blue", {scrollTrigger: {trigger: ".blue", start: "50px 80%", markers: true}, duration: 5, ease:"power1.inOut", drawSVG: 0});
-gsap.from(".purple", {scrollTrigger: ".purple", duration: 5, ease:"power1.inOut", drawSVG: 0});
+gsap.from(".blue", {scrollTrigger: {trigger: ".blue", start: "50px 80%", markers: true}, duration: 5, ease:"none", drawSVG: 0});
+gsap.from(".purple", {scrollTrigger: {trigger: ".blue", start: "50px 80%", markers: true}, duration: 5, ease:"none", drawSVG: 0});
 // gsap.fromTo(".pulse", {drawSVG: "2% 0"}, {duration: 3, delay: 5, repeat: -1, drawSVG: "100% 102%"});
 
 
