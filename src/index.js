@@ -5,8 +5,23 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 gsap.registerPlugin(DrawSVGPlugin);
 gsap.registerPlugin(ScrollTrigger);
 
-gsap.from(".blue", {scrollTrigger: {trigger: ".blue", start: "50px 80%", markers: true}, duration: 2.5, ease:"none", drawSVG: 0});
-gsap.from(".purple", {scrollTrigger: {trigger: ".purple", start: "50px 80%", markers: true}, duration: 2.5, ease:"none", drawSVG: 0});
+gsap.from(".intro-blue", {scrollTrigger: {trigger: ".intro-blue", start: "50px 80%", markers: true}, duration: 2.5, ease:"none", drawSVG: 0});
+gsap.from(".intro-purple", {scrollTrigger: {trigger: ".intro-purple", start: "50px 80%", markers: true}, duration: 2.5, ease:"none", drawSVG: 0});
+
+gsap.from(".menu-blue", {scrollTrigger: {trigger: ".menu-blue", start: "50px 80%", markers: true}, duration: 2.5, ease:"none", drawSVG: 0});
+gsap.from(".menu-purple", {scrollTrigger: {trigger: ".menu-purple", start: "50px 80%", markers: true}, duration: 2.5, ease:"none", drawSVG: 0});
+
+gsap.from(".gallery-top-blue", {scrollTrigger: {trigger: ".gallery-top-blue", start: "50px 80%", markers: true}, duration: 2.5, ease:"none", drawSVG: 0});
+gsap.from(".gallery-top-purple", {scrollTrigger: {trigger: ".gallery-top-purple", start: "50px 80%", markers: true}, duration: 2.5, ease:"none", drawSVG: 0});
+gsap.from(".gallery-mid-blue", {scrollTrigger: {trigger: ".gallery-mid-blue", start: "50px 80%", markers: true}, duration: 2.5, ease:"none", drawSVG: 0});
+gsap.from(".gallery-mid-purple", {scrollTrigger: {trigger: ".gallery-mid-purple", start: "50px 80%", markers: true}, duration: 2.5, ease:"none", drawSVG: 0});
+gsap.from(".gallery-btm-blue", {scrollTrigger: {trigger: ".gallery-btm-blue", start: "50px 80%", markers: true}, duration: 2.5, ease:"none", drawSVG: 0});
+gsap.from(".gallery-btm-purple", {scrollTrigger: {trigger: ".gallery-btm-purple", start: "50px 80%", markers: true}, duration: 2.5, ease:"none", drawSVG: 0});
+
+
+
+
+
 // gsap.fromTo(".pulse", {drawSVG: "2% 0"}, {duration: 3, delay: 5, repeat: -1, drawSVG: "100% 102%"});
 
 
