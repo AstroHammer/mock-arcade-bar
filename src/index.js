@@ -2,10 +2,10 @@ import { gsap } from "gsap";
 
 import { DrawSVGPlugin } from "gsap/DrawSVGPlugin";
 gsap.registerPlugin(DrawSVGPlugin);
+gsap.registerPlugin(ScrollTrigger);
 
-
-gsap.from(".draw-me", {duration: 5, ease:"power1.inOut", drawSVG: 0});
-gsap.fromTo(".pulse", {drawSVG: "2% 0"}, {duration: 3, delay: 5, repeat: -1, drawSVG: "100% 102%"});
+gsap.from(".draw-me", {scrollTrigger: ".draw-me", duration: 5, ease:"power1.inOut", drawSVG: 0});
+// gsap.fromTo(".pulse", {drawSVG: "2% 0"}, {duration: 3, delay: 5, repeat: -1, drawSVG: "100% 102%"});
 
 
 
