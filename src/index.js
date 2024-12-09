@@ -18,10 +18,23 @@ gsap.from(".gallery-mid-purple", {scrollTrigger: {trigger: ".gallery-mid-purple"
 gsap.from(".gallery-btm-blue", {scrollTrigger: {trigger: ".gallery-btm-blue", start: "50px 80%", markers: true}, duration: 2.5, ease:"none", drawSVG: 0});
 gsap.from(".gallery-btm-purple", {scrollTrigger: {trigger: ".gallery-btm-purple", start: "50px 80%", markers: true}, duration: 2.5, ease:"none", drawSVG: 0});
 
+gsap.set(".top-hex-cluster > *", {transformOrigin: "center"});
+gsap.from(".top-hex-cluster > *", {duration: .5, ease: "nones", scale: 0, stagger: .10});
 
+gsap.set(".middle-hex-cluster > *", {transformOrigin: "center"});
+gsap.from(".middle-hex-cluster > *", {duration: .5, ease: "nones", scale: 0, stagger: .10});
 
+gsap.set(".btm-hex-cluster > *", {transformOrigin: "center"});
+gsap.from(".btm-hex-cluster > *", {duration: .5, ease: "nones", scale: 0, stagger: .10});
 
+gsap.set(".top-menu > * *", {transformOrigin: "center"});
+gsap.from(".top-menu > * *", {duration: .5, ease: "nones", scale: 0, stagger: .10});
 
+gsap.set(".sandwich-menu > * *", {transformOrigin: "center"});
+gsap.from(".sandwich-menu > * *", {duration: .5, ease: "nones", scale: 0, stagger: .10});
+
+gsap.set(".tacos-menu > * *", {transformOrigin: "center"});
+gsap.from(".tacos-menu > * *", {duration: .5, ease: "nones", scale: 0, stagger: .10});
 // gsap.fromTo(".pulse", {drawSVG: "2% 0"}, {duration: 3, delay: 5, repeat: -1, drawSVG: "100% 102%"});
 
 
