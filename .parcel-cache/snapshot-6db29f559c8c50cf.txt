@@ -38,7 +38,7 @@
 58C:\Users\Jesse\Desktop\mock-arcade-bar\src\styles\bg-3.png133781497339320233 0
 108C:\Users\Jesse\Desktop\mock-arcade-bar\node_modules\posthtml\node_modules\entities\lib\decode_codepoint.d.ts133781505292961077 0
 42C:\Users\Jesse\Desktop\mock-arcade-bar\src133781501952849275 1
-43C:\Users\Jesse\Desktop\mock-arcade-bar\dist133782513783806453 1
+43C:\Users\Jesse\Desktop\mock-arcade-bar\dist133783346502613423 1
 77C:\Users\Jesse\Desktop\mock-arcade-bar\node_modules\@parcel\watcher\README.md133781505293681242 0
 101C:\Users\Jesse\Desktop\mock-arcade-bar\node_modules\ordered-binary\.nyc_output\processinfo\index.json133781505292054463 0
 74C:\Users\Jesse\Desktop\mock-arcade-bar\node_modules\json5\lib\unicode.d.ts133781505292894666 0
@@ -52,7 +52,7 @@
 106C:\Users\Jesse\Desktop\mock-arcade-bar\node_modules\csso\node_modules\css-tree\cjs\syntax\node\Comment.cjs133781505292694618 0
 51C:\Users\Jesse\Desktop\mock-arcade-bar\node_modules133781505312700214 1
 78C:\Users\Jesse\Desktop\mock-arcade-bar\node_modules\css-what\lib\es\index.d.ts133781505292914671 0
-58C:\Users\Jesse\Desktop\mock-arcade-bar\src\styles\main.css133781497340730564 0
+58C:\Users\Jesse\Desktop\mock-arcade-bar\src\styles\main.css133783269097972912 0
 88C:\Users\Jesse\Desktop\mock-arcade-bar\node_modules\@parcel\types-internal\lib\Glob.d.ts133781505292894666 0
 75C:\Users\Jesse\Desktop\mock-arcade-bar\node_modules\semver\functions\gte.js133781505292434553 0
 84C:\Users\Jesse\Desktop\mock-arcade-bar\node_modules\@parcel\resolver-default\LICENSE133781505290624141 0
@@ -75,10 +75,10 @@
 121C:\Users\Jesse\Desktop\mock-arcade-bar\node_modules\msgpackr-extract\node_modules\node-gyp-build-optional-packages\bin.js133781505290834193 0
 84C:\Users\Jesse\Desktop\mock-arcade-bar\node_modules\css-tree\lib\syntax\node\Hash.js133781505295511675 0
 86C:\Users\Jesse\Desktop\mock-arcade-bar\node_modules\caniuse-lite\data\features\xhr2.js133781505299022487 0
-54C:\Users\Jesse\Desktop\mock-arcade-bar\dist\index.html133782500268423980 0
+54C:\Users\Jesse\Desktop\mock-arcade-bar\dist\index.html133783346214520134 0
 75C:\Users\Jesse\Desktop\mock-arcade-bar\node_modules\semver\functions\lte.js133781505293001085 0
 116C:\Users\Jesse\Desktop\mock-arcade-bar\node_modules\@swc\helpers\_\_class_static_private_field_spec_set\package.json133781505296121808 0
-53C:\Users\Jesse\Desktop\mock-arcade-bar\src\index.html133782500265645052 0
+53C:\Users\Jesse\Desktop\mock-arcade-bar\src\index.html133783346211759131 0
 78C:\Users\Jesse\Desktop\mock-arcade-bar\node_modules\@parcel\graph\src\types.js133781505292981083 0
 82C:\Users\Jesse\Desktop\mock-arcade-bar\node_modules\domutils\lib\querying.d.ts.map133781505293551207 0
 72C:\Users\Jesse\Desktop\mock-arcade-bar\node_modules\css-select\README.md133781505294191357 0
@@ -91,7 +91,7 @@
 83C:\Users\Jesse\Desktop\mock-arcade-bar\node_modules\.bin\update-browserslist-db.cmd133781505301793139 0
 77C:\Users\Jesse\Desktop\mock-arcade-bar\node_modules\semver\functions\clean.js133781505291034229 0
 71C:\Users\Jesse\Desktop\mock-arcade-bar\node_modules\csso\cjs\syntax.cjs133781505293451189 0
-51C:\Users\Jesse\Desktop\mock-arcade-bar\src\index.js133782514256181858 0
+51C:\Users\Jesse\Desktop\mock-arcade-bar\src\index.js133783346502413430 0
 86C:\Users\Jesse\Desktop\mock-arcade-bar\src\styles\Collage\pexels-cottonbro-4835419.jpg133781497339220202 0
 89C:\Users\Jesse\Desktop\mock-arcade-bar\node_modules\svgo\lib\svgo\css-select-adapter.d.ts133781505293291148 0
 99C:\Users\Jesse\Desktop\mock-arcade-bar\node_modules\caniuse-lite\data\features\css-focus-visible.js133781505295321624 0
@@ -930,7 +930,7 @@
 84C:\Users\Jesse\Desktop\mock-arcade-bar\node_modules\type-fest\source\promisable.d.ts133781505293211132 0
 100C:\Users\Jesse\Desktop\mock-arcade-bar\node_modules\caniuse-lite\data\features\css-math-functions.js133781505295561685 0
 87C:\Users\Jesse\Desktop\mock-arcade-bar\node_modules\type-fest\source\promise-value.d.ts133781505293241133 0
-67C:\Users\Jesse\Desktop\mock-arcade-bar\dist\galaga-bg2.acc0a6b6.png133782488497368571 0
+67C:\Users\Jesse\Desktop\mock-arcade-bar\dist\galaga-bg2.acc0a6b6.png133783345922108710 0
 73C:\Users\Jesse\Desktop\mock-arcade-bar\node_modules\gsap\src\CSSPlugin.js133781505297812211 0
 88C:\Users\Jesse\Desktop\mock-arcade-bar\node_modules\@parcel\feature-flags\lib\types.d.ts133781505291904430 0
 85C:\Users\Jesse\Desktop\mock-arcade-bar\node_modules\semver\functions\compare-loose.js133781505291864417 0
@@ -1176,7 +1176,7 @@
 83C:\Users\Jesse\Desktop\mock-arcade-bar\node_modules\caniuse-lite\data\regions\SM.js133781505298312322 0
 69C:\Users\Jesse\Desktop\mock-arcade-bar\node_modules\lmdb\node_modules133781505283424661 1
 72C:\Users\Jesse\Desktop\mock-arcade-bar\node_modules\safe-buffer\index.js133781505290774184 0
-81C:\Users\Jesse\Desktop\mock-arcade-bar\dist\pexels-cottonbro-4835419.0b93cc94.jpg133782500268123913 0
+81C:\Users\Jesse\Desktop\mock-arcade-bar\dist\pexels-cottonbro-4835419.0b93cc94.jpg133783346214100043 0
 88C:\Users\Jesse\Desktop\mock-arcade-bar\node_modules\svgo\plugins\removeElementsByAttr.js133781505294271436 0
 100C:\Users\Jesse\Desktop\mock-arcade-bar\node_modules\caniuse-lite\data\features\css3-cursors-newer.js133781505296251837 0
 80C:\Users\Jesse\Desktop\mock-arcade-bar\node_modules\@parcel\cache\src\FSCache.js133781505291124247 0
@@ -3132,7 +3132,7 @@
 73C:\Users\Jesse\Desktop\mock-arcade-bar\node_modules\cosmiconfig\README.md133781505293641233 0
 91C:\Users\Jesse\Desktop\mock-arcade-bar\node_modules\caniuse-lite\data\features\webcodecs.js133781505298922465 0
 96C:\Users\Jesse\Desktop\mock-arcade-bar\node_modules\csso\node_modules\css-tree\cjs\syntax\pseudo133781505294091334 1
-67C:\Users\Jesse\Desktop\mock-arcade-bar\dist\pacman-bg.6092689e.webp133782488496571882 0
+67C:\Users\Jesse\Desktop\mock-arcade-bar\dist\pacman-bg.6092689e.webp133783345922667576 0
 109C:\Users\Jesse\Desktop\mock-arcade-bar\node_modules\csso\node_modules\css-tree\lib\syntax\node\Declaration.js133781505295281610 0
 118C:\Users\Jesse\Desktop\mock-arcade-bar\node_modules\csso\node_modules\css-tree\lib\syntax\node\index-parse-selector.js133781505295481665 0
 109C:\Users\Jesse\Desktop\mock-arcade-bar\node_modules\csso\node_modules\css-tree\lib\syntax\node\index-parse.js133781505295481665 0
@@ -3279,7 +3279,7 @@
 109C:\Users\Jesse\Desktop\mock-arcade-bar\node_modules\csso\node_modules\css-tree\cjs\generator\token-before.cjs133781505294761499 0
 89C:\Users\Jesse\Desktop\mock-arcade-bar\node_modules\@parcel\utils\test\objectHash.test.js133781505293941302 0
 113C:\Users\Jesse\Desktop\mock-arcade-bar\node_modules\csso\node_modules\css-tree\cjs\definition-syntax\generate.cjs133781505293611224 0
-71C:\Users\Jesse\Desktop\mock-arcade-bar\dist\mock-arcade-bar.59712999.js133782500265715073 0
+71C:\Users\Jesse\Desktop\mock-arcade-bar\dist\mock-arcade-bar.59712999.js133783346212209244 0
 110C:\Users\Jesse\Desktop\mock-arcade-bar\node_modules\csso\node_modules\css-tree\cjs\definition-syntax\index.cjs133781505293961306 0
 110C:\Users\Jesse\Desktop\mock-arcade-bar\node_modules\csso\node_modules\css-tree\cjs\definition-syntax\parse.cjs133781505294491433 0
 85C:\Users\Jesse\Desktop\mock-arcade-bar\node_modules\@parcel\transformer-babel\LICENSE133781505290624141 0
@@ -3409,7 +3409,7 @@
 82C:\Users\Jesse\Desktop\mock-arcade-bar\node_modules\css-what\lib\commonjs\types.js133781505292024458 0
 65C:\Users\Jesse\Desktop\mock-arcade-bar\node_modules\css-tree\dist133781505296271844 1
 94C:\Users\Jesse\Desktop\mock-arcade-bar\node_modules\@swc\helpers\_\_class_apply_descriptor_get133781505295741721 1
-74C:\Users\Jesse\Desktop\mock-arcade-bar\dist\foreground-front1.e5d55608.png133782488496571882 0
+74C:\Users\Jesse\Desktop\mock-arcade-bar\dist\foreground-front1.e5d55608.png133783345922388779 0
 64C:\Users\Jesse\Desktop\mock-arcade-bar\node_modules\css-tree\lib133781505296281846 1
 68C:\Users\Jesse\Desktop\mock-arcade-bar\node_modules\css-tree\LICENSE133781505290604136 0
 73C:\Users\Jesse\Desktop\mock-arcade-bar\node_modules\css-tree\package.json133781505296301853 0
@@ -3559,7 +3559,7 @@
 71C:\Users\Jesse\Desktop\mock-arcade-bar\node_modules\css-tree\cjs\parser133781505294811510 1
 71C:\Users\Jesse\Desktop\mock-arcade-bar\node_modules\css-tree\cjs\syntax133781505294181362 1
 70C:\Users\Jesse\Desktop\mock-arcade-bar\node_modules\css-tree\cjs\utils133781505294891532 1
-61C:\Users\Jesse\Desktop\mock-arcade-bar\dist\bg-2.eda8392c.jpg133782488497041986 0
+61C:\Users\Jesse\Desktop\mock-arcade-bar\dist\bg-2.eda8392c.jpg133783345922547548 0
 71C:\Users\Jesse\Desktop\mock-arcade-bar\node_modules\css-tree\cjs\walker133781505294251372 1
 80C:\Users\Jesse\Desktop\mock-arcade-bar\node_modules\css-tree\cjs\utils\index.cjs133781505294241368 0
 94C:\Users\Jesse\Desktop\mock-arcade-bar\node_modules\caniuse-lite\data\features\css3-tabsize.js133781505296261841 0
@@ -4726,7 +4726,7 @@
 71C:\Users\Jesse\Desktop\mock-arcade-bar\node_modules\@parcel\packager-js133781505292934677 1
 72C:\Users\Jesse\Desktop\mock-arcade-bar\node_modules\@parcel\packager-svg133781505291264277 1
 73C:\Users\Jesse\Desktop\mock-arcade-bar\node_modules\@parcel\packager-wasm133781505291734387 1
-65C:\Users\Jesse\Desktop\mock-arcade-bar\dist\index.975ef6c8.js.map133782513783806453 0
+65C:\Users\Jesse\Desktop\mock-arcade-bar\dist\index.975ef6c8.js.map133783346502603421 0
 66C:\Users\Jesse\Desktop\mock-arcade-bar\node_modules\@parcel\plugin133781505291264277 1
 107C:\Users\Jesse\Desktop\mock-arcade-bar\node_modules\@parcel\transformer-posthtml\lib\PostHTMLTransformer.js133781505291314289 0
 68C:\Users\Jesse\Desktop\mock-arcade-bar\node_modules\@parcel\profiler133781505292374539 1
@@ -4790,7 +4790,7 @@
 87C:\Users\Jesse\Desktop\mock-arcade-bar\node_modules\@parcel\workers\lib\web\WebChild.js133781505293611224 0
 96C:\Users\Jesse\Desktop\mock-arcade-bar\node_modules\@parcel\workers\lib\threads\ThreadsWorker.js133781505293521208 0
 95C:\Users\Jesse\Desktop\mock-arcade-bar\node_modules\@parcel\workers\lib\process\ProcessChild.js133781505293231132 0
-66C:\Users\Jesse\Desktop\mock-arcade-bar\dist\index.5525e4b8.css.map133782488497822843 0
+66C:\Users\Jesse\Desktop\mock-arcade-bar\dist\index.5525e4b8.css.map133783345922657574 0
 85C:\Users\Jesse\Desktop\mock-arcade-bar\node_modules\@parcel\watcher-win32-x64\LICENSE133781505290614139 0
 87C:\Users\Jesse\Desktop\mock-arcade-bar\node_modules\@parcel\watcher-win32-x64\README.md133781505291014223 0
 79C:\Users\Jesse\Desktop\mock-arcade-bar\node_modules\@parcel\watcher\binding.gyp133781505292941183 0
@@ -4951,7 +4951,7 @@
 79C:\Users\Jesse\Desktop\mock-arcade-bar\node_modules\@parcel\transformer-css\lib133781505290814188 1
 83C:\Users\Jesse\Desktop\mock-arcade-bar\node_modules\@parcel\transformer-css\LICENSE133781505290624141 0
 88C:\Users\Jesse\Desktop\mock-arcade-bar\node_modules\@parcel\transformer-css\package.json133781505291364301 0
-81C:\Users\Jesse\Desktop\mock-arcade-bar\dist\pexels-yankrukov-9072394.078e8226.jpg133782500268123913 0
+81C:\Users\Jesse\Desktop\mock-arcade-bar\dist\pexels-yankrukov-9072394.078e8226.jpg133783346214270078 0
 79C:\Users\Jesse\Desktop\mock-arcade-bar\node_modules\@parcel\transformer-css\src133781505291104240 1
 81C:\Users\Jesse\Desktop\mock-arcade-bar\node_modules\@parcel\transformer-babel\lib133781505292724631 1
 90C:\Users\Jesse\Desktop\mock-arcade-bar\node_modules\@parcel\transformer-babel\package.json133781505292914671 0
@@ -5068,7 +5068,7 @@
 97C:\Users\Jesse\Desktop\mock-arcade-bar\node_modules\@parcel\runtime-browser-hmr\src\HMRRuntime.js133781505291764394 0
 91C:\Users\Jesse\Desktop\mock-arcade-bar\node_modules\@parcel\runtime-browser-hmr\src\loaders133781505291854416 1
 106C:\Users\Jesse\Desktop\mock-arcade-bar\node_modules\@parcel\runtime-browser-hmr\src\loaders\hmr-runtime.js133781505291324292 0
-62C:\Users\Jesse\Desktop\mock-arcade-bar\dist\index.5525e4b8.css133782488497605503 0
+62C:\Users\Jesse\Desktop\mock-arcade-bar\dist\index.5525e4b8.css133783345922637572 0
 97C:\Users\Jesse\Desktop\mock-arcade-bar\node_modules\@parcel\runtime-browser-hmr\lib\HMRRuntime.js133781505291564348 0
 80C:\Users\Jesse\Desktop\mock-arcade-bar\node_modules\@parcel\resolver-default\lib133781505290814188 1
 89C:\Users\Jesse\Desktop\mock-arcade-bar\node_modules\@parcel\resolver-default\package.json133781505291314289 0
@@ -5150,7 +5150,7 @@
 77C:\Users\Jesse\Desktop\mock-arcade-bar\node_modules\@parcel\packager-html\src133781505291064230 1
 93C:\Users\Jesse\Desktop\mock-arcade-bar\node_modules\@parcel\packager-html\lib\HTMLPackager.js133781505290884206 0
 76C:\Users\Jesse\Desktop\mock-arcade-bar\node_modules\@parcel\packager-css\lib133781505290824198 1
-61C:\Users\Jesse\Desktop\mock-arcade-bar\dist\index.975ef6c8.js133782513783786442 0
+61C:\Users\Jesse\Desktop\mock-arcade-bar\dist\index.975ef6c8.js133783346502583416 0
 80C:\Users\Jesse\Desktop\mock-arcade-bar\node_modules\@parcel\packager-css\LICENSE133781505290634143 0
 76C:\Users\Jesse\Desktop\mock-arcade-bar\node_modules\@parcel\packager-css\src133781505291064230 1
 91C:\Users\Jesse\Desktop\mock-arcade-bar\node_modules\@parcel\packager-css\src\CSSPackager.js133781505291164254 0
@@ -5199,7 +5199,7 @@
 86C:\Users\Jesse\Desktop\mock-arcade-bar\node_modules\@parcel\optimizer-css\package.json133781505291374303 0
 82C:\Users\Jesse\Desktop\mock-arcade-bar\node_modules\@parcel\node-resolver-core\lib133781505291564348 1
 86C:\Users\Jesse\Desktop\mock-arcade-bar\node_modules\@parcel\node-resolver-core\LICENSE133781505290644146 0
-85C:\Users\Jesse\Desktop\mock-arcade-bar\dist\pexels-mikhail-nilov-7887721.5d6c9379.jpg133782500268093912 0
+85C:\Users\Jesse\Desktop\mock-arcade-bar\dist\pexels-mikhail-nilov-7887721.5d6c9379.jpg133783346214270078 0
 94C:\Users\Jesse\Desktop\mock-arcade-bar\node_modules\@parcel\node-resolver-core\lib\builtins.js133781505291274279 0
 91C:\Users\Jesse\Desktop\mock-arcade-bar\node_modules\@parcel\node-resolver-core\lib\index.js133781505291454322 0
 92C:\Users\Jesse\Desktop\mock-arcade-bar\node_modules\@parcel\node-resolver-core\lib\_empty.js133781505290884206 0
@@ -5473,9 +5473,9 @@
 83C:\Users\Jesse\Desktop\mock-arcade-bar\node_modules\.bin\update-browserslist-db.ps1133781505301793139 0
 61C:\Users\Jesse\Desktop\mock-arcade-bar\dist\bg-2.bcd8ac3c.jpg133781546764550873 0
 73C:\Users\Jesse\Desktop\mock-arcade-bar\dist\foreground-back1.ba037422.png133781546762270337 0
-73C:\Users\Jesse\Desktop\mock-arcade-bar\dist\foreground-back1.be2d20a0.png133782488497358565 0
+73C:\Users\Jesse\Desktop\mock-arcade-bar\dist\foreground-back1.be2d20a0.png133783345922088706 0
 74C:\Users\Jesse\Desktop\mock-arcade-bar\dist\foreground-front1.003094d3.png133781546772922840 0
-62C:\Users\Jesse\Desktop\mock-arcade-bar\dist\image.caea192b.svg133782488497498585 0
+62C:\Users\Jesse\Desktop\mock-arcade-bar\dist\image.caea192b.svg133783345922657574 0
 62C:\Users\Jesse\Desktop\mock-arcade-bar\dist\index.2bc95c51.css133781497314849314 0
 66C:\Users\Jesse\Desktop\mock-arcade-bar\dist\index.2bc95c51.css.map133781497314849314 0
 62C:\Users\Jesse\Desktop\mock-arcade-bar\dist\index.35d699bf.css133781546773119963 0
@@ -5483,9 +5483,9 @@
 61C:\Users\Jesse\Desktop\mock-arcade-bar\dist\index.a21833de.js133781497314899326 0
 65C:\Users\Jesse\Desktop\mock-arcade-bar\dist\index.a21833de.js.map133781497314919329 0
 61C:\Users\Jesse\Desktop\mock-arcade-bar\dist\index.c6a30c3a.js133781546773129957 0
-75C:\Users\Jesse\Desktop\mock-arcade-bar\dist\mock-arcade-bar.59712999.js.map133782500265725073 0
+75C:\Users\Jesse\Desktop\mock-arcade-bar\dist\mock-arcade-bar.59712999.js.map133783346212219241 0
 75C:\Users\Jesse\Desktop\mock-arcade-bar\dist\mock-arcade-website.59712999.js133781497315009349 0
 81C:\Users\Jesse\Desktop\mock-arcade-bar\dist\pexels-cottonbro-4835419.1ba4b169.jpg133781546763080529 0
-80C:\Users\Jesse\Desktop\mock-arcade-bar\dist\pexels-element5-1293261.511c1de8.jpg133782500268123913 0
-80C:\Users\Jesse\Desktop\mock-arcade-bar\dist\pexels-element5-1293269.f1ac5689.jpg133782500268143915 0
-95C:\Users\Jesse\Desktop\mock-arcade-bar\dist\pexels-garrett-johnson-1459914-3800795.fa41d6d0.jpg133782500268423980 0
+80C:\Users\Jesse\Desktop\mock-arcade-bar\dist\pexels-element5-1293261.511c1de8.jpg133783346214110052 0
+80C:\Users\Jesse\Desktop\mock-arcade-bar\dist\pexels-element5-1293269.f1ac5689.jpg133783346214270078 0
+95C:\Users\Jesse\Desktop\mock-arcade-bar\dist\pexels-garrett-johnson-1459914-3800795.fa41d6d0.jpg133783346214520134 0

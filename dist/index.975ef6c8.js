@@ -590,6 +590,7 @@ var _drawSVGPlugin = require("gsap/DrawSVGPlugin");
 var _scrollTrigger = require("gsap/ScrollTrigger");
 (0, _gsap.gsap).registerPlugin((0, _drawSVGPlugin.DrawSVGPlugin));
 (0, _gsap.gsap).registerPlugin((0, _scrollTrigger.ScrollTrigger));
+//intro border animations
 (0, _gsap.gsap).from(".intro-blue", {
     scrollTrigger: {
         trigger: ".intro-blue",
@@ -610,6 +611,7 @@ var _scrollTrigger = require("gsap/ScrollTrigger");
     ease: "none",
     drawSVG: 0
 });
+//menu border animations
 (0, _gsap.gsap).from(".menu-blue", {
     scrollTrigger: {
         trigger: ".menu-blue",
@@ -630,6 +632,7 @@ var _scrollTrigger = require("gsap/ScrollTrigger");
     ease: "none",
     drawSVG: 0
 });
+//gallery border animations
 (0, _gsap.gsap).from(".gallery-top-blue", {
     scrollTrigger: {
         trigger: ".gallery-top-blue",
@@ -690,61 +693,109 @@ var _scrollTrigger = require("gsap/ScrollTrigger");
     ease: "none",
     drawSVG: 0
 });
+//hex cluster animations
+//__top
 (0, _gsap.gsap).set(".top-hex-cluster > *", {
     transformOrigin: "center"
 });
-(0, _gsap.gsap).from(".top-hex-cluster > *", {
-    duration: .5,
-    ease: "nones",
-    scale: 0,
-    stagger: .10
+(0, _gsap.gsap).set(".top-hex-cluster > *", {
+    scale: 0
 });
+(0, _gsap.gsap).from(".top-hex-cluster > *", {
+    scrollTrigger: ".top-hex-cluster",
+    duration: 1,
+    ease: "none",
+    stagger: -0.1,
+    keyframes: [
+        {
+            scale: 1.3,
+            ease: "power1.outIn"
+        },
+        {
+            scale: 1
+        }
+    ]
+});
+//__mid
 (0, _gsap.gsap).set(".middle-hex-cluster > *", {
     transformOrigin: "center"
 });
 (0, _gsap.gsap).from(".middle-hex-cluster > *", {
     duration: .5,
-    ease: "nones",
+    ease: "none",
     scale: 0,
-    stagger: .10
+    stagger: -0.1
 });
+//__btm
 (0, _gsap.gsap).set(".btm-hex-cluster > *", {
     transformOrigin: "center"
 });
 (0, _gsap.gsap).from(".btm-hex-cluster > *", {
     duration: .5,
-    ease: "nones",
+    ease: "none",
     scale: 0,
-    stagger: .10
+    stagger: -0.1
 });
-(0, _gsap.gsap).set(".top-menu > * *", {
+//text animations
+//__top
+(0, _gsap.gsap).set(".tm-left > * *", {
     transformOrigin: "center"
 });
-(0, _gsap.gsap).from(".top-menu > * *", {
-    duration: .5,
-    ease: "nones",
-    scale: 0,
-    stagger: .10
+(0, _gsap.gsap).set(".tm-left > * *", {
+    scale: 0
 });
+(0, _gsap.gsap).from(".tm-left > * *", {
+    duration: .8,
+    stagger: .10,
+    keyframes: [
+        {
+            scale: 1.3,
+            ease: "power1.outIn"
+        },
+        {
+            scale: 1
+        }
+    ]
+});
+(0, _gsap.gsap).set(".tm-right > * *", {
+    transformOrigin: "center"
+});
+(0, _gsap.gsap).set(".tm-right > * *", {
+    scale: 0
+});
+(0, _gsap.gsap).from(".tm-right > * *", {
+    duration: .8,
+    stagger: .10,
+    keyframes: [
+        {
+            scale: 1.3,
+            ease: "power1.outIn"
+        },
+        {
+            scale: 1
+        }
+    ]
+});
+//__sandwich
 (0, _gsap.gsap).set(".sandwich-menu > * *", {
     transformOrigin: "center"
 });
 (0, _gsap.gsap).from(".sandwich-menu > * *", {
     duration: .5,
-    ease: "nones",
+    ease: "none",
     scale: 0,
     stagger: .10
 });
+//__tacos
 (0, _gsap.gsap).set(".tacos-menu > * *", {
     transformOrigin: "center"
 });
 (0, _gsap.gsap).from(".tacos-menu > * *", {
     duration: .5,
-    ease: "nones",
+    ease: "none",
     scale: 0,
     stagger: .10
 });
-// gsap.fromTo(".pulse", {drawSVG: "2% 0"}, {duration: 3, delay: 5, repeat: -1, drawSVG: "100% 102%"});
 // import Rellax from "rellax";
 // let rellax = new Rellax('.rellax');
 //IMAGE COLLAGE / CUSTOM MODAL CAROUSEL
