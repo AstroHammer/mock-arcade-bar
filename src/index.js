@@ -46,7 +46,7 @@ gsap.set(".tm-right > * *", {transformOrigin: "center"});
 gsap.set(".tm-right > * *", {scale: 0});
 
 // //__sandwich
-gsap.set('.sandwich-menu', {opacity: 0});
+// gsap.set('.sandwich-menu', {opacity: 0});
 // gsap.set(".sandwich-menu > * *", {transformOrigin: "center"});
 // gsap.from(".sandwich-menu > * *", {duration: .5, ease: "none", scale: 0, stagger: .10});
 
@@ -57,7 +57,17 @@ gsap.set('.tacos-menu', {opacity: 0})
 
 
 //menu timeline
-gsap.set('.top-hex > *', {scale: 0, transformOrigin: "center"});
+gsap.set('.top-hex-1 > *', {transformOrigin: "center", scale: 0});
+// gsap.set('.top-hex-2 > *', {transformOrigin: "center", scale: 0});
+gsap.set('.top-hex-3 > *', {transformOrigin: "center", scale: 0});
+gsap.set('.top-hex-4 > *', {transformOrigin: "center", scale: 0});
+gsap.set('.top-hex-5 > *', {transformOrigin: "center", scale: 0});
+gsap.set('.top-hex-6 > *', {transformOrigin: "center", scale: 0});
+gsap.set('.top-hex-7 > *', {transformOrigin: "center", scale: 0});
+gsap.set('.top-hex-8 > *', {transformOrigin: "center", scale: 0});
+gsap.set('.top-hex-9 > *', {transformOrigin: "center", scale: 0});
+// gsap.set('.top-hex-10 > *', {transformOrigin: "center", scale: 0});
+
 gsap.set('.menu-shadow', {opacity: 0});
 let tl1 = gsap.timeline({scrollTrigger: {trigger: '.menu-blue', start:"100px 80%", markers: true}});
 let tl2 = gsap.timeline({scrollTrigger: {trigger: '.menu-purple', start: '200px 80%', markers: true}});
@@ -79,6 +89,12 @@ tl1
     .to('.menu-shadow', {duration: .8, ease: "power1.inout", opacity: 1}, "-=2");
 //
 
+gsap.set('.sandwich-menu > *', {opacity: 0});
+gsap.set('.sandwich-title', {opacity: 0, y:20})
+tl2
+    .to('.sandwich-title', {duration: 1, opacity:1, y: 0});
+    // .to('.sandwich-title', {keyframes: [{opacity: 1, x:20, skewX:-10, ease: "power1.inOut"}, {duration: .1,x: 0, skewX:0, ease: "back.out"}]});
+//
 
 // import Rellax from "rellax";
 
