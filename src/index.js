@@ -75,9 +75,10 @@ tl1
     .to('.top-hex-9 > *', {stagger: -0.05, keyframes: [{duration: .4,scale: 1.3, ease: "power1.inOut"}, {duration: .5,scale: 1, ease: "power1.inOut"}]}, "-=.92")
     .to('.top-hex-10 > *', {stagger: -0.05, keyframes: [{duration: .4,scale: 1.3, ease: "power1.inOut"}, {duration: .5,scale: 1, ease: "power1.out"}]}, "-=.92")
     .from(".tm-left > * *", {duration: .8, stagger: .10, keyframes: [{scale: 1.3, ease: "power1.outIn"}, {scale: 1}]}, "-=.8")
-    .from(".tm-right > * *", {duration: .8, stagger: .10, keyframes: [{scale: 1.3, ease: "power1.outIn"}, {scale: 1}]}, "-=1.8")
+    .from(".tm-right > * *", {duration: .8, stagger: .10, keyframes: [{scale: 1.3, ease: "power1.outIn"}, {scale: 1}]}, "-=1.6")
     .to('.menu-shadow', {duration: .8, ease: "power1.inout", opacity: .7}, "-=2");
 //
+
 
 // import Rellax from "rellax";
 
