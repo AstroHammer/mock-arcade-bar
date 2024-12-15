@@ -9,24 +9,6 @@ gsap.registerPlugin(ScrollTrigger);
 gsap.from(".intro-blue", {scrollTrigger: {trigger: ".intro-blue", start: "50px 80%", markers: true}, duration: 2.5, ease:"none", drawSVG: 0});
 gsap.from(".intro-purple", {scrollTrigger: {trigger: ".intro-purple", start: "50px 80%", markers: true}, duration: 2.5, ease:"none", drawSVG: 0});
 
-//menu border animations
-// gsap.from(".menu-blue", {scrollTrigger: {trigger: ".menu-blue", start: "50px 80%", markers: true}, duration: 2.5, ease:"none", drawSVG: 0});
-// gsap.from(".menu-purple", {scrollTrigger: {trigger: ".menu-purple", start: "50px 80%", markers: true}, duration: 2.5, ease:"none", drawSVG: 0});
-
-//gallery border animations
-gsap.from(".gallery-top-blue", {scrollTrigger: {trigger: ".gallery-top-blue", start: "50px 80%", markers: true}, duration: 2.5, ease:"none", drawSVG: 0});
-gsap.from(".gallery-top-purple", {scrollTrigger: {trigger: ".gallery-top-purple", start: "50px 80%", markers: true}, duration: 2.5, ease:"none", drawSVG: 0});
-gsap.from(".gallery-mid-blue", {scrollTrigger: {trigger: ".gallery-mid-blue", start: "50px 80%", markers: true}, duration: 2.5, ease:"none", drawSVG: 0});
-gsap.from(".gallery-mid-purple", {scrollTrigger: {trigger: ".gallery-mid-purple", start: "50px 80%", markers: true}, duration: 2.5, ease:"none", drawSVG: 0});
-gsap.from(".gallery-btm-blue", {scrollTrigger: {trigger: ".gallery-btm-blue", start: "50px 80%", markers: true}, duration: 2.5, ease:"none", drawSVG: 0});
-gsap.from(".gallery-btm-purple", {scrollTrigger: {trigger: ".gallery-btm-purple", start: "50px 80%", markers: true}, duration: 2.5, ease:"none", drawSVG: 0});
-
-//hex cluster animations
-//__top
-// gsap.set(".top-hex-cluster > * ", {transformOrigin: "center"});
-// gsap.set(".top-hex-cluster > * ", {scale: 0});
-// gsap.from(".top-hex-cluster > * ", {scrollTrigger: ".menu-blue", duration: 1, ease: "none", stagger: -.10, keyframes: [{scale: 1.3, ease: "power1.outIn"}, {scale: 1, ease: "power1.inOut"}]});
-
 // //__mid
 gsap.set('.middle-hex-cluster', {opacity: 0})
 // gsap.set(".middle-hex-cluster > *", {transformOrigin: "center"});
@@ -57,16 +39,7 @@ gsap.set('.tacos-menu', {opacity: 0})
 
 
 //menu timeline
-gsap.set('.top-hex-1 > *', {transformOrigin: "center", scale: 0});
-gsap.set('.top-hex-2 > *', {transformOrigin: "center", scale: 0});
-gsap.set('.top-hex-3 > *', {transformOrigin: "center", scale: 0});
-gsap.set('.top-hex-4 > *', {transformOrigin: "center", scale: 0});
-gsap.set('.top-hex-5 > *', {transformOrigin: "center", scale: 0});
-gsap.set('.top-hex-6 > *', {transformOrigin: "center", scale: 0});
-gsap.set('.top-hex-7 > *', {transformOrigin: "center", scale: 0});
-gsap.set('.top-hex-8 > *', {transformOrigin: "center", scale: 0});
-gsap.set('.top-hex-9 > *', {transformOrigin: "center", scale: 0});
-gsap.set('.top-hex-10 > *', {transformOrigin: "center", scale: 0});
+gsap.set('.top-hex > *', {transformOrigin: "center", scale: 0});
 
 gsap.set('.menu-shadow', {opacity: 0});
 let tl1 = gsap.timeline({scrollTrigger: {trigger: '.menu-blue', start:"100px 80%", markers: true}});
@@ -75,21 +48,22 @@ let tl2 = gsap.timeline({scrollTrigger: {trigger: '.menu-purple', start: '200px 
 
 tl1
     .from('.menu-blue', {duration: 3, ease: "power1.inOut", drawSVG: 0})
+    .from('.menu-purple', {duration: 3, ease: "power1.inOut", drawSVG: 0}, "-=2.5")
 
-    .to('.top-hex-1 > *', {force3D: true, stagger: -0.05, keyframes: [{duration: .4,scale: 1.3, ease: "power1.inOut"}, {duration: .5,scale: 1, ease: "power1.inOut"}]}, "-=.92")
-    .to('.top-hex-2 > *', {force3D: true, stagger: -0.05, keyframes: [{duration: .4,scale: 1.3, ease: "power1.inOut"}, {duration: .5,scale: 1, ease: "power1.inOut"}]}, "-=.92")
-    .to('.top-hex-3 > *', {force3D: true, stagger: -0.05, keyframes: [{duration: .4,scale: 1.3, ease: "power1.inOut"}, {duration: .5,scale: 1, ease: "power1.inOut"}]}, "-=.92")
-    .to('.top-hex-4 > *', {force3D: true, stagger: -0.05, keyframes: [{duration: .4,scale: 1.3, ease: "power1.inOut"}, {duration: .5,scale: 1, ease: "power1.inOut"}]}, "-=.92")
-    .to('.top-hex-5 > *', {force3D: true, stagger: -0.05, keyframes: [{duration: .4,scale: 1.3, ease: "power1.inOut"}, {duration: .5,scale: 1, ease: "power1.inOut"}]}, "-=.92")
-    .to('.top-hex-6 > *', {force3D: true, stagger: -0.05, keyframes: [{duration: .4,scale: 1.3, ease: "power1.inOut"}, {duration: .5,scale: 1, ease: "power1.inOut"}]}, "-=.92")
-    .to('.top-hex-7 > *', {force3D: true, stagger: -0.05, keyframes: [{duration: .4,scale: 1.3, ease: "power1.inOut"}, {duration: .5,scale: 1, ease: "power1.inOut"}]}, "-=.92")
-    .to('.top-hex-8 > *', {force3D: true, stagger: -0.05, keyframes: [{duration: .4,scale: 1.3, ease: "power1.inOut"}, {duration: .5,scale: 1, ease: "power1.inOut"}]}, "-=.92")
-    .to('.top-hex-9 > *', {force3D: true, stagger: -0.05, keyframes: [{duration: .4,scale: 1.3, ease: "power1.inOut"}, {duration: .5,scale: 1, ease: "power1.inOut"}]}, "-=.92")
+    .to('.top-hex-1 > *', {stagger: -0.05, keyframes: [{duration: .4,scale: 1.3, ease: "power1.inOut"}, {duration: .5,scale: 1, ease: "power1.inOut"}]}, "-=.92")
+    .to('.top-hex-2 > *', {stagger: -0.05, keyframes: [{duration: .4,scale: 1.3, ease: "power1.inOut"}, {duration: .5,scale: 1, ease: "power1.inOut"}]}, "-=.92")
+    .to('.top-hex-3 > *', {stagger: -0.05, keyframes: [{duration: .4,scale: 1.3, ease: "power1.inOut"}, {duration: .5,scale: 1, ease: "power1.inOut"}]}, "-=.92")
+    .to('.top-hex-4 > *', {stagger: -0.05, keyframes: [{duration: .4,scale: 1.3, ease: "power1.inOut"}, {duration: .5,scale: 1, ease: "power1.inOut"}]}, "-=.92")
+    .to('.top-hex-5 > *', {stagger: -0.05, keyframes: [{duration: .4,scale: 1.3, ease: "power1.inOut"}, {duration: .5,scale: 1, ease: "power1.inOut"}]}, "-=.92")
+    .to('.top-hex-6 > *', {stagger: -0.05, keyframes: [{duration: .4,scale: 1.3, ease: "power1.inOut"}, {duration: .5,scale: 1, ease: "power1.inOut"}]}, "-=.92")
+    .to('.top-hex-7 > *', {stagger: -0.05, keyframes: [{duration: .4,scale: 1.3, ease: "power1.inOut"}, {duration: .5,scale: 1, ease: "power1.inOut"}]}, "-=.92")
+    .to('.top-hex-8 > *', {stagger: -0.05, keyframes: [{duration: .4,scale: 1.3, ease: "power1.inOut"}, {duration: .5,scale: 1, ease: "power1.inOut"}]}, "-=.92")
+    .to('.top-hex-9 > *', {stagger: -0.05, keyframes: [{duration: .4,scale: 1.3, ease: "power1.inOut"}, {duration: .5,scale: 1, ease: "power1.inOut"}]}, "-=.92")
     .to('.top-hex-10 > *', {stagger: -0.05, keyframes: [{duration: .4,scale: 1.3, ease: "power1.inOut"}, {duration: .5,scale: 1, ease: "power1.out"}]}, "-=.92")
 
     .from(".tm-left > * *", {duration: .8, stagger: .10, keyframes: [{scale: 1.3, ease: "power1.outIn"}, {scale: 1}]}, "-=.8")
     .from(".tm-right > * *", {duration: .8, stagger: .10, keyframes: [{scale: 1.3, ease: "power1.outIn"}, {scale: 1}]}, "-=1.6")
-    .to('.menu-shadow', {duration: .8, ease: "power1.inout", opacity: 1}, "-=2");
+    .to('.menu-shadow', {duration: .8, ease: "power1.inout", opacity: .8}, "-=2");
 //
 
 gsap.set('.sandwich-menu > *', {opacity: 0});
@@ -97,6 +71,16 @@ gsap.set('.sandwich-title', {opacity: 0, y:20})
 tl2
     .to('.sandwich-title', {duration: 1, opacity:1, y: 0})
 //
+
+
+//gallery border animations
+gsap.from(".gallery-top-blue", {scrollTrigger: {trigger: ".gallery-top-blue", start: "50px 80%", markers: true}, duration: 2.5, ease:"none", drawSVG: 0});
+gsap.from(".gallery-top-purple", {scrollTrigger: {trigger: ".gallery-top-purple", start: "50px 80%", markers: true}, duration: 2.5, ease:"none", drawSVG: 0});
+gsap.from(".gallery-mid-blue", {scrollTrigger: {trigger: ".gallery-mid-blue", start: "50px 80%", markers: true}, duration: 2.5, ease:"none", drawSVG: 0});
+gsap.from(".gallery-mid-purple", {scrollTrigger: {trigger: ".gallery-mid-purple", start: "50px 80%", markers: true}, duration: 2.5, ease:"none", drawSVG: 0});
+gsap.from(".gallery-btm-blue", {scrollTrigger: {trigger: ".gallery-btm-blue", start: "50px 80%", markers: true}, duration: 2.5, ease:"none", drawSVG: 0});
+gsap.from(".gallery-btm-purple", {scrollTrigger: {trigger: ".gallery-btm-purple", start: "50px 80%", markers: true}, duration: 2.5, ease:"none", drawSVG: 0});
+
 
 // import Rellax from "rellax";
 
