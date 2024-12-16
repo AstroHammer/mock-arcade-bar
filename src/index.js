@@ -47,12 +47,12 @@ gsap.set('.top-layer', {transformOrigin: "bottom right", x: "60%", y: "60%", sca
 
 gsap.set('.menu-shadow', {opacity: 0});
 let tl1 = gsap.timeline({scrollTrigger: {trigger: '.menu-blue', start:"10% 80%", markers: true}});
-let tl2 = gsap.timeline({scrollTrigger: {trigger: '.menu-purple', start: '50% 80%', markers: true}});
+let tl2 = gsap.timeline({scrollTrigger: {trigger: '.menu-purple', start: '-80% top', markers: true}});
 
 
 tl1
     .from('.menu-blue', {duration: 3, ease: "power1.inOut", drawSVG: 0})
-    .from('.menu-purple', {duration: 3, ease: "power1.inOut", drawSVG: 0}, "-=2.5")
+    // .from('.menu-purple', {duration: 3, ease: "power1.inOut", drawSVG: 0}, "-=2.5")
 
     .to('.top-hex-1 > *', {stagger: -0.05, keyframes: [{duration: .4,scale: 1.3, ease: "power1.inOut"}, {duration: .5,scale: 1, ease: "power1.inOut"}]}, "-=.92")
     .to('.top-hex-2 > *', {stagger: -0.05, keyframes: [{duration: .4,scale: 1.3, ease: "power1.inOut"}, {duration: .5,scale: 1, ease: "power1.inOut"}]}, "-=.92")
@@ -78,6 +78,7 @@ tl1
 gsap.set('.sandwich-menu > *', {opacity: 0});
 gsap.set('.sandwich-title', {opacity: 0, y:20})
 tl2
+    .from('.menu-purple', {duration: 2, ease: "power1.inOut", drawSVG: 0})
     .to('.sandwich-title', {duration: 1, opacity:1, y: 0})
 ;
 
