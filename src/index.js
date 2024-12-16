@@ -47,7 +47,7 @@ gsap.set('.top-layer', {transformOrigin: "bottom right", x: "60%", y: "60%", sca
 
 gsap.set('.menu-shadow', {opacity: 0});
 let tl1 = gsap.timeline({scrollTrigger: {trigger: '.menu-blue', start:"10% 80%", markers: true}});
-let tl2 = gsap.timeline({scrollTrigger: {trigger: '.menu-purple', start: '-80% top', markers: true}});
+let tl2 = gsap.timeline({scrollTrigger: {trigger: '.menu-purple', start: '50% 80%', markers: true}});
 
 
 tl1
