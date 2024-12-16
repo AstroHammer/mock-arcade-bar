@@ -388,6 +388,18 @@ button {
 }
 
 
+/* hover interactibility with top hexes */
+/* .top-hex {
+    transition: transform .2s ease-in;
+}
+.top-hex:hover {
+    transform: scale(1.02);
+    transition: transform .2s ease-out;
+}
+.menu-shadow {
+    pointer-events: none;
+} */
+
 
 .section-2 {
     position: relative;

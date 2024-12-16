@@ -10,7 +10,7 @@ gsap.from(".intro-blue", {scrollTrigger: {trigger: ".intro-blue", start: "50px 8
 gsap.from(".intro-purple", {scrollTrigger: {trigger: ".intro-purple", start: "50px 80%", markers: true}, duration: 2.5, ease:"none", drawSVG: 0});
 
 // //__mid
-gsap.set('.middle-hex-cluster', {opacity: 0})
+// gsap.set('.middle-hex-cluster', {opacity: 0})
 // gsap.set(".middle-hex-cluster > *", {transformOrigin: "center"});
 // gsap.from(".middle-hex-cluster > *", {duration: .5, ease: "none", scale: 0, stagger: -.10});
 
@@ -39,11 +39,15 @@ gsap.set('.tacos-menu', {opacity: 0})
 
 
 //menu timeline
-gsap.set('.top-hex > *', {transformOrigin: "center", scale: 0});
+gsap.set('.top-hex > *', {transformOrigin: "top right", scale: 0});
+gsap.set('.middle-hex-cluster .mid-blue-hex', {transformOrigin: "10% 60%", scale: 0});
+gsap.set('.under-layer', {transformOrigin: "bottom left", x: "-50%", y: "50%", scale: 0})
+gsap.set('.mid-layer', {transformOrigin: "top left", x: "-50%", y: "-50%", scale: 0})
+gsap.set('.top-layer', {transformOrigin: "bottom right", x: "60%", y: "60%", scale: 0})
 
 gsap.set('.menu-shadow', {opacity: 0});
-let tl1 = gsap.timeline({scrollTrigger: {trigger: '.menu-blue', start:"100px 80%", markers: true}});
-let tl2 = gsap.timeline({scrollTrigger: {trigger: '.menu-purple', start: '200px 80%', markers: true}});
+let tl1 = gsap.timeline({scrollTrigger: {trigger: '.menu-blue', start:"10% 80%", markers: true}});
+let tl2 = gsap.timeline({scrollTrigger: {trigger: '.menu-purple', start: '50% 80%', markers: true}});
 
 
 tl1
@@ -63,14 +67,19 @@ tl1
 
     .from(".tm-left > * *", {duration: .8, stagger: .10, keyframes: [{scale: 1.3, ease: "power1.outIn"}, {scale: 1}]}, "-=.8")
     .from(".tm-right > * *", {duration: .8, stagger: .10, keyframes: [{scale: 1.3, ease: "power1.outIn"}, {scale: 1}]}, "-=1.6")
-    .to('.menu-shadow', {duration: .8, ease: "power1.inout", opacity: .8}, "-=2");
-//
+    .to('.menu-shadow', {duration: .8, ease: "power1.inout", opacity: .8}, "-=2")
+
+    .to('.mid-blue-hex', {stagger: -0.05, keyframes: [{duration: .4,scale: 1.3, ease: "power1.inOut"}, {duration: .5,scale: 1, ease: "power1.inOut"}]}, "-=.8")
+    .to('.mid-purp-hex', {stagger: .04, keyframes: [{duration: .4, ease: "power1.inOut"}, {duration: .5, scale: 1, x: "0%", y: "0%", ease: "back"}]}, "-=.7")
+
+;
+
 
 gsap.set('.sandwich-menu > *', {opacity: 0});
 gsap.set('.sandwich-title', {opacity: 0, y:20})
 tl2
     .to('.sandwich-title', {duration: 1, opacity:1, y: 0})
-//
+;
 
 
 //gallery border animations
