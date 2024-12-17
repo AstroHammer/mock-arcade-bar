@@ -56,7 +56,7 @@ blueMenuAnimations
     .to('.top-hex-10 > *', {stagger: -0.05, keyframes: [{duration: .4, scale: 1.3, ease: "power1.inOut"}, {duration: .5,scale: 1, ease: "power1.inOut"}]}, "-=.92")
 
     .from(".tm-left > *", {duration: .8, stagger: .10, keyframes: [{scale: 1.3, ease: "power1.outIn"}, {scale: 1}]})
-    .from(".tm-right > *", {duration: .8, stagger: .10, keyframes: [{scale: 1.3, ease: "power1.outIn"}, {scale: 1}]})
+    .from(".tm-right > *", {duration: .8, stagger: .10, keyframes: [{scale: 1.3, ease: "power1.outIn"}, {scale: 1}]}, "-=1")
     .to('.menu-shadow', {duration: .8, ease: "power1.inout", opacity: .8}, "-=2")
 
     .to('.mid-blue-hex', {stagger: -0.05, keyframes: [{duration: .4,scale: 1.3, ease: "power1.inOut"}, {duration: .5,scale: 1, ease: "power1.inOut"}]}, "-=.8")
@@ -72,7 +72,7 @@ gsap.set('.tacos-menu > *', {transformOrigin: "center", scale: 0});
 gsap.set('.tacos-title', {opacity: 0, y:-20})
 
 purpleMenuAnimations
-    .from('.menu-purple', {duration: 2, ease: "power1.inOut", drawSVG: 0})
+    .from('.menu-purple', {duration: 3, ease: "power1.inOut", drawSVG: 0})
     .to('.sandwich-title', {duration: 1, opacity:1, y: 0})
     .to('.tacos-title', {duration: 1, opacity:1, y: 0}, "-=.8")
     .to('.sandwich-menu > *', {duration: .8, stagger: .10, keyframes: [{scale: 1.3, ease: "power1.outIn"}, {scale: 1}]})
