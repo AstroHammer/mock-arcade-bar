@@ -22,10 +22,8 @@ gsap.set(".tm-left > *", {opacity: 0, scale: .8, x: 20});
 gsap.set(".tm-right > *", {transformOrigin: "center"});
 gsap.set(".tm-right > *", {opacity: 0, scale: .8, x: 20});
 
-// //__tacos
-// gsap.set('.tacos-menu', {opacity: 0})
-// gsap.set(".tacos-menu > * *", {transformOrigin: "center"});
-// gsap.from(".tacos-menu > * *", {duration: .5, ease: "none", scale: 0, stagger: .10});
+
+
 
 
 //menu timeline
@@ -42,7 +40,6 @@ let purpleMenuAnimations = gsap.timeline({scrollTrigger: {trigger: '.menu-purple
 
 blueMenuAnimations
     .from('.menu-blue', {duration: 3, ease: "power1.inOut", drawSVG: 0})
-    // .from('.menu-purple', {duration: 3, ease: "power1.inOut", drawSVG: 0}, "-=2.5")
 
     .to('.top-hex-1 > *', {stagger: -0.05, keyframes: [{duration: .4, scale: 1.3, ease: "power1.inOut"}, {duration: .5,scale: 1, ease: "power1.inOut"}]}, "-=.92")
     .to('.top-hex-2 > *', {stagger: -0.05, keyframes: [{duration: .4, scale: 1.3, ease: "power1.inOut"}, {duration: .5,scale: 1, ease: "power1.inOut"}]}, "-=.92")
@@ -66,17 +63,17 @@ blueMenuAnimations
 
 
 
-gsap.set('.sandwich-menu > *', {transformOrigin: "center", scale: 0});
+gsap.set('.sandwich-menu > *', {transformOrigin: "center", scale: .8, opacity: 0, y: 20});
 gsap.set('.sandwich-title', {opacity: 0, y:20})
-gsap.set('.tacos-menu > *', {transformOrigin: "center", scale: 0});
+gsap.set('.tacos-menu > *', {transformOrigin: "center", scale: .8, opacity: 0, y: 20});
 gsap.set('.tacos-title', {opacity: 0, y:-20})
 
 purpleMenuAnimations
     .from('.menu-purple', {duration: 3, ease: "power1.inOut", drawSVG: 0})
     .to('.sandwich-title', {duration: 1, opacity:1, y: 0})
     .to('.tacos-title', {duration: 1, opacity:1, y: 0}, "-=.8")
-    .to('.sandwich-menu > *', {duration: .8, stagger: .10, keyframes: [{scale: 1.3, ease: "power1.outIn"}, {scale: 1}]})
-    .to('.tacos-menu > *', {duration: .8, stagger: .10, keyframes: [{scale: 1.3, ease: "power1.outIn"}, {scale: 1}]}, "-=0.8")
+    .to('.sandwich-menu > *', {duration: .8, stagger: .10, keyframes: [{opacity: .5, scale: .9, y:-25, ease: "power1.outIn"}, {opacity: 1, scale: 1, y:0, ease: "power1.outIn"}]})
+    .to('.tacos-menu > *', {duration: .8, stagger: .10, keyframes: [{opacity: .5, scale: .9, y:-25, ease: "power1.outIn"}, {opacity: 1, scale: 1, y:0, ease: "power1.outIn"}]}, "-=0.8")
 
 ;
 
