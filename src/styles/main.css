@@ -565,7 +565,7 @@ button {
 .image-overlay:hover {
     opacity: 1;
 } */
-/* @media screen and (width < 1100px) {
+@media screen and (width < 1100px) {
     .collage-container {
         flex-direction: column;
         flex: 100%;
@@ -576,7 +576,7 @@ button {
         display: block;
         flex: 100%;
     }
-} */
+}
 /* MODAL */
 .modal {
     position: absolute;
