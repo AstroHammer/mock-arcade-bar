@@ -63,17 +63,17 @@ blueMenuAnimations
 
 
 
-gsap.set('.sandwich-menu > *', {transformOrigin: "center", scale: .8, opacity: 0, y: 20});
+gsap.set('.sandwich-menu > *', {transformOrigin: "center", scale: .8, opacity: 0, y: -20});
 gsap.set('.sandwich-title', {opacity: 0, y:20})
-gsap.set('.tacos-menu > *', {transformOrigin: "center", scale: .8, opacity: 0, y: 20});
+gsap.set('.tacos-menu > *', {transformOrigin: "center", scale: .8, opacity: 0, y: -20});
 gsap.set('.tacos-title', {opacity: 0, y:-20})
 
 purpleMenuAnimations
     .from('.menu-purple', {duration: 3, ease: "power1.inOut", drawSVG: 0})
     .to('.sandwich-title', {duration: 1, opacity:1, y: 0})
     .to('.tacos-title', {duration: 1, opacity:1, y: 0}, "-=.8")
-    .to('.sandwich-menu > *', {duration: .8, stagger: .10, keyframes: [{opacity: .5, scale: .9, y:-25, ease: "power1.outIn"}, {opacity: 1, scale: 1, y:0, ease: "power1.outIn"}]})
-    .to('.tacos-menu > *', {duration: .8, stagger: .10, keyframes: [{opacity: .5, scale: .9, y:-25, ease: "power1.outIn"}, {opacity: 1, scale: 1, y:0, ease: "power1.outIn"}]}, "-=0.8")
+    .to('.sandwich-menu > *', {duration: .8, stagger: .10, keyframes: [{opacity: .5, scale: .9, y:25, ease: "power1.outIn"}, {opacity: 1, scale: 1, y:0, ease: "power1.outIn"}]})
+    .to('.tacos-menu > *', {duration: .8, stagger: .10, keyframes: [{opacity: .5, scale: .9, y:25, ease: "power1.outIn"}, {opacity: 1, scale: 1, y:0, ease: "power1.outIn"}]}, "-=0.8")
 
 ;
 
