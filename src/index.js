@@ -17,10 +17,10 @@ gsap.set('.btm-hex-cluster', {opacity: 0})
 //text animations
 //__top
 gsap.set(".tm-left > *", {transformOrigin: "center"});
-gsap.set(".tm-left > *", {scale: 0});
+gsap.set(".tm-left > *", {opacity: 0, scale: .8, x: 20});
 
 gsap.set(".tm-right > *", {transformOrigin: "center"});
-gsap.set(".tm-right > *", {scale: 0});
+gsap.set(".tm-right > *", {opacity: 0, scale: .8, x: 20});
 
 // //__tacos
 // gsap.set('.tacos-menu', {opacity: 0})
@@ -55,13 +55,13 @@ blueMenuAnimations
     .to('.top-hex-9 > *', {stagger: -0.05, keyframes: [{duration: .4, scale: 1.3, ease: "power1.inOut"}, {duration: .5,scale: 1, ease: "power1.inOut"}]}, "-=.92")
     .to('.top-hex-10 > *', {stagger: -0.05, keyframes: [{duration: .4, scale: 1.3, ease: "power1.inOut"}, {duration: .5,scale: 1, ease: "power1.inOut"}]}, "-=.92")
 
-    .from(".tm-left > *", {duration: .8, stagger: .10, keyframes: [{scale: 1.3, ease: "power1.outIn"}, {scale: 1}]})
-    .from(".tm-right > *", {duration: .8, stagger: .10, keyframes: [{scale: 1.3, ease: "power1.outIn"}, {scale: 1}]}, "-=1")
+    .from(".tm-left > *", {duration: .8, stagger: .10, keyframes: [{opacity: .5, scale: .9, x:-25, ease: "power1.outIn"}, {opacity: 1, scale: 1, x:0, ease: "power1.outIn"}]}, "-=.8")
+    .from(".tm-right > *", {duration: .8, stagger: .10, keyframes: [{opacity: .5, scale: .9, x:-25, ease: "power1.outIn"}, {opacity: 1, scale: 1, x:0, ease: "power1.outIn"}]}, "-=1")
     .to('.menu-shadow', {duration: .8, ease: "power1.inout", opacity: .8}, "-=2")
 
     .to('.mid-blue-hex', {stagger: -0.05, keyframes: [{duration: .4,scale: 1.3, ease: "power1.inOut"}, {duration: .5,scale: 1, ease: "power1.inOut"}]}, "-=.8")
     .to('.mid-purp-hex', {stagger: .04, keyframes: [{duration: .4, ease: "power1.inOut"}, {duration: .5, scale: 1, x: "0%", y: "0%", ease: "back"}]}, "-=.7")
-
+    
 ;
 
 
