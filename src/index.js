@@ -6,8 +6,8 @@ gsap.registerPlugin(DrawSVGPlugin);
 gsap.registerPlugin(ScrollTrigger);
 
 //intro border animations
-gsap.from(".intro-blue", {scrollTrigger: {trigger: ".intro-blue", start: "50px 80%", markers: true}, duration: 2.5, ease:"none", drawSVG: 0});
-gsap.from(".intro-purple", {scrollTrigger: {trigger: ".intro-purple", start: "50px 80%", markers: true}, duration: 2.5, ease:"none", drawSVG: 0});
+gsap.from(".intro-blue", {scrollTrigger: {trigger: ".intro-blue", start: "50px 80%"}, duration: 2.5, ease:"none", drawSVG: 0});
+gsap.from(".intro-purple", {scrollTrigger: {trigger: ".intro-purple", start: "50px 80%"}, duration: 2.5, ease:"none", drawSVG: 0});
 
 // //__btm
 gsap.set('.btm-hex-cluster', {opacity: 0})
@@ -34,8 +34,8 @@ gsap.set('.mid-layer', {transformOrigin: "top left", x: "-50%", y: "-50%", scale
 gsap.set('.top-layer', {transformOrigin: "bottom right", x: "60%", y: "60%", scale: 0})
 
 gsap.set('.menu-shadow', {opacity: 0});
-let blueMenuAnimations = gsap.timeline({scrollTrigger: {trigger: '.menu-blue', start:"10% 80%", markers: true}});
-let purpleMenuAnimations = gsap.timeline({scrollTrigger: {trigger: '.menu-purple', start: '-150% top', markers: true}});
+let blueMenuAnimations = gsap.timeline({scrollTrigger: {trigger: '.menu-blue', start:"10% 80%"}});
+let purpleMenuAnimations = gsap.timeline({scrollTrigger: {trigger: '.menu-purple', start: '-150% top'}});
 
 
 blueMenuAnimations
@@ -70,7 +70,7 @@ gsap.set('.tacos-title', {opacity: 0, y:-20})
 
 purpleMenuAnimations
     .from('.menu-purple', {duration: 3, ease: "power1.inOut", drawSVG: 0})
-    .to('.sandwich-title', {duration: 1, opacity:1, y: 0})
+    .to('.sandwich-title', {duration: 1, opacity:1, y: 0}, "-=1")
     .to('.tacos-title', {duration: 1, opacity:1, y: 0}, "-=.8")
     .to('.sandwich-menu > *', {duration: .8, stagger: .10, keyframes: [{opacity: .5, scale: .9, y:25, ease: "power1.outIn"}, {opacity: 1, scale: 1, y:0, ease: "power1.outIn"}]})
     .to('.tacos-menu > *', {duration: .8, stagger: .10, keyframes: [{opacity: .5, scale: .9, y:25, ease: "power1.outIn"}, {opacity: 1, scale: 1, y:0, ease: "power1.outIn"}]}, "-=0.8")
@@ -78,13 +78,23 @@ purpleMenuAnimations
 ;
 
 
+
+
+
+
+
+
+
+
+
+
 //gallery border animations
-gsap.from(".gallery-top-blue", {scrollTrigger: {trigger: ".gallery-top-blue", start: "50px 80%", markers: true}, duration: 2.5, ease:"none", drawSVG: 0});
-gsap.from(".gallery-top-purple", {scrollTrigger: {trigger: ".gallery-top-purple", start: "50px 80%", markers: true}, duration: 2.5, ease:"none", drawSVG: 0});
-gsap.from(".gallery-mid-blue", {scrollTrigger: {trigger: ".gallery-mid-blue", start: "50px 80%", markers: true}, duration: 2.5, ease:"none", drawSVG: 0});
-gsap.from(".gallery-mid-purple", {scrollTrigger: {trigger: ".gallery-mid-purple", start: "50px 80%", markers: true}, duration: 2.5, ease:"none", drawSVG: 0});
-gsap.from(".gallery-btm-blue", {scrollTrigger: {trigger: ".gallery-btm-blue", start: "50px 80%", markers: true}, duration: 2.5, ease:"none", drawSVG: 0});
-gsap.from(".gallery-btm-purple", {scrollTrigger: {trigger: ".gallery-btm-purple", start: "50px 80%", markers: true}, duration: 2.5, ease:"none", drawSVG: 0});
+gsap.from(".gallery-top-blue", {scrollTrigger: {trigger: ".gallery-top-blue", start: "50px 80%"}, duration: 2.5, ease:"none", drawSVG: 0});
+gsap.from(".gallery-top-purple", {scrollTrigger: {trigger: ".gallery-top-purple", start: "50px 80%"}, duration: 2.5, ease:"none", drawSVG: 0});
+gsap.from(".gallery-mid-blue", {scrollTrigger: {trigger: ".gallery-mid-blue", start: "50px 80%"}, duration: 2.5, ease:"none", drawSVG: 0});
+gsap.from(".gallery-mid-purple", {scrollTrigger: {trigger: ".gallery-mid-purple", start: "50px 80%"}, duration: 2.5, ease:"none", drawSVG: 0});
+gsap.from(".gallery-btm-blue", {scrollTrigger: {trigger: ".gallery-btm-blue", start: "50px 80%"}, duration: 2.5, ease:"none", drawSVG: 0});
+gsap.from(".gallery-btm-purple", {scrollTrigger: {trigger: ".gallery-btm-purple", start: "50px 80%"}, duration: 2.5, ease:"none", drawSVG: 0});
 
 
 // import Rellax from "rellax";
@@ -101,6 +111,7 @@ const closeModalX = document.querySelector('.close-modal');
 const track = document.querySelector('.inner-carousel');
 const slides = Array.from(track.children);
 const slideWidth = slides[0].getBoundingClientRect().width;
+const pageBody = document.querySelector('body');
 
 // position each slide side by side
 const setSlidePosition = (slide, index) => {
@@ -112,12 +123,26 @@ slides.forEach(setSlidePosition);
 image.forEach(image => {
     image.addEventListener('click', () => {
         openModal(image);
+        window.addEventListener("resize", resizeSlideListener);
     });
 })
+
+function resizeSlideListener() {
+    const slideWidth = slides[0].getBoundingClientRect().width;
+    const setSlidePosition = (slide, index) => {
+        slide.style.left = slideWidth * index + 'px';
+    }
+    slides.forEach(setSlidePosition);
+
+}
+
 //add class to previously clicked image, reveal modal, send previously clicked image to exitModalListener function
 function openModal(image) {
     image.classList.add('active-slide')
     modal.classList.remove('deactivated-modal');
+    pageBody.style.overflow = "hidden";
+
+
     //if previously clicked image has an active class, run a function to position the carousel at that image upon opening the Modal
     if(image.classList.contains('active-slide')) {
         getSlidePos(image);
@@ -129,13 +154,18 @@ function openModal(image) {
 function addExitModalListener(image) {
     closeModalX.addEventListener('click', () => {
         exitModal(image);
+        window.removeEventListener("resize", resizeSlideListener)
     });
 }
 //remove class to previously clicked image and hide Modal, back to collage
 function exitModal(image) {
     image.classList.remove('active-slide');
     modal.classList.add('deactivated-modal');
+    pageBody.style.overflow = "auto";
+    
 }
+
+
 
 //get value of attribute on previously clicked collage image, change from string to number
 function getSlidePos(image) {
@@ -153,6 +183,9 @@ const moveToSlide = (track, targetSlide) => {
     track.style.transform = 'translateX(-' + targetSlide.style.left + ')';
 }
 
+function keepTrackPosition() {
+
+}
 
 
 //svg manipulation
