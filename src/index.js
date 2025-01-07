@@ -133,7 +133,6 @@ function resizeSlideListener() {
         slide.style.left = slideWidth * index + 'px';
     }
     slides.forEach(setSlidePosition);
-
 }
 
 //add class to previously clicked image, reveal modal, send previously clicked image to exitModalListener function
@@ -174,6 +173,9 @@ function getSlidePos(image) {
     for(let i = 0; i < slides.length; i++) {
         if (i === selectedSlide) {
             moveToSlide(track, slides[i]);
+            window.addEventListener("resize", () => {
+                moveToSlide(track, slides[i]);
+             });
         }
     }
 }
@@ -181,12 +183,11 @@ function getSlidePos(image) {
 const moveToSlide = (track, targetSlide) => {
     // track.style.transition = 'transform 250ms ease-in';
     track.style.transform = 'translateX(-' + targetSlide.style.left + ')';
+    document.addEventListener('scroll', scrollTrack);
 }
-
-function keepTrackPosition() {
-
+function scrollTrack() {
+    console.log('triggered');
 }
-
 
 //svg manipulation
 
