@@ -183,11 +183,9 @@ function getSlidePos(image) {
 const moveToSlide = (track, targetSlide) => {
     // track.style.transition = 'transform 250ms ease-in';
     track.style.transform = 'translateX(-' + targetSlide.style.left + ')';
-    document.addEventListener('scroll', scrollTrack);
 }
-function scrollTrack() {
-    console.log('triggered');
-}
+
+
 
 //svg manipulation
 

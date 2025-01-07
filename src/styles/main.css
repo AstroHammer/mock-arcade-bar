@@ -406,7 +406,7 @@ button {
     z-index: 4;
     padding: 2% 0;
     /* margin-bottom: 200px; */
-    margin-top: 300px;
+    margin-top: 200px;
     background: black;
     box-shadow: 0 150px 50px 50px black, 0 -150px 50px 50px black;
     overflow: hidden;
