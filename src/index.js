@@ -115,7 +115,7 @@ const pageBody = document.querySelector('body');
 
 // position each slide side by side
 const setSlidePosition = (slide, index) => {
-    slide.style.left = slideWidth * index + 'px';
+    slide.style.transform = `translateX(${slideWidth * index}px)`;
 }
 slides.forEach(setSlidePosition);
 
@@ -130,7 +130,7 @@ image.forEach(image => {
 function resizeSlideListener() {
     const slideWidth = slides[0].getBoundingClientRect().width;
     const setSlidePosition = (slide, index) => {
-        slide.style.left = slideWidth * index + 'px';
+        slide.style.transform = `translateX(${slideWidth * index}px)`;
     }
     slides.forEach(setSlidePosition);
 }
@@ -172,22 +172,25 @@ function getSlidePos(image) {
     //loop through array, use iteration as index and send out the elementnode that matches with selectedSlide value
     for(let i = 0; i < slides.length; i++) {
         if (i === selectedSlide) {
-            moveToSlide(track, slides[i]);
+            moveTrackToSlide(track, slides[i]);
             window.addEventListener("resize", () => {
-                moveToSlide(track, slides[i]);
+                moveTrackToSlide(track, slides[i]);
              });
         }
     }
 }
 //when clickin collage image, carousel is translated to that image in the carousel
-const moveToSlide = (track, targetSlide) => {
+const moveTrackToSlide = (track, targetSlide) => {
     // track.style.transition = 'transform 250ms ease-in';
-    track.style.transform = 'translateX(-' + targetSlide.style.left + ')';
+    let targetSlideMatrix = window.getComputedStyle(targetSlide).transform;
+    let targetSlideTransform = new DOMMatrix(targetSlideMatrix);
+    let targetSlideTranslateX = targetSlideTransform.m41 + 'px';
+    track.style.transform = 'translateX(-' + targetSlideTranslateX + ')';
 }
 
 
 
-//svg manipulation
+//collage svg lasers positioning
 
 const topSVG = document.querySelector('.cb-top');
 const btmSVG = document.querySelector('.cb-btm')
