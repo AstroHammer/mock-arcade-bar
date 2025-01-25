@@ -102,6 +102,7 @@ gsap.from(".gallery-btm-purple", {scrollTrigger: {trigger: ".gallery-btm-purple"
 // let rellax = new Rellax('.rellax');
 
 
+//          https://jsfiddle.net/mo1hbnpy/60/
 
 
 //IMAGE COLLAGE / CUSTOM MODAL CAROUSEL
