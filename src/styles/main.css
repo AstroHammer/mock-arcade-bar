@@ -614,6 +614,17 @@ button {
 .travel-button {
     display: none;
 }
+.group:before,
+.group:after {
+  content: "";
+  display: table;
+}
+.group:after {
+  clear: both;
+}
+.group {
+  zoom: 1;
+}
 .carousel {
     width: 100%;
     height: 100%;
@@ -632,8 +643,7 @@ button {
 }
 .box {
     position: absolute;
-    height: 100%;
-    width: 100%;
+    inset: 10%;
 
 }
 .testing-img {

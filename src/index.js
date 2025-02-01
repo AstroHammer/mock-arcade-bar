@@ -111,25 +111,28 @@ const modal = document.querySelector('.modal');
 const closeModalX = document.querySelector('.close-modal');
 const track = document.querySelector('.inner-carousel');
 const slides = Array.from(track.children);
-const slideWidth = slides[0].getBoundingClientRect().width;
+
 const pageBody = document.querySelector('body');
 
 // position each slide side by side
 const setSlidePosition = (slide, index) => {
+    let slideWidth = track.getBoundingClientRect().width;
+    // figure out way to set slide position once, and never again until page reload
     slide.style.transform = `translateX(${slideWidth * index}px)`;
 }
-slides.forEach(setSlidePosition);
+// slides.forEach(setSlidePosition);
 
 //add click listener to all images, store and send the image that has been clicked to openModal function
 image.forEach(image => {
     image.addEventListener('click', () => {
         openModal(image);
+        slides.forEach(setSlidePosition); //
         window.addEventListener("resize", resizeSlideListener);
     });
 })
 
 function resizeSlideListener() {
-    const slideWidth = slides[0].getBoundingClientRect().width;
+    const slideWidth = track.getBoundingClientRect().width;
     const setSlidePosition = (slide, index) => {
         slide.style.transform = `translateX(${slideWidth * index}px)`;
     }
@@ -174,19 +177,19 @@ function getSlidePos(image) {
     for(let i = 0; i < slides.length; i++) {
         if (i === selectedSlide) {
             moveTrackToSlide(track, slides[i]);
+            
             window.addEventListener("resize", () => {
                 moveTrackToSlide(track, slides[i]);
-             });
+            });
         }
     }
 }
 //when clickin collage image, carousel is translated to that image in the carousel
 const moveTrackToSlide = (track, targetSlide) => {
-    // track.style.transition = 'transform 250ms ease-in';
-    let targetSlideMatrix = window.getComputedStyle(targetSlide).transform;
-    let targetSlideTransform = new DOMMatrix(targetSlideMatrix);
-    let targetSlideTranslateX = targetSlideTransform.m41 + 'px';
-    track.style.transform = 'translateX(-' + targetSlideTranslateX + ')';
+    let slideIndex = slides.indexOf(targetSlide);
+    let slideWidth = track.getBoundingClientRect().width; // Get updated width
+    let targetTranslateX = slideIndex * slideWidth;
+    track.style.transform = `translateX(-${targetTranslateX}px)`;
 }
 
 
