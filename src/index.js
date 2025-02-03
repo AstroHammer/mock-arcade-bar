@@ -194,6 +194,22 @@ const moveTrackToSlide = (track, targetSlide) => {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 //collage svg lasers positioning
 
 const topSVG = document.querySelector('.cb-top');

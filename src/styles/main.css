@@ -609,11 +609,25 @@ button {
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-direction: column;
     border: 1px solid red;
 }
+
 .travel-button {
-    display: none;
+    display: block;
+    width: 100px;
 }
+.travel-but-container {
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    
+}
+
+
 .group:before,
 .group:after {
   content: "";
@@ -631,7 +645,7 @@ button {
     display: flex;
     align-items: center;
     position: relative;
-    border: 1px solid green;
+    /* border: 1px solid green; */
 }
 .inner-carousel {
     position: relative;
@@ -695,7 +709,7 @@ svg {
     height:clamp(calc(100% + 2px), 200vw, calc(100% + 10px));
 }
 
-
+/* FOOTER */
 
 .footer {
     background: black;
