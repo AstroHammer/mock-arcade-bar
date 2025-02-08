@@ -111,7 +111,6 @@ const modal = document.querySelector('.modal');
 const closeModalX = document.querySelector('.close-modal');
 const track = document.querySelector('.inner-carousel');
 const slides = Array.from(track.children);
-
 const pageBody = document.querySelector('body');
 
 // position each slide side by side
@@ -127,6 +126,7 @@ image.forEach(image => {
     image.addEventListener('click', () => {
         openModal(image);
         slides.forEach(setSlidePosition); //
+        hideArrowButton();
         window.addEventListener("resize", resizeSlideListener);
     });
 })
@@ -176,16 +176,16 @@ function getSlidePos(image) {
     //loop through array, use iteration as index and send out the elementnode that matches with selectedSlide value
     for(let i = 0; i < slides.length; i++) {
         if (i === selectedSlide) {
-            moveTrackToSlide(track, slides[i]);
+            moveTrackToSelectedCollageImage(track, slides[i]);
             
             window.addEventListener("resize", () => {
-                moveTrackToSlide(track, slides[i]);
+                moveTrackToSelectedCollageImage(track, slides[i]);
             });
         }
     }
 }
 //when clickin collage image, carousel is translated to that image in the carousel
-const moveTrackToSlide = (track, targetSlide) => {
+const moveTrackToSelectedCollageImage = (track, targetSlide) => {
     let slideIndex = slides.indexOf(targetSlide);
     let slideWidth = track.getBoundingClientRect().width; // Get updated width
     let targetTranslateX = slideIndex * slideWidth;
@@ -193,10 +193,45 @@ const moveTrackToSlide = (track, targetSlide) => {
 }
 
 
+const prevButton = document.querySelector('.arrow-left');
+const nextButton = document.querySelector('.arrow-right');
+const currentSlide = track.querySelector('.current-slide');
 
+prevButton.addEventListener('click', nextButtonVariables);
+nextButton.addEventListener('click', prevButtonVariables);
 
+function moveTrackToSlide(track, currentSlide, targetSlide) {
+    // track.style.transition = 'transform 400ms ease-in';
+    // track.style.transform = 'translateX(-' + targetTranslateX + ')';
+    currentSlide.classList.remove('current-slide');
+    targetSlide.classList.add('current-slide');
+}
 
+function nextButtonVariables() {
+    const currentSlide = track.querySelector('.current-slide');
+    const nextSlide = currentSlide.nextElementSibling;
+    moveTrackToSlide(track, currentSlide, nextSlide);
+}
 
+function prevButtonVariables() {
+    const currentSlide = track.querySelector('.current-slide');
+    const prevSlide = currentSlide.previousElementSibling;
+    moveTrackToSlide(track, currentSlide, prevSlide);
+}
+
+function hideArrowButton() {
+    if(currentSlide.classList.contains('first-slide')) {
+        //hide prevSlideButton
+        prevButton.style.display = 'none';
+    } else if (currentSlide.classList.contains('last-slide')) {
+        //hide nextSlideButton
+        nextButton.style.display = 'none';
+    } else {
+        //do not hide prevSlideButton and nextSlideButton
+        prevButton.style.display = 'block';
+        nextButton.style.display = 'block';
+    }
+}
 
 
 
