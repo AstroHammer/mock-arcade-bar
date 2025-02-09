@@ -611,7 +611,9 @@ button {
     justify-content: center;
     flex-direction: column;
 }
-
+.track-transition {
+    transition: transform .3s ease-in-out;
+}
 .travel-button {
     position:absolute;
     width: clamp(50px, 15vw, 100px);

@@ -112,6 +112,9 @@ const closeModalX = document.querySelector('.close-modal');
 const track = document.querySelector('.inner-carousel');
 const slides = Array.from(track.children);
 const pageBody = document.querySelector('body');
+const prevButton = document.querySelector('.arrow-left');
+const nextButton = document.querySelector('.arrow-right');
+
 
 // position each slide side by side
 const setSlidePosition = (slide, index) => {
@@ -119,14 +122,12 @@ const setSlidePosition = (slide, index) => {
     // figure out way to set slide position once, and never again until page reload
     slide.style.transform = `translateX(${slideWidth * index}px)`;
 }
-// slides.forEach(setSlidePosition);
 
 //add click listener to all images, store and send the image that has been clicked to openModal function
 image.forEach(image => {
     image.addEventListener('click', () => {
         openModal(image);
-        slides.forEach(setSlidePosition); //
-        hideArrowButton();
+        slides.forEach(setSlidePosition);
         window.addEventListener("resize", resizeSlideListener);
     });
 })
@@ -144,6 +145,8 @@ function openModal(image) {
     image.classList.add('active-slide')
     modal.classList.remove('deactivated-modal');
     pageBody.style.overflow = "hidden";
+    addArrowButtonListeners();
+    addRemoveTransitionOnClick()
 
 
     //if previously clicked image has an active class, run a function to position the carousel at that image upon opening the Modal
@@ -168,82 +171,91 @@ function exitModal(image) {
     
 }
 
-
-
 //get value of attribute on previously clicked collage image, change from string to number
 function getSlidePos(image) {
     let selectedSlide = Number(image.getAttribute('data-slide'));
     //loop through array, use iteration as index and send out the elementnode that matches with selectedSlide value
     for(let i = 0; i < slides.length; i++) {
         if (i === selectedSlide) {
-            moveTrackToSelectedCollageImage(track, slides[i]);
-            
-            window.addEventListener("resize", () => {
-                moveTrackToSelectedCollageImage(track, slides[i]);
-            });
+            moveTrack(slides[i]);
+            addCurrentSlideClass(slides[i]);
+            // incase resizing track upon opening modal carousel
+            resizeCarouselTrack(slides[i]);
         }
     }
 }
 //when clickin collage image, carousel is translated to that image in the carousel
-const moveTrackToSelectedCollageImage = (track, targetSlide) => {
+const moveTrack = (targetSlide) => {
     let slideIndex = slides.indexOf(targetSlide);
     let slideWidth = track.getBoundingClientRect().width; // Get updated width
     let targetTranslateX = slideIndex * slideWidth;
     track.style.transform = `translateX(-${targetTranslateX}px)`;
+    showHideButtons(targetSlide);
+    addCurrentSlideClass(targetSlide);
+}
+// resizing track while in modal carousel
+function resizeCarouselTrack(targetSlide) {
+    window.addEventListener("resize", () => {
+        moveTrack(targetSlide);
+    });
 }
 
+// create class to determine what slide I've selected from collage
+// apply class to modal slide
 
-const prevButton = document.querySelector('.arrow-left');
-const nextButton = document.querySelector('.arrow-right');
-const currentSlide = track.querySelector('.current-slide');
-
-prevButton.addEventListener('click', nextButtonVariables);
-nextButton.addEventListener('click', prevButtonVariables);
-
-function moveTrackToSlide(track, currentSlide, targetSlide) {
-    // track.style.transition = 'transform 400ms ease-in';
-    // track.style.transform = 'translateX(-' + targetTranslateX + ')';
-    currentSlide.classList.remove('current-slide');
-    targetSlide.classList.add('current-slide');
+function addCurrentSlideClass(selectedSlide) {
+    slides.forEach(slide => {
+        slide.classList.remove('current-slide');
+    })
+    // track.style.transition = 'none';
+    selectedSlide.classList.add('current-slide');
 }
 
-function nextButtonVariables() {
+function addRemoveTransitionOnClick() {
+    if (track.classList.contains('track-transition')) {
+        track.classList.remove('track-transition');
+    } else {
+        track.classList.add('track-transition');
+    }
+}
+
+// click arrow buttons moves track to next slide / previous slide
+function addArrowButtonListeners() {
+    prevButton.addEventListener('click', moveToPrevSlide);
+    nextButton.addEventListener('click', moveToNextSlide);
+}
+// use current-slide class to determine what is 'next' or 'previous' slide
+function moveToNextSlide() {
     const currentSlide = track.querySelector('.current-slide');
     const nextSlide = currentSlide.nextElementSibling;
-    moveTrackToSlide(track, currentSlide, nextSlide);
+    moveTrack(nextSlide);
+    // incase resizing track while in carousel modal after moving track to different slide
+    resizeCarouselTrack(nextSlide);
 }
-
-function prevButtonVariables() {
+function moveToPrevSlide() {
     const currentSlide = track.querySelector('.current-slide');
     const prevSlide = currentSlide.previousElementSibling;
-    moveTrackToSlide(track, currentSlide, prevSlide);
+    moveTrack(prevSlide);
+    // incase resizing track while in carousel modal after moving track to different slide
+    resizeCarouselTrack(prevSlide);
 }
 
-function hideArrowButton() {
-    if(currentSlide.classList.contains('first-slide')) {
-        //hide prevSlideButton
+// when on first slide of carousel there is no previous button
+// when on last slide of carousel there is no next button
+// when on neither first or last slide, there is both buttons
+
+function showHideButtons(targetSlide) {
+    if (targetSlide.classList.contains('first-slide')) {
         prevButton.style.display = 'none';
-    } else if (currentSlide.classList.contains('last-slide')) {
-        //hide nextSlideButton
+        nextButton.style.display = 'block';
+    } else if (targetSlide.classList.contains('last-slide')) {
         nextButton.style.display = 'none';
+        prevButton.style.display = 'block';
     } else {
-        //do not hide prevSlideButton and nextSlideButton
         prevButton.style.display = 'block';
         nextButton.style.display = 'block';
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
 
 //collage svg lasers positioning
 
