@@ -178,7 +178,7 @@ function getSlidePos(image) {
     for(let i = 0; i < slides.length; i++) {
         if (i === selectedSlide) {
             moveTrack(slides[i]);
-            addCurrentSlideClass(slides[i]);
+            moveTrackAddFuncs(slides[i]);
             // incase resizing track upon opening modal carousel
             resizeCarouselTrack(slides[i]);
         }
@@ -190,11 +190,15 @@ const moveTrack = (targetSlide) => {
     let slideWidth = track.getBoundingClientRect().width; // Get updated width
     let targetTranslateX = slideIndex * slideWidth;
     track.style.transform = `translateX(-${targetTranslateX}px)`;
+}
+
+// things related to interacting with track/slides but separate from resize events, (used to be in moveTrack cause im a noob)
+function moveTrackAddFuncs(targetSlide) {
     showHideButtons(targetSlide);
     addCurrentSlideClass(targetSlide);
-    addRemoveSlideTransition(targetSlide)
-    
 }
+
+
 // resizing track while in modal carousel
 function resizeCarouselTrack(targetSlide) {
     window.addEventListener("resize", () => {
@@ -207,12 +211,21 @@ function resizeCarouselTrack(targetSlide) {
 // apply class to modal slide
 
 function addCurrentSlideClass(selectedSlide) {
-    slides.forEach(slide => {
-        slide.classList.remove('current-slide');
-    })
+    for (let j = 0; j < slides.length; j++) {
+        if (slides[j].classList.contains('current-slide')) {
+            slides[j].classList.remove('current-slide');
+            addRemoveSlideTransition(slides[j]);
+        }
+    }
     selectedSlide.classList.add('current-slide');
 }
 
+function addRemoveSlideTransition(targetSlide) {
+    // take this element and add / remove slide-transition class from it's child
+    let targetImage = targetSlide.querySelector('.testing-img');
+    
+    targetImage.classList.remove('slide-transition');
+}
 
 // click arrow buttons moves track to next slide / previous slide
 function addArrowButtonListeners() {
@@ -226,6 +239,7 @@ function moveToNextSlide() {
     moveTrack(nextSlide);
     // incase resizing track while in carousel modal after moving track to different slide
     resizeCarouselTrack(nextSlide);
+    moveTrackAddFuncs(nextSlide);
     addTrackTransition();
 }
 function moveToPrevSlide() {
@@ -234,6 +248,7 @@ function moveToPrevSlide() {
     moveTrack(prevSlide);
     // incase resizing track while in carousel modal after moving track to different slide
     resizeCarouselTrack(prevSlide);
+    moveTrackAddFuncs(prevSlide);
     addTrackTransition();
 }
 
@@ -256,6 +271,7 @@ function showHideButtons(targetSlide) {
 
 // styles functionality
 
+
 function addTrackTransition() {
     if (track.classList.contains('track-transition')) {
         return;
@@ -266,15 +282,13 @@ function addTrackTransition() {
 function removeTrackTransition() {
     track.classList.remove('track-transition');
 }
-function addRemoveSlideTransition(targetSlide) {
-    if (targetSlide.classList.contains('current-slide')) {
-        targetSlide.previousElementSibling.querySelector('.testing-img').classList.remove('slide-transition');
-        targetSlide.nextElementSibling.querySelector('.testing-img').classList.remove('slide-transition');
-        targetSlide.querySelector('.testing-img').classList.add('slide-transition');
-    } else {
-        targetSlide.classList.remove('slide-transition');
-    }
-}
+// function addRemoveSlideTransition(targetSlide) {
+//     if (targetSlide.classList.contains('current-slide')) {
+//         targetSlide.querySelector('.testing-img').classList.add('slide-transition');
+//     } else {
+//         targetSlide.classList.remove('slide-transition');
+//     }
+// }
 
 
 //collage svg lasers positioning
