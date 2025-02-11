@@ -146,7 +146,7 @@ function openModal(image) {
     modal.classList.remove('deactivated-modal');
     pageBody.style.overflow = "hidden";
     addArrowButtonListeners();
-    addRemoveTransitionOnClick()
+    
 
 
     //if previously clicked image has an active class, run a function to position the carousel at that image upon opening the Modal
@@ -168,7 +168,7 @@ function exitModal(image) {
     image.classList.remove('active-slide');
     modal.classList.add('deactivated-modal');
     pageBody.style.overflow = "auto";
-    
+    removeTrackTransition();
 }
 
 //get value of attribute on previously clicked collage image, change from string to number
@@ -192,11 +192,14 @@ const moveTrack = (targetSlide) => {
     track.style.transform = `translateX(-${targetTranslateX}px)`;
     showHideButtons(targetSlide);
     addCurrentSlideClass(targetSlide);
+    addRemoveSlideTransition(targetSlide)
+    
 }
 // resizing track while in modal carousel
 function resizeCarouselTrack(targetSlide) {
     window.addEventListener("resize", () => {
         moveTrack(targetSlide);
+        removeTrackTransition();
     });
 }
 
@@ -207,17 +210,9 @@ function addCurrentSlideClass(selectedSlide) {
     slides.forEach(slide => {
         slide.classList.remove('current-slide');
     })
-    // track.style.transition = 'none';
     selectedSlide.classList.add('current-slide');
 }
 
-function addRemoveTransitionOnClick() {
-    if (track.classList.contains('track-transition')) {
-        track.classList.remove('track-transition');
-    } else {
-        track.classList.add('track-transition');
-    }
-}
 
 // click arrow buttons moves track to next slide / previous slide
 function addArrowButtonListeners() {
@@ -231,6 +226,7 @@ function moveToNextSlide() {
     moveTrack(nextSlide);
     // incase resizing track while in carousel modal after moving track to different slide
     resizeCarouselTrack(nextSlide);
+    addTrackTransition();
 }
 function moveToPrevSlide() {
     const currentSlide = track.querySelector('.current-slide');
@@ -238,6 +234,7 @@ function moveToPrevSlide() {
     moveTrack(prevSlide);
     // incase resizing track while in carousel modal after moving track to different slide
     resizeCarouselTrack(prevSlide);
+    addTrackTransition();
 }
 
 // when on first slide of carousel there is no previous button
@@ -256,6 +253,29 @@ function showHideButtons(targetSlide) {
         nextButton.style.display = 'block';
     }
 }
+
+// styles functionality
+
+function addTrackTransition() {
+    if (track.classList.contains('track-transition')) {
+        return;
+    } else {
+        track.classList.add('track-transition');
+    }
+}
+function removeTrackTransition() {
+    track.classList.remove('track-transition');
+}
+function addRemoveSlideTransition(targetSlide) {
+    if (targetSlide.classList.contains('current-slide')) {
+        targetSlide.previousElementSibling.querySelector('.testing-img').classList.remove('slide-transition');
+        targetSlide.nextElementSibling.querySelector('.testing-img').classList.remove('slide-transition');
+        targetSlide.querySelector('.testing-img').classList.add('slide-transition');
+    } else {
+        targetSlide.classList.remove('slide-transition');
+    }
+}
+
 
 //collage svg lasers positioning
 
