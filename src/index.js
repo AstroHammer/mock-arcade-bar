@@ -207,25 +207,34 @@ function resizeCarouselTrack(targetSlide) {
     });
 }
 
-// create class to determine what slide I've selected from collage
-// apply class to modal slide
-
+// if no slides contain class, add classes
+// if a slide does, find that slide, and remove it's classes
 function addCurrentSlideClass(selectedSlide) {
+    // when i click image/arrow buttons, loop through slides 
     for (let j = 0; j < slides.length; j++) {
+        //if any slide has current-slide class, remove class
         if (slides[j].classList.contains('current-slide')) {
             slides[j].classList.remove('current-slide');
-            addRemoveSlideTransition(slides[j]);
+            //take the class that did contain current-slide and send it out to remove it's childs slide-transition class
+            removeSlideTransition(slides[j]);
+        } else {
+            // if no slides have current-slide class, add current-slide class to the targetSlide
+            selectedSlide.classList.add('current-slide');
+            console.log(selectedSlide);
+            // send out targetSlide to add slide-transition to it's child 
+            addSlideTransition(selectedSlide);
         }
     }
-    selectedSlide.classList.add('current-slide');
 }
-
-function addRemoveSlideTransition(targetSlide) {
-    // take this element and add / remove slide-transition class from it's child
-    let targetImage = targetSlide.querySelector('.testing-img');
-    
+function removeSlideTransition(oldTargetSlide) {
+    let targetImage = oldTargetSlide.querySelector('.testing-img');
     targetImage.classList.remove('slide-transition');
 }
+function addSlideTransition(targetSlide) {
+    let targetImage = targetSlide.querySelector('.testing-img');
+    targetImage.classList.add('slide-transition');
+}
+
 
 // click arrow buttons moves track to next slide / previous slide
 function addArrowButtonListeners() {
