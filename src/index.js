@@ -169,6 +169,7 @@ function exitModal(image) {
     modal.classList.add('deactivated-modal');
     pageBody.style.overflow = "auto";
     removeTrackTransition();
+    removeCurrentSlideClass();
 }
 
 //get value of attribute on previously clicked collage image, change from string to number
@@ -195,6 +196,7 @@ const moveTrack = (targetSlide) => {
 // things related to interacting with track/slides but separate from resize events, (used to be in moveTrack cause im a noob)
 function moveTrackAddFuncs(targetSlide) {
     showHideButtons(targetSlide);
+    removeCurrentSlideClass();
     addCurrentSlideClass(targetSlide);
 }
 
@@ -207,27 +209,26 @@ function resizeCarouselTrack(targetSlide) {
     });
 }
 
-// if no slides contain class, add classes
-// if a slide does, find that slide, and remove it's classes
-function addCurrentSlideClass(selectedSlide) {
-    // when i click image/arrow buttons, loop through slides 
+// loop thru slides 
+// if a slide contains class, find that slide, and remove it's class and image class
+function removeCurrentSlideClass() {
     for (let j = 0; j < slides.length; j++) {
         //if any slide has current-slide class, remove class
         if (slides[j].classList.contains('current-slide')) {
             slides[j].classList.remove('current-slide');
             //take the class that did contain current-slide and send it out to remove it's childs slide-transition class
             removeSlideTransition(slides[j]);
-        } else {
-            // if no slides have current-slide class, add current-slide class to the targetSlide
-            selectedSlide.classList.add('current-slide');
-            console.log(selectedSlide);
-            // send out targetSlide to add slide-transition to it's child 
-            addSlideTransition(selectedSlide);
         }
     }
 }
-function removeSlideTransition(oldTargetSlide) {
-    let targetImage = oldTargetSlide.querySelector('.testing-img');
+// add class to the selected/targeted slide and it's image
+function addCurrentSlideClass(selectedSlide) {
+    selectedSlide.classList.add('current-slide');
+    addSlideTransition(selectedSlide);
+}
+
+function removeSlideTransition(prevTargetSlide) {
+    let targetImage = prevTargetSlide.querySelector('.testing-img');
     targetImage.classList.remove('slide-transition');
 }
 function addSlideTransition(targetSlide) {
