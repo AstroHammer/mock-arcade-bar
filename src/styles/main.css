@@ -571,12 +571,12 @@ button {
         flex: 100%;
     }
 }
-@media screen and (width < 500px) {
+/* @media screen and (width < 500px) {
     .mq-response {
         display: block;
         flex: 100%;
     }
-}
+} */
 /* MODAL */
 .modal {
     position: absolute;

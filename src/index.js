@@ -5,6 +5,9 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 gsap.registerPlugin(DrawSVGPlugin);
 gsap.registerPlugin(ScrollTrigger);
 
+
+
+
 //intro border animations
 gsap.from(".intro-blue", {scrollTrigger: {trigger: ".intro-blue", start: "50px 80%"}, duration: 2.5, ease:"none", drawSVG: 0});
 gsap.from(".intro-purple", {scrollTrigger: {trigger: ".intro-purple", start: "50px 80%"}, duration: 2.5, ease:"none", drawSVG: 0});
@@ -21,7 +24,6 @@ gsap.set(".tm-left > *", {opacity: 0, scale: .8, x: 20});
 
 gsap.set(".tm-right > *", {transformOrigin: "center"});
 gsap.set(".tm-right > *", {opacity: 0, scale: .8, x: 20});
-
 
 
 
@@ -279,8 +281,6 @@ function showHideButtons(targetSlide) {
     }
 }
 
-// styles functionality
-
 
 function addTrackTransition() {
     if (track.classList.contains('track-transition')) {
@@ -292,14 +292,6 @@ function addTrackTransition() {
 function removeTrackTransition() {
     track.classList.remove('track-transition');
 }
-// function addRemoveSlideTransition(targetSlide) {
-//     if (targetSlide.classList.contains('current-slide')) {
-//         targetSlide.querySelector('.testing-img').classList.add('slide-transition');
-//     } else {
-//         targetSlide.classList.remove('slide-transition');
-//     }
-// }
-
 
 //collage svg lasers positioning
 
