@@ -5,7 +5,8 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 gsap.registerPlugin(DrawSVGPlugin);
 gsap.registerPlugin(ScrollTrigger);
 
-
+// import Rellax from "rellax";
+// let rellax = new Rellax('.rellax');
 
 
 //intro border animations
@@ -13,7 +14,7 @@ gsap.from(".intro-blue", {scrollTrigger: {trigger: ".intro-blue", start: "50px 8
 gsap.from(".intro-purple", {scrollTrigger: {trigger: ".intro-purple", start: "50px 80%"}, duration: 2.5, ease:"none", drawSVG: 0});
 
 // //__btm
-gsap.set('.btm-hex-cluster', {opacity: 0})
+// gsap.set('.btm-hex-cluster', {opacity: 0})
 // gsap.set(".btm-hex-cluster > *", {transformOrigin: "center"});
 // gsap.from(".btm-hex-cluster > *", {duration: .5, ease: "none", scale: 0, stagger: -.10});
 
@@ -26,33 +27,22 @@ gsap.set(".tm-right > *", {transformOrigin: "center"});
 gsap.set(".tm-right > *", {opacity: 0, scale: .8, x: 20});
 
 
-
-
 //menu timeline
 gsap.set('.top-hex > *', {transformOrigin: "top right", scale: 0});
 gsap.set('.middle-hex-cluster .mid-blue-hex', {transformOrigin: "10% 60%", scale: 0});
 gsap.set('.under-layer', {transformOrigin: "bottom left", x: "-50%", y: "50%", scale: 0})
 gsap.set('.mid-layer', {transformOrigin: "top left", x: "-50%", y: "-50%", scale: 0})
 gsap.set('.top-layer', {transformOrigin: "bottom right", x: "60%", y: "60%", scale: 0})
-
 gsap.set('.menu-shadow', {opacity: 0});
+
 let blueMenuAnimations = gsap.timeline({scrollTrigger: {trigger: '.menu-blue', start:"10% 80%"}});
-let purpleMenuAnimations = gsap.timeline({scrollTrigger: {trigger: '.menu-purple', start: '-150% top'}});
+let purpleMenuAnimations = gsap.timeline({scrollTrigger: {trigger: '.menu-purple', start: '-150% top'}});                                                                                                                                                           
 
 
 blueMenuAnimations
     .from('.menu-blue', {duration: 3, ease: "power1.inOut", drawSVG: 0})
 
-    .to('.top-hex-1 > *', {stagger: -0.05, keyframes: [{duration: .4, scale: 1.3, ease: "power1.inOut"}, {duration: .5,scale: 1, ease: "power1.inOut"}]}, "-=.92")
-    .to('.top-hex-2 > *', {stagger: -0.05, keyframes: [{duration: .4, scale: 1.3, ease: "power1.inOut"}, {duration: .5,scale: 1, ease: "power1.inOut"}]}, "-=.92")
-    .to('.top-hex-3 > *', {stagger: -0.05, keyframes: [{duration: .4, scale: 1.3, ease: "power1.inOut"}, {duration: .5,scale: 1, ease: "power1.inOut"}]}, "-=.92")
-    .to('.top-hex-4 > *', {stagger: -0.05, keyframes: [{duration: .4, scale: 1.3, ease: "power1.inOut"}, {duration: .5,scale: 1, ease: "power1.inOut"}]}, "-=.92")
-    .to('.top-hex-5 > *', {stagger: -0.05, keyframes: [{duration: .4, scale: 1.3, ease: "power1.inOut"}, {duration: .5,scale: 1, ease: "power1.inOut"}]}, "-=.92")
-    .to('.top-hex-6 > *', {stagger: -0.05, keyframes: [{duration: .4, scale: 1.3, ease: "power1.inOut"}, {duration: .5,scale: 1, ease: "power1.inOut"}]}, "-=.92")
-    .to('.top-hex-7 > *', {stagger: -0.05, keyframes: [{duration: .4, scale: 1.3, ease: "power1.inOut"}, {duration: .5,scale: 1, ease: "power1.inOut"}]}, "-=.92")
-    .to('.top-hex-8 > *', {stagger: -0.05, keyframes: [{duration: .4, scale: 1.3, ease: "power1.inOut"}, {duration: .5,scale: 1, ease: "power1.inOut"}]}, "-=.92")
-    .to('.top-hex-9 > *', {stagger: -0.05, keyframes: [{duration: .4, scale: 1.3, ease: "power1.inOut"}, {duration: .5,scale: 1, ease: "power1.inOut"}]}, "-=.92")
-    .to('.top-hex-10 > *', {stagger: -0.05, keyframes: [{duration: .4, scale: 1.3, ease: "power1.inOut"}, {duration: .5,scale: 1, ease: "power1.inOut"}]}, "-=.92")
+    .to('.top-hex > *', {stagger: -.03, keyframes: [{duration: .5, scale: 1.3, ease: "power1.inOut"}, {duration: .5,scale: 1, ease: "power1.inOut"}]}, "-=.92")
 
     .from(".tm-left > *", {duration: .8, stagger: .10, keyframes: [{opacity: .5, scale: .9, x:-25, ease: "power1.outIn"}, {opacity: 1, scale: 1, x:0, ease: "power1.outIn"}]}, "-=.8")
     .from(".tm-right > *", {duration: .8, stagger: .10, keyframes: [{opacity: .5, scale: .9, x:-25, ease: "power1.outIn"}, {opacity: 1, scale: 1, x:0, ease: "power1.outIn"}]}, "-=1")
@@ -60,9 +50,7 @@ blueMenuAnimations
 
     .to('.mid-blue-hex', {stagger: -0.05, keyframes: [{duration: .4,scale: 1.3, ease: "power1.inOut"}, {duration: .5,scale: 1, ease: "power1.inOut"}]}, "-=.8")
     .to('.mid-purp-hex', {stagger: .04, keyframes: [{duration: .4, ease: "power1.inOut"}, {duration: .5, scale: 1, x: "0%", y: "0%", ease: "back"}]}, "-=.7")
-    
 ;
-
 
 
 gsap.set('.sandwich-menu > *', {transformOrigin: "center", scale: .8, opacity: 0, y: -20});
@@ -84,27 +72,6 @@ purpleMenuAnimations
 
 
 
-
-
-
-
-
-
-//gallery border animations
-gsap.from(".gallery-top-blue", {scrollTrigger: {trigger: ".gallery-top-blue", start: "50px 80%"}, duration: 2.5, ease:"none", drawSVG: 0});
-gsap.from(".gallery-top-purple", {scrollTrigger: {trigger: ".gallery-top-purple", start: "50px 80%"}, duration: 2.5, ease:"none", drawSVG: 0});
-gsap.from(".gallery-mid-blue", {scrollTrigger: {trigger: ".gallery-mid-blue", start: "50px 80%"}, duration: 2.5, ease:"none", drawSVG: 0});
-gsap.from(".gallery-mid-purple", {scrollTrigger: {trigger: ".gallery-mid-purple", start: "50px 80%"}, duration: 2.5, ease:"none", drawSVG: 0});
-gsap.from(".gallery-btm-blue", {scrollTrigger: {trigger: ".gallery-btm-blue", start: "50px 80%"}, duration: 2.5, ease:"none", drawSVG: 0});
-gsap.from(".gallery-btm-purple", {scrollTrigger: {trigger: ".gallery-btm-purple", start: "50px 80%"}, duration: 2.5, ease:"none", drawSVG: 0});
-
-
-// import Rellax from "rellax";
-
-// let rellax = new Rellax('.rellax');
-
-
-//          https://jsfiddle.net/mo1hbnpy/60/
 
 
 //IMAGE COLLAGE / CUSTOM MODAL CAROUSEL
@@ -281,7 +248,6 @@ function showHideButtons(targetSlide) {
     }
 }
 
-
 function addTrackTransition() {
     if (track.classList.contains('track-transition')) {
         return;
@@ -293,19 +259,14 @@ function removeTrackTransition() {
     track.classList.remove('track-transition');
 }
 
-//collage svg lasers positioning
 
-const topSVG = document.querySelector('.cb-top');
-const btmSVG = document.querySelector('.cb-btm')
-window.addEventListener('resize', adjustBorderTop);
-const topSVGHeight = topSVG.clientHeight;
-topSVG.style.top = -topSVGHeight + "px";
-const btmSVGHeight = btmSVG.clientHeight;
-btmSVG.style.bottom = -btmSVGHeight + "px";
 
-function adjustBorderTop() {
-    const topSVGHeight = topSVG.clientHeight;
-    topSVG.style.top = -topSVGHeight + "px";
-    const btmSVGHeight = btmSVG.clientHeight;
-    btmSVG.style.bottom = -btmSVGHeight + "px";
-}
+// Collage Image Scroll Animations
+
+//as viewport enters image area, images animate and appear
+//add individual scrolltrigger to each image
+image.forEach(image => {
+    gsap.to(image, {scrollTrigger: {trigger: image, scrub: true, endTrigger: image, end: "top 88%"}, scaleX: 1, scaleY: 1, skewX: 0, skewY: 0, rotate: 0, duration: 2, ease: "none"})
+});
+
+gsap.to(".section-3-title", {scrollTrigger: {trigger: ".section-3-tc", start: "bottom 90%", end: "bottom 80%", scrub: true, markers: true}, opacity: 1, translateY: 0, duration: 1, ease: "none"})

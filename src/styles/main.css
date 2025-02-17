@@ -462,38 +462,29 @@ button {
 
 
 
-
-
 .section-3 {
-    max-width: 100px;
-    margin: 0 auto;
-    text-align: center;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-.section3-title {
-    font-size: clamp(1.5rem, 6vw, 3.5rem);
-    font-family: "Orbitron";
-    font-weight: bolder;
-    position: absolute;
-}
-
-
-
-
-
-
-
-.section-4 {
     max-width: 1150px;
     margin: 0 auto;
     position: relative;
     padding-top: clamp(250px, 50vw, 400px);
     padding-bottom: 200px;
 }
+.section-3-tc {
+    margin: 0 auto;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.section-3-title {
+    font-size: clamp(1.5rem, 6vw, 3.5rem);
+    font-family: "Orbitron";
+    font-weight: bolder;
+    opacity: 0;
+    transform: translateY(100px);
+}
 @media screen and (width < 1150px) {
-    .section-4 {
+    .section-3 {
         margin: 0 1rem;
     }
 }
@@ -511,6 +502,8 @@ button {
     margin-bottom: 4%;
     overflow: hidden;
     position: relative;
+    transform: scale(.1, .05) skew(-50deg, -10deg);
+    transform-origin: center center;
 }
 .collage-img {
     width: 100%;
@@ -555,28 +548,13 @@ button {
     opacity: 1;
     transition: opacity .2s ease-in;
 }
-/* .image-overlay {
-    position: absolute;
-    inset: 0;
-    opacity: 0;
-    pointer-events:none;
-    background: linear-gradient(to left, #06a8ce, #005366);
-}
-.image-overlay:hover {
-    opacity: 1;
-} */
 @media screen and (width < 1100px) {
     .collage-container {
         flex-direction: column;
         flex: 100%;
     }
 }
-/* @media screen and (width < 500px) {
-    .mq-response {
-        display: block;
-        flex: 100%;
-    }
-} */
+
 /* MODAL */
 .modal {
     position: absolute;
