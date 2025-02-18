@@ -269,4 +269,4 @@ image.forEach(image => {
     gsap.to(image, {scrollTrigger: {trigger: image, scrub: true, endTrigger: image, end: "top 88%"}, scaleX: 1, scaleY: 1, skewX: 0, skewY: 0, rotate: 0, duration: 2, ease: "none"})
 });
 
-gsap.to(".section-3-title", {scrollTrigger: {trigger: ".section-3-tc", start: "bottom 90%", end: "bottom 80%", scrub: true, markers: true}, opacity: 1, translateY: 0, duration: 1, ease: "none"})
+gsap.to(".section-3-title", {scrollTrigger: {trigger: ".section-3-tc", start: "bottom 90%", end: "bottom 70%", scrub: true, markers: true}, opacity: 1, translateY: 0})
