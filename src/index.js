@@ -265,8 +265,34 @@ function removeTrackTransition() {
 
 //as viewport enters image area, images animate and appear
 //add individual scrolltrigger to each image
+
+// var tl = gsap.timeline();
+// tl.to(image, {scaleX: 1, scaleY: 1, skewX: 0, skewY: 0, rotate: 0, duration: 2, ease: "none"});
+
+// var scrollargs = {
+//     trigger: image, 
+//     scrub: true, 
+//     animation: tl, 
+//     end: "bottom 80%", 
+//     markers: true
+// }
+
+// ScrollTrigger.create(scrollargs);
+
+// image.forEach(image => {
+    
+//     if (image.complete) {
+//         ScrollTrigger.refresh();
+//     } else {
+//         image.addEventListener('load', () => {
+//             ScrollTrigger.refresh();
+//         })
+//     }
+// })
+
+
 image.forEach(image => {
-    gsap.to(image, {scrollTrigger: {trigger: image, scrub: true, endTrigger: image, end: "top 88%"}, scaleX: 1, scaleY: 1, skewX: 0, skewY: 0, rotate: 0, duration: 2, ease: "none"})
+    gsap.to(image, {scrollTrigger: {trigger: image, scrub: true, endTrigger: image, end: "bottom 80%", markers: true}, scaleX: 1, scaleY: 1, skewX: 0, skewY: 0, rotate: 0, duration: 2, ease: "none"})
 });
 
-gsap.to(".section-3-title", {scrollTrigger: {trigger: ".section-3-tc", start: "bottom 90%", end: "bottom 70%", scrub: true, markers: true}, opacity: 1, translateY: 0})
+gsap.to(".section-3-title", {scrollTrigger: {trigger: ".section-3-tc", start: "bottom 90%", end: "bottom 70%", scrub: true}, opacity: 1, translateY: 0})
