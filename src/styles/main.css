@@ -508,24 +508,57 @@ button {
 }
 .image-wrapper {
     position: relative;
-    padding: 7px;
+    padding: 5px;
     margin-bottom: 8%;
 }
-.collage-img-border {
+
+
+
+
+
+
+
+
+
+
+.cib {
     position: absolute;
     inset: 0;
-    border-radius: 5px;
-}
-.blue-border {
-    background-color: #0B9EF5;
     transform-origin: center;
-    transform: scale(0);
-    box-shadow: 0 0 12px 1px #5cc3ff, inset .5px 0 4px .5px rgba(0, 0, 0, 0.527), inset -.3px 0 4px .5px rgba(0, 0, 0, 0.24);
+    border-radius: 7px;
+    background-image: conic-gradient(from 0deg, transparent 70%, #0B9EF5 0%);
 }
-.purp-border {
-    background-color: #FF00FF;
-    box-shadow: 0 0 12px 1px #f024f0, inset 0 0 4px .5px black;
+.inset-shadow {
+    position: absolute;
+    inset: 0;
+    border-radius: 7px;
+    box-shadow: inset .5px 0 4px .5px rgba(0, 0, 0, 0.527), inset -.3px 0 4px .5px rgba(0, 0, 0, 0.24);
 }
+.collage-img-bg-l {
+    background-image: conic-gradient(from 0deg, transparent 70%, #0B9EF5 0%);
+}
+.collage-img-bg-r {
+    background-image: conic-gradient(from 0deg, transparent 70%, #0B9EF5 0%);
+    transform: rotateY(180deg);
+}
+/* .collage-img-bg-l::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: conic-gradient(from 0deg, transparent 70%, #0B9EF5 0%);
+    filter: blur(8px);
+}
+.collage-img-bg-r::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: conic-gradient(from 0deg, transparent 70%, #0B9EF5 0%);
+    filter: blur(8px);
+} */
+
+
+
+
 .img-container {
     overflow: hidden;
     position: relative;

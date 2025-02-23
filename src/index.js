@@ -310,4 +310,4 @@ gsap.to(".section-3-title", {scrollTrigger: {trigger: ".section-3-tc", start: "b
 
 const blueBorder = document.querySelector('.blue-border');
 
-gsap.to(blueBorder, {scale:1, ease:"none", duration: 2})
+// gsap.to(blueBorder, {scale:1, ease:"power1.out", duration: 1})
