@@ -526,7 +526,6 @@ button {
     inset: 0;
     transform-origin: center;
     border-radius: 7px;
-    background-image: conic-gradient(from 0deg, transparent 70%, #0B9EF5 0%);
 }
 .inset-shadow {
     position: absolute;
@@ -535,28 +534,43 @@ button {
     box-shadow: inset .5px 0 4px .5px rgba(0, 0, 0, 0.527), inset -.3px 0 4px .5px rgba(0, 0, 0, 0.24);
 }
 .collage-img-bg-l {
-    background-image: conic-gradient(from 0deg, transparent 70%, #0B9EF5 0%);
+    background-image: conic-gradient(from 0deg, transparent var(--gradient-percentage), #0B9EF5 0%);
+    animation: border-animation linear 2s infinite;
 }
 .collage-img-bg-r {
-    background-image: conic-gradient(from 0deg, transparent 70%, #0B9EF5 0%);
+    background-image: conic-gradient(from 0deg, transparent var(--gradient-percentage), #0B9EF5 0%);
+    animation: border-animation linear 2s infinite;
     transform: rotateY(180deg);
 }
-/* .collage-img-bg-l::before {
+.collage-img-bg-l::before {
     content: '';
     position: absolute;
     inset: 0;
-    background-image: conic-gradient(from 0deg, transparent 70%, #0B9EF5 0%);
+    background-image: conic-gradient(from 0deg, transparent var(--gradient-percentage), #0B9EF5 0%);
+    animation: border-animation linear 2s infinite;
     filter: blur(8px);
 }
 .collage-img-bg-r::before {
     content: '';
     position: absolute;
     inset: 0;
-    background-image: conic-gradient(from 0deg, transparent 70%, #0B9EF5 0%);
+    background-image: conic-gradient(from 0deg, transparent var(--gradient-percentage), #0B9EF5 0%);
+    animation: border-animation linear 2s infinite;
     filter: blur(8px);
-} */
-
-
+}
+@keyframes border-animation {
+    0% {
+        --gradient-percentage: 100%;
+    }
+    100% {
+        --gradient-percentage: 50%;
+    }
+}
+@property --gradient-percentage {
+    syntax: "<percentage>";
+    initial-value: 100%;
+    inherits: true;
+}
 
 
 .img-container {

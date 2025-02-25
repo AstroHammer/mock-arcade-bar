@@ -303,6 +303,7 @@ let tl = gsap.timeline({
 
 image.forEach(image => {
     tl.to(image, {scrollTrigger: {trigger: image, scrub: true, endTrigger: image, end: "bottom 80%", markers: true}, scaleX: 1, scaleY: 1, skewX: 0, skewY: 0, rotate: 0, duration: 2, ease: "none"})
+    
 });
 
 gsap.to(".section-3-title", {scrollTrigger: {trigger: ".section-3-tc", start: "bottom 90%", end: "bottom 70%", scrub: true}, opacity: 1, translateY: 0})
