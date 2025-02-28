@@ -263,52 +263,91 @@ function removeTrackTransition() {
 
 // Collage Image Scroll Animations
 
-//as viewport enters image area, images animate and appear
-//add individual scrolltrigger to each image
+//as viewport enters image area, images animate and appear   check
+//add individual scrolltrigger to each image     check
 
-// var tl = gsap.timeline();
-// tl.to(image, {scaleX: 1, scaleY: 1, skewX: 0, skewY: 0, rotate: 0, duration: 2, ease: "none"});
+//animate bg once image has ended its scrollEvent 
 
-// var scrollargs = {
-//     trigger: image, 
-//     scrub: true, 
-//     animation: tl, 
-//     end: "bottom 80%", 
-//     markers: true
-// }
 
-// ScrollTrigger.create(scrollargs);
-
-// image.forEach(image => {
-    
-//     if (image.complete) {
-//         ScrollTrigger.refresh();
-//     } else {
-//         image.addEventListener('load', () => {
-//             ScrollTrigger.refresh();
-//         })
-//     }
-// })
-const imageBorder = document.querySelectorAll('.collage-img-border');
-
-let tl = gsap.timeline({
-    scrollTrigger: {
-        trigger: image,
-        endTrigger: image,
-        end: "bottom 80%",
-        markers: true,
-        scrub: true
-    }
-})
+const leftBorder = document.querySelectorAll('.collage-img-bg-l');
+const rightBorder = document.querySelectorAll('.collage-img-bg-r');
 
 image.forEach(image => {
-    tl.to(image, {scrollTrigger: {trigger: image, scrub: true, endTrigger: image, end: "bottom 80%", markers: true}, scaleX: 1, scaleY: 1, skewX: 0, skewY: 0, rotate: 0, duration: 2, ease: "none"})
+    let tl = gsap.timeline({
+        scrollTrigger: {
+            trigger: image,
+            endTrigger: image,
+            end: "bottom 80%",
+            markers: true,
+            scrub: true,
+            onLeave: ({progress, direction, isActive}) => animateBg(image)
+        }
+    })
+
+    tl.to(image, {scaleX: 1, scaleY: 1, skewX: 0, skewY: 0, rotate: 0})
     
+
+    
+
+
 });
 
-gsap.to(".section-3-title", {scrollTrigger: {trigger: ".section-3-tc", start: "bottom 90%", end: "bottom 70%", scrub: true}, opacity: 1, translateY: 0})
+function animateBg(image) {
+    const imageBg = image.parentElement.querySelectorAll('.cib');
+
+    gsap.to(imageBg, {"--gradient-percentage": "50%", duration: 2})
+    
+}
+
+// leftBorder.forEach(lb => {
+//     let tl2 = gsap.timeline({
+//         scrollTrigger: {
+//             trigger: lb,
+//             endTrigger: lb,
+//             end: "bottom 10%",
+//             markers: true,
+//             scrub: true
+//         }
+//     })
+
+//     tl2.to(lb, {"--gradient-percentage": "50%"})
+// })
+
+// rightBorder.forEach(rb => {
+//     let tl2 = gsap.timeline({
+//         scrollTrigger: {
+//             trigger: rb,
+//             endTrigger: rb,
+//             end: "bottom 10%",
+//             markers: true,
+//             scrub: true
+//         }
+//     })
+    
+//     tl2.to(rb, {"--gradient-percentage": "50%"})
+// })
 
 
-const blueBorder = document.querySelector('.blue-border');
+//vvvv lb wasnt defined obviously vvvv
 
-// gsap.to(blueBorder, {scale:1, ease:"power1.out", duration: 1})
+// let borderScrub = gsap.timeline({
+//     scrollTrigger: {
+//         trigger: lb,
+//         endTrigger: lb,
+//         end: "bottom 80%",
+//         markers: true,
+//         scrub: true
+//     }
+// })
+
+// borderScrub
+//     leftBorder.forEach(lb => {
+//         tl2.to(lb, {"--gradient-percentage": "50%"})
+//     })
+//     rightBorder.forEach(rb => {
+//         tl2.to(rb, {"--gradient-percentage": "50%"})
+//     })
+// ;
+
+
+gsap.to(".section-3-title", {scrollTrigger: {trigger: ".section-3-tc", start: "bottom 90%", end: "bottom 70%"}, opacity: 1, translateY: 0})
