@@ -527,19 +527,31 @@ button {
     transform-origin: center;
     border-radius: 7px;
 }
-.inset-shadow {
+
+/* causing those unsightly lines in the border == need to fine-tune the shadow */
+/* .inset-shadow {
     position: absolute;
     inset: 0;
     border-radius: 7px;
     box-shadow: inset .5px 0 4px .5px rgba(0, 0, 0, 0.527), inset -.3px 0 4px .5px rgba(0, 0, 0, 0.24);
+} */
+
+
+.purple-bg {
+    background: conic-gradient(from 0deg, transparent var(--gradient-percentage), #FF00FF 0%);
 }
+.blue-bg {
+    background: conic-gradient(from 0deg, transparent var(--gradient-percentage), #0B9EF5 0%);
+}
+
+
+
+
 .collage-img-bg-l {
     background: conic-gradient(from 0deg, transparent var(--gradient-percentage), #0B9EF5 0%);
-    animation: 2s linear 1 forwards border-animation;
 }
 .collage-img-bg-r {
     background: conic-gradient(from 0deg, transparent var(--gradient-percentage), #0B9EF5 0%);
-    animation: 2s linear 1 forwards border-animation;
     transform: rotateY(180deg);
 }
 .collage-img-bg-l::before {
@@ -547,7 +559,6 @@ button {
     position: absolute;
     inset: 0;
     background: conic-gradient(from 0deg, transparent var(--gradient-percentage), #0B9EF5 0%);
-    animation: 2s linear 1 forwards border-animation;
     filter: blur(8px);
 }
 .collage-img-bg-r::before {
@@ -555,14 +566,9 @@ button {
     position: absolute;
     inset: 0;
     background: conic-gradient(from 0deg, transparent var(--gradient-percentage), #0B9EF5 0%);
-    animation: 2s linear 1 forwards border-animation;
     filter: blur(8px);
 }
-/* @keyframes border-animation {
-    100% {
-        --gradient-percentage: 50%;
-    }
-} */
+
 @property --gradient-percentage {
     syntax: "<percentage>";
     initial-value: 100%;

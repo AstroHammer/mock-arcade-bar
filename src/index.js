@@ -266,11 +266,8 @@ function removeTrackTransition() {
 //as viewport enters image area, images animate and appear   check
 //add individual scrolltrigger to each image     check
 
-//animate bg once image has ended its scrollEvent 
-
-
-const leftBorder = document.querySelectorAll('.collage-img-bg-l');
-const rightBorder = document.querySelectorAll('.collage-img-bg-r');
+//animate bg once image has ended its scrollEvent    check
+//apply scrolltrigger scrub to bg animation
 
 image.forEach(image => {
     let tl = gsap.timeline({
@@ -278,76 +275,29 @@ image.forEach(image => {
             trigger: image,
             endTrigger: image,
             end: "bottom 80%",
-            markers: true,
             scrub: true,
-            onLeave: ({progress, direction, isActive}) => animateBg(image)
+            onLeave: () => animateBg(image)
         }
     })
 
     tl.to(image, {scaleX: 1, scaleY: 1, skewX: 0, skewY: 0, rotate: 0})
-    
-
-    
-
-
 });
 
 function animateBg(image) {
     const imageBg = image.parentElement.querySelectorAll('.cib');
-
-    gsap.to(imageBg, {"--gradient-percentage": "50%", duration: 2})
+    
+    let tl2 = gsap.timeline({
+        scrollTrigger: {
+            trigger: imageBg,
+            start: 'top 50%',
+            end: 'bottom 36%',
+            scrub: true,
+        }
+    })
+    tl2.to(imageBg, {"--gradient-percentage": "50%"})
     
 }
 
-// leftBorder.forEach(lb => {
-//     let tl2 = gsap.timeline({
-//         scrollTrigger: {
-//             trigger: lb,
-//             endTrigger: lb,
-//             end: "bottom 10%",
-//             markers: true,
-//             scrub: true
-//         }
-//     })
 
-//     tl2.to(lb, {"--gradient-percentage": "50%"})
-// })
+gsap.to(".section-3-title", {scrollTrigger: {trigger: ".section-3-tc", start: "bottom 90%", end: "bottom 70%", scrub: true}, opacity: 1, translateY: 0})
 
-// rightBorder.forEach(rb => {
-//     let tl2 = gsap.timeline({
-//         scrollTrigger: {
-//             trigger: rb,
-//             endTrigger: rb,
-//             end: "bottom 10%",
-//             markers: true,
-//             scrub: true
-//         }
-//     })
-    
-//     tl2.to(rb, {"--gradient-percentage": "50%"})
-// })
-
-
-//vvvv lb wasnt defined obviously vvvv
-
-// let borderScrub = gsap.timeline({
-//     scrollTrigger: {
-//         trigger: lb,
-//         endTrigger: lb,
-//         end: "bottom 80%",
-//         markers: true,
-//         scrub: true
-//     }
-// })
-
-// borderScrub
-//     leftBorder.forEach(lb => {
-//         tl2.to(lb, {"--gradient-percentage": "50%"})
-//     })
-//     rightBorder.forEach(rb => {
-//         tl2.to(rb, {"--gradient-percentage": "50%"})
-//     })
-// ;
-
-
-gsap.to(".section-3-title", {scrollTrigger: {trigger: ".section-3-tc", start: "bottom 90%", end: "bottom 70%"}, opacity: 1, translateY: 0})
