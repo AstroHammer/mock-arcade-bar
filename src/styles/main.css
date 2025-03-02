@@ -527,6 +527,19 @@ button {
     transform-origin: center;
     border-radius: 7px;
 }
+.collage-img-bg-r {
+    transform: rotateY(180deg);
+}
+.before-element {
+    position: absolute;
+    inset: 0;
+    filter: blur(8px);
+}
+@property --gradient-percentage {
+    syntax: "<percentage>";
+    initial-value: 100%;
+    inherits: true;
+}
 
 /* causing those unsightly lines in the border == need to fine-tune the shadow */
 /* .inset-shadow {
@@ -535,45 +548,6 @@ button {
     border-radius: 7px;
     box-shadow: inset .5px 0 4px .5px rgba(0, 0, 0, 0.527), inset -.3px 0 4px .5px rgba(0, 0, 0, 0.24);
 } */
-
-
-.purple-bg {
-    background: conic-gradient(from 0deg, transparent var(--gradient-percentage), #FF00FF 0%);
-}
-.blue-bg {
-    background: conic-gradient(from 0deg, transparent var(--gradient-percentage), #0B9EF5 0%);
-}
-
-
-
-
-.collage-img-bg-l {
-    background: conic-gradient(from 0deg, transparent var(--gradient-percentage), #0B9EF5 0%);
-}
-.collage-img-bg-r {
-    background: conic-gradient(from 0deg, transparent var(--gradient-percentage), #0B9EF5 0%);
-    transform: rotateY(180deg);
-}
-.collage-img-bg-l::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: conic-gradient(from 0deg, transparent var(--gradient-percentage), #0B9EF5 0%);
-    filter: blur(8px);
-}
-.collage-img-bg-r::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: conic-gradient(from 0deg, transparent var(--gradient-percentage), #0B9EF5 0%);
-    filter: blur(8px);
-}
-
-@property --gradient-percentage {
-    syntax: "<percentage>";
-    initial-value: 100%;
-    inherits: true;
-}
 
 
 .img-container {
@@ -980,12 +954,12 @@ svg {
 }
 
 /* footer-info response */
-@media screen and (width < 881px) {
+@media screen and (width < 1100px) {
     .footer-tophalf {
         height: 220px;
     }
 }
-@media screen and (width < 550px) {
+@media screen and (width < 670px) {
     .footer-tophalf {
         flex-direction: column;
     }

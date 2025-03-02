@@ -267,7 +267,7 @@ function removeTrackTransition() {
 //add individual scrolltrigger to each image     check
 
 //animate bg once image has ended its scrollEvent    check
-//apply scrolltrigger scrub to bg animation
+//apply scrolltrigger scrub to bg animation     check
 
 image.forEach(image => {
     let tl = gsap.timeline({
@@ -284,8 +284,32 @@ image.forEach(image => {
 });
 
 function animateBg(image) {
-    const imageBg = image.parentElement.querySelectorAll('.cib');
-    
+
+    // i want imageBg and it's children to be assigned a background color
+
+    // find color elements
+    // apply color to those elements based on random number, purp or blue?
+    const imageBg = image.parentElement.querySelectorAll('.cib');    
+    const raNum = Math.floor(Math.random() * 2) + 1;
+
+    imageBg.forEach(bg => {
+        let targetBg = bg.querySelector('.before-element');
+        applyColors(bg, targetBg, raNum);
+    })
+
+    function applyColors(imageBg, targetBg, raNum) {
+        if (raNum === 1) {
+            imageBg.style.background = 'conic-gradient(from 0deg, transparent var(--gradient-percentage), #FF00FF 0%)';
+            targetBg.style.background = 'conic-gradient(from 0deg, transparent var(--gradient-percentage), #FF00FF 0%)';
+        } else if (raNum === 2) {
+            imageBg.style.background = 'conic-gradient(from 0deg, transparent var(--gradient-percentage), #0B9EF5 0%)';
+            targetBg.style.background = 'conic-gradient(from 0deg, transparent var(--gradient-percentage), #0B9EF5 0%)';
+        } else {
+            return;
+        }
+    }
+
+    // scrub animate
     let tl2 = gsap.timeline({
         scrollTrigger: {
             trigger: imageBg,
@@ -295,7 +319,6 @@ function animateBg(image) {
         }
     })
     tl2.to(imageBg, {"--gradient-percentage": "50%"})
-    
 }
 
 
