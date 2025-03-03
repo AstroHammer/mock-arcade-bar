@@ -277,7 +277,6 @@ image.forEach(image => {
             start: "top bottom",
             end: () => `+=${image.offsetHeight}`,
             scrub: true,
-            
             invalidateOnRefresh: true, 
             //solution to creating duplicate timelines
             onLeave: () => {
@@ -339,7 +338,6 @@ function animateBg(image) {
                     start: 'bottom bottom',
                     end: () => `+=${image.offsetHeight}`,
                     scrub: true,
-                    markers:true,
                     invalidateOnRefresh: true
                 }
             });
