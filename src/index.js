@@ -274,51 +274,96 @@ image.forEach(image => {
         scrollTrigger: {
             trigger: image,
             endTrigger: image,
-            end: "bottom 80%",
+            start: "top bottom",
+            end: () => `+=${image.offsetHeight}`,
             scrub: true,
-            onLeave: () => animateBg(image)
+            
+            invalidateOnRefresh: true, 
+            //solution to creating duplicate timelines
+            onLeave: () => {
+                if (!image.dataset.animated) {
+                    image.dataset.animated = "true"; // Prevent duplicate triggers
+                    animateBg(image);
+                }
+            }
+            
+            //old, a part of causing duplicate timelines
+            // onLeave: () => animateBg(image)
         }
     })
-
-    tl.to(image, {scaleX: 1, scaleY: 1, skewX: 0, skewY: 0, rotate: 0})
+    
+    tl.fromTo(image, {scaleX: .1, scaleY: .05, skewX: 50, skewY: 10, rotate: 10}, {scaleX: 1, scaleY: 1, skewX: 0, skewY: 0, rotate: 0, visibility: "visible", immediateRender: false})
 });
 
 function animateBg(image) {
-
     // i want imageBg and it's children to be assigned a background color
 
     // find color elements
     // apply color to those elements based on random number, purp or blue?
-    const imageBg = image.parentElement.querySelectorAll('.cib');    
-    const raNum = Math.floor(Math.random() * 2) + 1;
+    const imageBg = image.parentElement.querySelectorAll('.cib');  
+    
+    // simplifid ternary version
+    const raNum = Math.random() < 0.5 ? 1 : 2;
+    // const raNum = Math.floor(Math.random() * 2) + 1;
+
+    //cleaner ternary / template literal version
+    function applyColors(imageBg, targetBg, raNum) {
+        const color = raNum === 1 ? "#FF00FF" : "#0B9EF5";
+        imageBg.style.background = `conic-gradient(from 0deg, transparent var(--gradient-percentage), ${color} 0%)`;
+        targetBg.style.background = `conic-gradient(from 0deg, transparent var(--gradient-percentage), ${color} 0%)`;
+    }
+    // function applyColors(imageBg, targetBg, raNum) {
+    //     if (raNum === 1) {
+    //         imageBg.style.background = 'conic-gradient(from 0deg, transparent var(--gradient-percentage), #FF00FF 0%)';
+    //         targetBg.style.background = 'conic-gradient(from 0deg, transparent var(--gradient-percentage), #FF00FF 0%)';
+    //     } else if (raNum === 2) {
+    //         imageBg.style.background = 'conic-gradient(from 0deg, transparent var(--gradient-percentage), #0B9EF5 0%)';
+    //         targetBg.style.background = 'conic-gradient(from 0deg, transparent var(--gradient-percentage), #0B9EF5 0%)';
+    //     } else {
+    //         return;
+    //     }
+    // }
 
     imageBg.forEach(bg => {
         let targetBg = bg.querySelector('.before-element');
         applyColors(bg, targetBg, raNum);
+
+        //solution to creating duplicate timelines
+        if (!bg.dataset.animated) {
+            bg.dataset.animated = "true";
+    
+            gsap.to(bg, {
+                "--gradient-percentage": "50%",
+                scrollTrigger: {
+                    trigger: bg,
+                    start: 'bottom bottom',
+                    end: () => `+=${image.offsetHeight}`,
+                    scrub: true,
+                    markers:true,
+                    invalidateOnRefresh: true
+                }
+            });
+        }
     })
 
-    function applyColors(imageBg, targetBg, raNum) {
-        if (raNum === 1) {
-            imageBg.style.background = 'conic-gradient(from 0deg, transparent var(--gradient-percentage), #FF00FF 0%)';
-            targetBg.style.background = 'conic-gradient(from 0deg, transparent var(--gradient-percentage), #FF00FF 0%)';
-        } else if (raNum === 2) {
-            imageBg.style.background = 'conic-gradient(from 0deg, transparent var(--gradient-percentage), #0B9EF5 0%)';
-            targetBg.style.background = 'conic-gradient(from 0deg, transparent var(--gradient-percentage), #0B9EF5 0%)';
-        } else {
-            return;
-        }
-    }
+
 
     // scrub animate
-    let tl2 = gsap.timeline({
-        scrollTrigger: {
-            trigger: imageBg,
-            start: 'top 50%',
-            end: 'bottom 36%',
-            scrub: true,
-        }
-    })
-    tl2.to(imageBg, {"--gradient-percentage": "50%"})
+
+
+
+
+    //this was creating duplicate timelines, caused odd animations behavior
+    // let tl2 = gsap.timeline({
+    //     scrollTrigger: {
+    //         trigger: imageBg,
+    //         start: 'top 50%',
+    //         end: 'bottom 36%',
+            
+    //         scrub: true,
+    //     }
+    // })
+    // tl2.to(imageBg, {"--gradient-percentage": "50%"})
 }
 
 

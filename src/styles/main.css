@@ -547,10 +547,12 @@ button {
     border-radius: 5px;
 }
 .column:nth-child(1) .img-container {
-    transform: scale(.1, .05) skew(50deg, 10deg);
+    visibility: hidden;
+    /* transform: scale(.1, .05) skew(50deg, 10deg); */
 }
 .column:nth-child(2) .img-container {
-    transform: scale(.1, .05) skew(-50deg, -10deg);
+    visibility: hidden;
+    /* transform: scale(.1, .05) skew(-50deg, -10deg); */
 }
 .collage-img {
     width: 100%;
