@@ -255,6 +255,12 @@ button {
     background: #90d6ff;
     top: 0;
     box-shadow: 0 0 20px 5px #90d6ff, 0 0 20px 5px #90d6ff, 0 0 20px 5px #90d6ff;
+    opacity: 0;
+}
+.purppulse {
+    background: #FF00FF;
+    box-shadow: 0 0 20px 5px #FF00FF, 0 0 20px 5px #FF00FF, 0 0 20px 5px #FF00FF;
+
 }
 .rcd {
     right: 0;
