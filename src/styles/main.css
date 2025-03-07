@@ -252,15 +252,24 @@ button {
     width: 5px;
     height: 5px;
     border-radius: 50%;
-    background: #90d6ff;
     top: 0;
-    box-shadow: 0 0 20px 5px #90d6ff, 0 0 20px 5px #90d6ff, 0 0 20px 5px #90d6ff;
     opacity: 0;
+}
+.bluepulse {
+    background: #0B9EF5;
+    box-shadow: 0 0 15px 5px #0B9EF5, 0 0 15px 5px #0B9EF5, 0 0 15px 5px #0B9EF5;
 }
 .purppulse {
     background: #FF00FF;
     box-shadow: 0 0 20px 5px #FF00FF, 0 0 20px 5px #FF00FF, 0 0 20px 5px #FF00FF;
-
+}
+.starlight-bg {
+    inset: 0;
+    height: 100vh;
+    z-index: 99;
+    background: red;
+    opacity: .2;
+    position: absolute;
 }
 .rcd {
     right: 0;
