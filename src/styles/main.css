@@ -254,10 +254,12 @@ button {
     border-radius: 50%;
     top: 0;
     opacity: 0;
+    mix-blend-mode: color-dodge;
 }
 .bluepulse {
     background: #0B9EF5;
     box-shadow: 0 0 15px 5px #0B9EF5, 0 0 15px 5px #0B9EF5, 0 0 15px 5px #0B9EF5;
+    
 }
 .purppulse {
     background: #FF00FF;
@@ -269,6 +271,7 @@ button {
     z-index: 99;
     background: red;
     opacity: .2;
+    visibility: hidden;
     position: absolute;
 }
 .rcd {

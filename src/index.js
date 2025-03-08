@@ -10,25 +10,68 @@ gsap.registerPlugin(MotionPathPlugin);
 // import Rellax from "rellax";
 // let rellax = new Rellax('.rellax');
 //intro border animations
+
 //blue
-let bluepulsetl = gsap.timeline();
-gsap.from(".intro-blue", {scrollTrigger: {trigger: ".intro-blue", start: "50px 80%"}, duration: 2.5, ease:"none", drawSVG: 0, onComplete: () => {
-    bluepulsetl.to(".bluepulse", {
+gsap.from(".intro-blue", 
+    {scrollTrigger: 
+        {trigger: 
+            ".intro-blue", 
+            start: "50px 80%"
+        }, 
+        duration: 2.5, 
+        ease:"none", 
+        drawSVG: 0, 
+        onComplete: () => beginBluePulses()
+    }
+);
+function beginBluePulses() {
+    //could potentially make each argument a variable for ultimate modularity
+    //use loop iteration variable as first argument
+    //just add an html element and copy paste another call
+    animateBluePulses(".lcd > .bluepulse.regular", 2.8, 0, 1);
+    animateBluePulses(".lcd > .bluepulse.small", 3, 1, 2);
+}
+function animateBluePulses(targetPulse, duration, delay, repeatDelay) {
+    let bluepulsetl = gsap.timeline();
+    bluepulsetl.to(targetPulse, {
         motionPath: {
-          path: "M3.5 3.5V59.701C3.5 63.414 4.975 66.975 7.6005 69.6005L122.399 184.399C125.025 187.025 128.586 188.5 132.299 188.5H270C277.732 188.5 284 182.232 284 174.5V163V133.549C284 129.836 282.525 126.275 279.899 123.649L271.579 115.329C264.165 107.915 260 97.8597 260 87.375V87.375C260 76.8903 264.165 66.835 271.579 59.4211L273.393 57.6066C280.185 50.8153 289.396 47 299 47V47C308.604 47 317.815 50.8153 324.607 57.6066L326.421 59.4211C333.835 66.8349 338 76.8903 338 87.375V87.375C338 97.8597 333.835 107.915 326.421 115.329L318.101 123.649C315.475 126.275 314 129.836 314 133.549V163V174.5C314 182.232 320.268 188.5 328 188.5H346C347.105 188.5 348 187.605 348 186.5V179C348 171.268 354.268 165 362 165H405C412.732 165 419 171.268 419 179V186.5C419 187.605 419.895 188.5 421 188.5H438.5C439.605 188.5 440.5 187.605 440.5 186.5V186C440.5 178.268 446.768 172 454.5 172H487.5C495.232 172 501.5 178.268 501.5 186V186.5C501.5 187.605 502.395 188.5 503.5 188.5H800.201C803.914 188.5 807.475 189.975 810.101 192.601L865.399 247.899C868.025 250.525 869.5 254.086 869.5 257.799V480.701C869.5 484.414 868.025 487.975 865.399 490.601L576.601 779.399C573.975 782.025 570.414 783.5 566.701 783.5H17.5C9.76801 783.5 3.5 789.768 3.5 797.5V980",
-          alignOrigin: [.5, .5],
-          align: "#blue-path",
+        path: "M3.5 3.5V59.701C3.5 63.414 4.975 66.975 7.6005 69.6005L122.399 184.399C125.025 187.025 128.586 188.5 132.299 188.5H270C277.732 188.5 284 182.232 284 174.5V163V133.549C284 129.836 282.525 126.275 279.899 123.649L271.579 115.329C264.165 107.915 260 97.8597 260 87.375V87.375C260 76.8903 264.165 66.835 271.579 59.4211L273.393 57.6066C280.185 50.8153 289.396 47 299 47V47C308.604 47 317.815 50.8153 324.607 57.6066L326.421 59.4211C333.835 66.8349 338 76.8903 338 87.375V87.375C338 97.8597 333.835 107.915 326.421 115.329L318.101 123.649C315.475 126.275 314 129.836 314 133.549V163V174.5C314 182.232 320.268 188.5 328 188.5H346C347.105 188.5 348 187.605 348 186.5V179C348 171.268 354.268 165 362 165H405C412.732 165 419 171.268 419 179V186.5C419 187.605 419.895 188.5 421 188.5H438.5C439.605 188.5 440.5 187.605 440.5 186.5V186C440.5 178.268 446.768 172 454.5 172H487.5C495.232 172 501.5 178.268 501.5 186V186.5C501.5 187.605 502.395 188.5 503.5 188.5H800.201C803.914 188.5 807.475 189.975 810.101 192.601L865.399 247.899C868.025 250.525 869.5 254.086 869.5 257.799V480.701C869.5 484.414 868.025 487.975 865.399 490.601L576.601 779.399C573.975 782.025 570.414 783.5 566.701 783.5H17.5C9.76801 783.5 3.5 789.768 3.5 797.5V980",
+        alignOrigin: [.5, .5],
+        align: "#blue-path",
         },
-        duration: 3,
+        delay: delay,
+        duration: duration,
+        repeatDelay: repeatDelay,
         ease: "power1.inOut",
         repeat: -1,
         keyframes: [{opacity: 1, duration: .1}, {opacity: 1, duration: 10},{opacity: 0, duration: .1}]
     });
-}});
+}
+
 //purp
-let purppulsetl = gsap.timeline();
-gsap.from(".intro-purple", {scrollTrigger: {trigger: ".intro-purple", start: "50px 80%"}, duration: 2.5, ease:"none", drawSVG: 0, onComplete: () => {
-    purppulsetl.to(".purppulse", {
+gsap.from(".intro-purple", 
+    {scrollTrigger: 
+        {trigger: 
+            ".intro-purple", 
+            start: "50px 80%"
+        }, 
+        duration: 2.8, 
+        ease:"none", 
+        drawSVG: 0, 
+        onComplete: () => beginPurpPulses()
+    }
+);
+//when resizing window, kill pulse tweens
+//when resizing stops, restart pulse tweens
+//when section is not visible (scrolled out), kill pulse tweens
+//when section is visibile, restart pulse tweens
+function beginPurpPulses() {
+    animatePurpPulses(".rcd > .purppulse.regular", 3, 0, 1);
+    animatePurpPulses(".rcd > .purppulse.small", 3.5, 1, 1.5);
+}
+function animatePurpPulses(targetPulse, duration, delay, repeatDelay) {
+    let purppulsetl = gsap.timeline();
+    purppulsetl.to(targetPulse, {
         motionPath: {
           path: "M668 205.5H538.5C530.768 205.5 524.5 199.232 524.5 191.5V127.345C524.5 123.312 526.239 119.476 529.271 116.817L540.895 106.626C553.673 95.4238 561 79.2556 561 62.2621V58.6274C561 44.1393 555.245 30.2446 545 20V20C534.755 9.75537 520.861 4 506.373 4H505.127C490.639 4 476.745 9.75537 466.5 20V20C456.255 30.2446 450.5 44.1393 450.5 58.6274V62.0222C450.5 79.1544 457.947 95.4405 470.905 106.648L482.658 116.812C485.733 119.472 487.5 123.336 487.5 127.402V191.5C487.5 199.232 481.232 205.5 473.5 205.5H422C420.895 205.5 420 204.605 420 203.5V195.5C420 187.768 413.732 181.5 406 181.5H326C318.268 181.5 312 187.768 312 195.5V203.5C312 204.605 311.105 205.5 310 205.5H201.488C197.664 205.5 194.006 207.065 191.364 209.83L7.87588 401.942C5.38816 404.547 4 408.01 4 411.612V495V578.201C4 581.914 5.475 585.475 8.1005 588.101L93.3995 673.399C96.025 676.025 97.5 679.586 97.5 683.299V766.5",
           alignOrigin: [.5, .5],
@@ -36,12 +79,15 @@ gsap.from(".intro-purple", {scrollTrigger: {trigger: ".intro-purple", start: "50
           align: "#purple-path",
           start: .01
         },
-        duration: 3,
+        duration: duration,
+        delay: delay,
+        repeatDelay: repeatDelay,
         ease: "power3.inOut",
         repeat: -1,
         keyframes: [{opacity: 1, duration: .1}, {opacity: 1, duration: 10},{opacity: 0, duration: .1}]
     });
-}});
+}
+
 
 // //__btm
 // gsap.set('.btm-hex-cluster', {opacity: 0})
