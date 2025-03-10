@@ -249,21 +249,24 @@ button {
 }
 .pulse {
     position: absolute;
-    width: 5px;
-    height: 5px;
-    border-radius: 50%;
+    width: clamp(7px, 5vw, 15px);
+    height: clamp(2px, 1vw, 5px);
     top: 0;
     opacity: 0;
-    mix-blend-mode: color-dodge;
 }
 .bluepulse {
-    background: #0B9EF5;
-    box-shadow: 0 0 15px 5px #0B9EF5, 0 0 15px 5px #0B9EF5, 0 0 15px 5px #0B9EF5;
+    background: #eef9ffc5;
+    /* box-shadow: 0 0 10px 5px #0B9EF5, 0 0 15px 5px #0B9EF5, 0 0 10px 5px #0B9EF5; */
+    box-shadow: 0 0 5px 7px #6ec9fd86;
     
+    border-radius: 5px;
 }
 .purppulse {
-    background: #FF00FF;
-    box-shadow: 0 0 20px 5px #FF00FF, 0 0 20px 5px #FF00FF, 0 0 20px 5px #FF00FF;
+    background: #ffb6ff;
+    /* box-shadow: 0 0 10px 5px #FF00FF, 0 0 15px 5px #FF00FF, 0 0 10px 5px #FF00FF; */
+    box-shadow: 0 0 10px 3px #fd3efdab;
+    
+    border-radius: 5px ;
 }
 .starlight-bg {
     inset: 0;

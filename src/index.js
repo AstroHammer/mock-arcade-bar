@@ -37,6 +37,7 @@ function animateBluePulses(targetPulse, duration, delay, repeatDelay) {
         motionPath: {
         path: "M3.5 3.5V59.701C3.5 63.414 4.975 66.975 7.6005 69.6005L122.399 184.399C125.025 187.025 128.586 188.5 132.299 188.5H270C277.732 188.5 284 182.232 284 174.5V163V133.549C284 129.836 282.525 126.275 279.899 123.649L271.579 115.329C264.165 107.915 260 97.8597 260 87.375V87.375C260 76.8903 264.165 66.835 271.579 59.4211L273.393 57.6066C280.185 50.8153 289.396 47 299 47V47C308.604 47 317.815 50.8153 324.607 57.6066L326.421 59.4211C333.835 66.8349 338 76.8903 338 87.375V87.375C338 97.8597 333.835 107.915 326.421 115.329L318.101 123.649C315.475 126.275 314 129.836 314 133.549V163V174.5C314 182.232 320.268 188.5 328 188.5H346C347.105 188.5 348 187.605 348 186.5V179C348 171.268 354.268 165 362 165H405C412.732 165 419 171.268 419 179V186.5C419 187.605 419.895 188.5 421 188.5H438.5C439.605 188.5 440.5 187.605 440.5 186.5V186C440.5 178.268 446.768 172 454.5 172H487.5C495.232 172 501.5 178.268 501.5 186V186.5C501.5 187.605 502.395 188.5 503.5 188.5H800.201C803.914 188.5 807.475 189.975 810.101 192.601L865.399 247.899C868.025 250.525 869.5 254.086 869.5 257.799V480.701C869.5 484.414 868.025 487.975 865.399 490.601L576.601 779.399C573.975 782.025 570.414 783.5 566.701 783.5H17.5C9.76801 783.5 3.5 789.768 3.5 797.5V980",
         alignOrigin: [.5, .5],
+        autoRotate: true,
         align: "#blue-path",
         },
         delay: delay,
@@ -65,6 +66,8 @@ gsap.from(".intro-purple",
 //when resizing stops, restart pulse tweens
 //when section is not visible (scrolled out), kill pulse tweens
 //when section is visibile, restart pulse tweens
+//3
+//3.5
 function beginPurpPulses() {
     animatePurpPulses(".rcd > .purppulse.regular", 3, 0, 1);
     animatePurpPulses(".rcd > .purppulse.small", 3.5, 1, 1.5);
@@ -77,7 +80,7 @@ function animatePurpPulses(targetPulse, duration, delay, repeatDelay) {
           alignOrigin: [.5, .5],
           autoRotate: true,
           align: "#purple-path",
-          start: .01
+          start: .007
         },
         duration: duration,
         delay: delay,
