@@ -18,6 +18,7 @@ gsap.from(".intro-blue",
         {trigger: 
             ".intro-blue", 
             start: "50px 80%",
+            invalidateOnRefresh: true
         }, 
         duration: 2.5, 
         ease:"none", 
@@ -34,6 +35,7 @@ gsap.from(".intro-blue",
 function beginBluePulses() {
     bluepulsetl.forEach(tl => tl.kill());
     bluepulsetl = [];
+    gsap.set(".lcd > .bluepulse", { opacity: 0 });
     bluepulsetl.push(animateBluePulses(".lcd > .bluepulse.regular", 2.8, 0, 1));
     bluepulsetl.push(animateBluePulses(".lcd > .bluepulse.small", 3, 1, 2));
 }
@@ -65,7 +67,8 @@ gsap.from(".intro-purple",
     {scrollTrigger: 
         {trigger: 
             ".intro-purple", 
-            start: "50px 80%"
+            start: "50px 80%",
+            invalidateOnRefresh: true
         }, 
         duration: 1.5, 
         ease:"none", 
@@ -82,6 +85,7 @@ gsap.from(".intro-purple",
 function beginPurpPulses() {
     purppulsetl.forEach(tl => tl.kill()); 
     purppulsetl = []; // Reset array to avoid accumulating old timelines
+    gsap.set(".rcd > .purppulse", { opacity: 0 });
     purppulsetl.push(animatePurpPulses(".rcd > .purppulse.regular", 3.5, 0, 1));
     purppulsetl.push(animatePurpPulses(".rcd > .purppulse.small", 4, 1, 1.5));
 }
@@ -136,6 +140,7 @@ function refreshBluePulse() {
     bluepulsetl.forEach(tl => tl.pause(0));
     }
     removeEventListener('resize', refreshBluePulse);
+    ScrollTrigger.refresh;
     beginBluePulses();
 }
 function refreshPurpPulse() {
@@ -144,6 +149,7 @@ function refreshPurpPulse() {
     purppulsetl.forEach(tl => tl.pause(0));
     }
     removeEventListener('resize', refreshPurpPulse);
+    ScrollTrigger.refresh;
     beginPurpPulses();
 }
 
