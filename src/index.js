@@ -9,25 +9,29 @@ gsap.registerPlugin(MotionPathPlugin);
 
 
 //INTRO
-
+const sectionOne = document.querySelector('.section-1-wrapper');
+let bluepulsetl = [];
+let purppulsetl = [];
 //blue
 gsap.from(".intro-blue", 
     {scrollTrigger: 
         {trigger: 
             ".intro-blue", 
-            start: "50px 80%"
+            start: "50px 80%",
         }, 
         duration: 2.5, 
         ease:"none", 
         drawSVG: 0, 
-        onComplete: () => beginBluePulses()
+        onComplete: () => {
+            if (ScrollTrigger.isInViewport(sectionOne)) {
+                beginBluePulses();
+            } else {
+                console.log('hold bluepulse');
+            }
+        }
     }
 );
-let bluepulsetl = [];
 function beginBluePulses() {
-    //could potentially make each argument a variable for ultimate modularity
-    //use loop iteration variable as first argument
-    //just add an html element and copy paste another call
     bluepulsetl.forEach(tl => tl.kill());
     bluepulsetl = [];
     bluepulsetl.push(animateBluePulses(".lcd > .bluepulse.regular", 2.8, 0, 1));
@@ -49,7 +53,10 @@ function animateBluePulses(targetPulse, duration, delay, repeatDelay) {
         repeat: -1,
         keyframes: [{opacity: 1, duration: .1}, {opacity: 1, duration: 10},{opacity: 0, duration: .1}]
     });
-    addEventListener('resize', refreshBluePulse);
+    if (ScrollTrigger.isInViewport(sectionOne)) {
+        //seems like this conditional fixed some weird stuff that would happen when resizing outside the section and scrolling back into it. Pulses got all wonky...
+        addEventListener('resize', refreshBluePulse);
+    }
     return blueTl;
 }
 
@@ -63,19 +70,16 @@ gsap.from(".intro-purple",
         duration: 1.5, 
         ease:"none", 
         drawSVG: 0, 
-        onComplete: () => beginPurpPulses()
+        onComplete: () => {
+            if (ScrollTrigger.isInViewport(sectionOne)) {
+                beginPurpPulses();
+            } else {
+                console.log('hold purppulse');
+            }
+        }
     }
 );
-//when resizing window, kill pulse tweens     check
-//when resizing stops, restart pulse tweens     check
-
-//when section is not visible (scrolled out), kill pulse tweens
-//when section is visibile, restart pulse tweens
-
-let purppulsetl = [];
 function beginPurpPulses() {
-    // animatePurpPulses(".rcd > .purppulse.regular", 3.5, 0, 1);
-    // animatePurpPulses(".rcd > .purppulse.small", 4, 1, 1.5);
     purppulsetl.forEach(tl => tl.kill()); 
     purppulsetl = []; // Reset array to avoid accumulating old timelines
     purppulsetl.push(animatePurpPulses(".rcd > .purppulse.regular", 3.5, 0, 1));
@@ -98,11 +102,37 @@ function animatePurpPulses(targetPulse, duration, delay, repeatDelay) {
         repeat: -1,
         keyframes: [{opacity: 1, duration: .1}, {opacity: 1, duration: 10},{opacity: 0, duration: .1}]
     });
-    addEventListener('resize', refreshPurpPulse);
+    if (ScrollTrigger.isInViewport(sectionOne)) {
+        //seems like this conditional fixed some weird stuff that would happen when resizing outside the section and scrolling back into it. Pulses got all wonky...
+        addEventListener('resize', refreshPurpPulse);
+    }
     return purpTl;
 }
+gsap.timeline({
+    scrollTrigger: {
+        trigger: sectionOne,
+        endTrigger: sectionOne,
+        start: "top 50%",
+        end: "bottom 50%",
+        onLeave: () => {
+            console.log('onLeave')
+            bluepulsetl.forEach(tl => tl.pause(0));
+            bluepulsetl.forEach(tl => tl.kill());
+            bluepulsetl = [];
+            purppulsetl.forEach(tl => tl.pause(0));
+            purppulsetl.forEach(tl => tl.kill());
+            purppulsetl = [];
+        },
+        onEnterBack: () => {
+            console.log('onEnterBack')
+            beginBluePulses();
+            beginPurpPulses();
+        }
+    }
+})
 function refreshBluePulse() {
     if (bluepulsetl) {
+    console.log('bluepulsetl truthy')
     bluepulsetl.forEach(tl => tl.pause(0));
     }
     removeEventListener('resize', refreshBluePulse);
@@ -110,11 +140,13 @@ function refreshBluePulse() {
 }
 function refreshPurpPulse() {
     if (purppulsetl) {
+        console.log('purppulsetl truthy')
     purppulsetl.forEach(tl => tl.pause(0));
     }
     removeEventListener('resize', refreshPurpPulse);
     beginPurpPulses();
 }
+
 
 //MENU
 
@@ -358,7 +390,7 @@ function removeTrackTransition() {
 // COLLAGE
 
 image.forEach(image => {
-    let tl = gsap.timeline({
+    let bgTl = gsap.timeline({
         scrollTrigger: {
             trigger: image,
             endTrigger: image,
@@ -376,7 +408,7 @@ image.forEach(image => {
         }
     })
     
-    tl.fromTo(image, {scaleX: .1, scaleY: .05, skewX: 50, skewY: 10, rotate: 10}, {scaleX: 1, scaleY: 1, skewX: 0, skewY: 0, rotate: 0, visibility: "visible", immediateRender: false})
+    bgTl.fromTo(image, {scaleX: .1, scaleY: .05, skewX: 50, skewY: 10, rotate: 10}, {scaleX: 1, scaleY: 1, skewX: 0, skewY: 0, rotate: 0, visibility: "visible", immediateRender: false})
 });
 
 function animateBg(image) {
