@@ -35,7 +35,7 @@ gsap.from(".intro-blue",
 function beginBluePulses() {
     bluepulsetl.forEach(tl => tl.kill());
     bluepulsetl = [];
-    gsap.set(".lcd > .bluepulse", { opacity: 0 });
+    gsap.set(".lcd > .bluepulse", { opacity: 0 }); //starting opacity seemed to get messed up upon resizing/scrolling, had to apply reset
     bluepulsetl.push(animateBluePulses(".lcd > .bluepulse.regular", 2.8, 0, 1));
     bluepulsetl.push(animateBluePulses(".lcd > .bluepulse.small", 3, 1, 2));
 }
@@ -85,7 +85,7 @@ gsap.from(".intro-purple",
 function beginPurpPulses() {
     purppulsetl.forEach(tl => tl.kill()); 
     purppulsetl = []; // Reset array to avoid accumulating old timelines
-    gsap.set(".rcd > .purppulse", { opacity: 0 });
+    gsap.set(".rcd > .purppulse", { opacity: 0 });//starting opacity seemed to get messed up upon resizing/scrolling, had to apply reset
     purppulsetl.push(animatePurpPulses(".rcd > .purppulse.regular", 3.5, 0, 1));
     purppulsetl.push(animatePurpPulses(".rcd > .purppulse.small", 4, 1, 1.5));
 }
@@ -118,6 +118,7 @@ gsap.timeline({
         endTrigger: sectionOne,
         start: "top 50%",
         end: "bottom 50%",
+        markers: true,
         onLeave: () => {
             console.log('onLeave')
             bluepulsetl.forEach(tl => tl.pause(0));
@@ -140,7 +141,6 @@ function refreshBluePulse() {
     bluepulsetl.forEach(tl => tl.pause(0));
     }
     removeEventListener('resize', refreshBluePulse);
-    ScrollTrigger.refresh;
     beginBluePulses();
 }
 function refreshPurpPulse() {
@@ -149,7 +149,6 @@ function refreshPurpPulse() {
     purppulsetl.forEach(tl => tl.pause(0));
     }
     removeEventListener('resize', refreshPurpPulse);
-    ScrollTrigger.refresh;
     beginPurpPulses();
 }
 
