@@ -644,11 +644,12 @@ button {
 }
 .activated-modal {
     opacity: 1;
+    transition: opacity .5s ease-in-out;
 }
 .deactivated-modal {
     opacity: 0;
     pointer-events:none;
-    transition: opacity .5s ease-in-out;
+    
 }
 .carousel-container {
     position: fixed;
