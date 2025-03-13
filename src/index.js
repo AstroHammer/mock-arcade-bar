@@ -249,6 +249,7 @@ function resizeSlideListener() {
 //add class to previously clicked image, reveal modal, send previously clicked image to exitModalListener function
 function openModal(image) {
     image.classList.add('active-slide')
+    modal.classList.add('activated-modal');
     modal.classList.remove('deactivated-modal');
     pageBody.style.overflow = "hidden";
     addArrowButtonListeners();
@@ -273,6 +274,11 @@ function addExitModalListener(image) {
 function exitModal(image) {
     image.classList.remove('active-slide');
     modal.classList.add('deactivated-modal');
+    setTimeout(() => {
+        modal.classList.remove('activated-modal')
+        console.log('timeout worked');
+    }, 500); //so opacity of .5s has time to transition out before removing class, prob bad css, prob dum
+    // modal.classList.remove('activated-modal');
     pageBody.style.overflow = "auto";
     removeTrackTransition();
     removeCurrentSlideClass();
