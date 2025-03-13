@@ -633,7 +633,6 @@ button {
     width: 100%;
     height: 100%;
     z-index: 900 !important;
-    transition: opacity .5s ease-in-out;
 }
 .dark-testing {
     position: absolute;
@@ -649,6 +648,7 @@ button {
 .deactivated-modal {
     opacity: 0;
     pointer-events:none;
+    transition: opacity .5s ease-in-out;
 }
 .carousel-container {
     position: fixed;
