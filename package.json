@@ -1,0 +1,18 @@
+{
+  "name": "mock-arcade-website",
+  "version": "1.0.0",
+  "scripts": {
+    "start": "npx parcel src/index.html",
+    "build": "parcel build src/index.html"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "gsap": "npm:@gsap/shockingly@^3.12.5"
+  },
+  "devDependencies": {
+    "parcel": "^2.13.0",
+    "svgo": "^3.3.2"
+  }
+}
