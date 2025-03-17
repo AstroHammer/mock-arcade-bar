@@ -170,6 +170,9 @@ function refreshPurpPulse() {
 
 const sectionTwo = document.querySelector('.menu-container');
 const blueSVG = document.querySelectorAll('.menu-blue');
+const purpSVG = document.querySelectorAll('.menu-purple');
+const allTopHex = document.querySelectorAll('.top-hex > *');
+
 blueSVG.forEach(blueborder => {
     let menuTl = gsap.timeline({
         scrollTrigger: {
@@ -188,19 +191,20 @@ blueSVG.forEach(blueborder => {
     })
 })
 
-
-// menuTl.to('.top-hex > *', {stagger: -.03, keyframes: [{duration: .5, scale: 1.3, ease: "power1.inOut"}, {duration: .5,scale: 1, ease: "power1.inOut"}]}, "-=.92")
-
-// menuTl.fromTo('.top-hex > *', {visibility: visible, }, {});
-// ('.top-hex > *', {stagger: -.03, keyframes: [{duration: .5, scale: 1.3, ease: "power1.inOut"}, {duration: .5,scale: 1, ease: "power1.inOut"}]}, "-=.92")
 function showTopMenuBorders(menuTl, blueborder) {
     console.log('showTop function entered');
-    gsap.set(blueborder, {visibility: "visible"})
+    gsap.set(blueborder, {visibility: "visible"});
     menuTl.from(blueborder, {duration: 3, ease: "power1.inOut", drawSVG: 0});
+    showTopHex(menuTl);
 }
-function showTopHex() {
 
+function showTopHex(menuTl) {
+    menuTl.to(allTopHex, {stagger: -.03, keyframes: [{duration: .5, scale: 1.3, ease: "power1.inOut"}, {duration: .5,scale: 1, ease: "power1.inOut"}]}, "-=1");
+
+
+    
 }
+
 function showTopMenuText() {
 
 }
@@ -231,7 +235,7 @@ gsap.set('.menu-shadow', {opacity: 0});
 // blueMenuAnimations
 //     .from('.menu-blue', {duration: 3, ease: "power1.inOut", drawSVG: 0})
 
-//     .to('.top-hex > *', {stagger: -.03, keyframes: [{duration: .5, scale: 1.3, ease: "power1.inOut"}, {duration: .5,scale: 1, ease: "power1.inOut"}]}, "-=.92")
+    // .to('.top-hex > *', {stagger: -.03, delay: 3, keyframes: [{duration: .5, scale: 1.3, ease: "power1.inOut"}, {duration: .5,scale: 1, ease: "power1.inOut"}]}, "-=.92")
 
 //     .from(".tm-left > .tm-left-mi", {duration: .8, stagger: .10, keyframes: [{opacity: .5, scale: .9, x:-25, ease: "power1.outIn"}, {opacity: 1, scale: 1, x:0, ease: "power1.outIn"}]}, "-=.8")
 //     .from(".tm-right > .tm-right-mi", {duration: .8, stagger: .10, keyframes: [{opacity: .5, scale: .9, x:-25, ease: "power1.outIn"}, {opacity: 1, scale: 1, x:0, ease: "power1.outIn"}]}, "-=1")
