@@ -174,7 +174,7 @@ const purpSVG = document.querySelectorAll('.menu-purple');
 const allTopHex = document.querySelectorAll('.top-hex > *');
 
 blueSVG.forEach(blueborder => {
-    let menuTl = gsap.timeline({
+    let firstMenuTl = gsap.timeline({
         scrollTrigger: {
             trigger: sectionTwo,
             endTrigger: sectionTwo,
@@ -184,40 +184,46 @@ blueSVG.forEach(blueborder => {
             onEnter: () => {
                 if (!blueborder.dataset.animated) {
                     blueborder.dataset.animated = "true";
-                    showTopMenuBorders(menuTl, blueborder);
+                    showTopMenuBorders(firstMenuTl, blueborder);
                 }
             }
         }
     })
 })
 
-function showTopMenuBorders(menuTl, blueborder) {
+
+function showTopMenuBorders(firstMenuTl, blueborder) {
     console.log('showTop function entered');
     gsap.set(blueborder, {visibility: "visible"});
-    menuTl.from(blueborder, {duration: 3, ease: "power1.inOut", drawSVG: 0});
-    showTopHex(menuTl);
+    firstMenuTl.from(blueborder, {duration: 3, ease: "power1.inOut", drawSVG: 0});
+    showTopHex(firstMenuTl);
+}
+function showTopHex(firstMenuTl) {
+    firstMenuTl.to(allTopHex, {stagger: -.03, keyframes: [{duration: .5, scale: 1.3, ease: "power1.inOut"}, {duration: .5,scale: 1, ease: "power1.inOut"}]}, "-=1");
+    showTopMenuText(firstMenuTl);
 }
 
-function showTopHex(menuTl) {
-    menuTl.to(allTopHex, {stagger: -.03, keyframes: [{duration: .5, scale: 1.3, ease: "power1.inOut"}, {duration: .5,scale: 1, ease: "power1.inOut"}]}, "-=1");
-
-
-    
+function showTopMenuText(firstMenuTl) {
+    firstMenuTl.from(".tm-left > .tm-left-mi", {duration: .8, stagger: .10, keyframes: [{opacity: .5, scale: .9, x:-25, ease: "power1.outIn"}, {opacity: 1, scale: 1, x:0, ease: "power1.outIn"}]}, "-=.8")
+    firstMenuTl.from(".tm-right > .tm-right-mi", {duration: .8, stagger: .10, keyframes: [{opacity: .5, scale: .9, x:-25, ease: "power1.outIn"}, {opacity: 1, scale: 1, x:0, ease: "power1.outIn"}]}, "-=1")
+    showShadow(firstMenuTl);
+}
+function showShadow(firstMenuTl) {
+    firstMenuTl.to('.menu-shadow', {duration: .8, ease: "power1.inout", opacity: .8}, "-=1.7")
+    showMiddleHex(firstMenuTl);
+}
+function showMiddleHex(firstMenuTl) {
+    firstMenuTl.to('.mid-blue-hex', {stagger: -0.05, keyframes: [{duration: .4,scale: 1.3, ease: "power1.inOut"}, {duration: .5,scale: 1, ease: "power1.inOut"}]})
+    firstMenuTl.to('.mid-purp-hex', {stagger: .04, keyframes: [{duration: .4, ease: "power1.inOut"}, {duration: .5, scale: 1, x: "0%", y: "0%", ease: "back"}]}, "-=.9")
 }
 
-function showTopMenuText() {
+function showBottomMenuBorders(secondMenuTl) {
 
 }
-function showMiddleHex() {
+function showBottomMenuText(secondMenuTl) {
 
 }
-function showBottomMenuBorders() {
-
-}
-function showBottomMenuText() {
-
-}
-function showBottomHex() {
+function showBottomHex(secondMenuTl) {
 
 }
 //menu timeline
