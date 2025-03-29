@@ -160,44 +160,60 @@ function refreshPurpPulse() {
 // gsap.set(".btm-hex-cluster > *", {transformOrigin: "center"});
 // gsap.from(".btm-hex-cluster > *", {duration: .5, ease: "none", scale: 0, stagger: -.10});
 
-//text animations
-//__top
-// gsap.set(".tm-left > *", {transformOrigin: "center"});
-// gsap.set(".tm-left > *", {opacity: 0});
-
-// gsap.set(".tm-right > *", {transformOrigin: "center"});
-// gsap.set(".tm-right > *", {opacity: 0});
+//menu sets
+gsap.set('.top-hex > *', {transformOrigin: "top right", scale: 0});
+gsap.set('.middle-hex-cluster .mid-blue-hex', {transformOrigin: "10% 60%", scale: 0});
+gsap.set('.under-layer', {transformOrigin: "bottom left", x: "-50%", y: "50%", scale: 0})
+gsap.set('.mid-layer', {transformOrigin: "top left", x: "-50%", y: "-50%", scale: 0})
+gsap.set('.top-layer', {transformOrigin: "bottom right", x: "60%", y: "60%", scale: 0})
+gsap.set('.menu-shadow', {opacity: 0});
+gsap.set('.sandwich-menu > *', {transformOrigin: "center", scale: .8, opacity: 0, y: -20});
+gsap.set('.sandwich-title', {opacity: 0, y:20})
+gsap.set('.tacos-menu > *', {transformOrigin: "center", scale: .8, opacity: 0, y: -20});
+gsap.set('.tacos-title', {opacity: 0, y:-20})
 
 const sectionTwo = document.querySelector('.menu-container');
 const blueSVG = document.querySelectorAll('.menu-blue');
 const purpSVG = document.querySelectorAll('.menu-purple');
 const allTopHex = document.querySelectorAll('.top-hex > *');
 
-blueSVG.forEach(blueborder => {
-    let firstMenuTl = gsap.timeline({
-        scrollTrigger: {
-            trigger: sectionTwo,
-            endTrigger: sectionTwo,
-            start: "top 50%",
-            end: "bottom 50%",
-            markers: true,
-            onEnter: () => {
-                if (!blueborder.dataset.animated) {
-                    blueborder.dataset.animated = "true";
-                    showTopMenuBorders(firstMenuTl, blueborder);
-                }
-            }
-        }
-    })
+// blueSVG.forEach(blueborder => {
+//     let firstMenuTl = gsap.timeline({
+//         scrollTrigger: {
+//             trigger: sectionTwo,
+//             endTrigger: sectionTwo,
+//             start: "top 50%",
+//             end: "bottom 50%",
+//             markers: true,
+//             onEnter: () => {
+//                 if (!blueborder.dataset.animated) {
+//                     blueborder.dataset.animated = "true";
+//                     showTopMenuBorders(firstMenuTl, blueborder);
+//                 }
+//             }
+//         }
+//     })
+// })
+let firstMenuTl = gsap.timeline({
+    scrollTrigger: {
+        trigger: sectionTwo,
+        endTrigger: sectionTwo,
+        start: "top 50%",
+        end: "bottom 50%",
+        markers: true,
+    }
 })
 
-
-function showTopMenuBorders(firstMenuTl, blueborder) {
-    console.log('showTop function entered');
-    gsap.set(blueborder, {visibility: "visible"});
-    firstMenuTl.from(blueborder, {duration: 3, ease: "power1.inOut", drawSVG: 0});
-    showTopHex(firstMenuTl);
-}
+firstMenuTl.set(blueSVG, {visibility: "visible"});
+firstMenuTl.from(blueSVG, {duration: 3, ease: "power1.inOut", drawSVG: 0});
+showTopHex(firstMenuTl);
+let secondMenuTl = gsap.timeline();
+// function showTopMenuBorders(firstMenuTl) {
+//     console.log('showTop function entered');
+//     gsap.set(blueborder, {visibility: "visible"});
+//     firstMenuTl.from(blueborder, {duration: 3, ease: "power1.inOut", drawSVG: 0});
+//     showTopHex(firstMenuTl);
+// }
 function showTopHex(firstMenuTl) {
     firstMenuTl.to(allTopHex, {stagger: -.03, keyframes: [{duration: .5, scale: 1.3, ease: "power1.inOut"}, {duration: .5,scale: 1, ease: "power1.inOut"}]}, "-=1");
     showTopMenuText(firstMenuTl);
@@ -215,56 +231,15 @@ function showShadow(firstMenuTl) {
 function showMiddleHex(firstMenuTl) {
     firstMenuTl.to('.mid-blue-hex', {stagger: -0.05, keyframes: [{duration: .4,scale: 1.3, ease: "power1.inOut"}, {duration: .5,scale: 1, ease: "power1.inOut"}]})
     firstMenuTl.to('.mid-purp-hex', {stagger: .04, keyframes: [{duration: .4, ease: "power1.inOut"}, {duration: .5, scale: 1, x: "0%", y: "0%", ease: "back"}]}, "-=.9")
+    firstMenuTl.add(secondMenuTl);
 }
 
-function showBottomMenuBorders(secondMenuTl) {
-
-}
-function showBottomMenuText(secondMenuTl) {
-
-}
-function showBottomHex(secondMenuTl) {
-
-}
-//menu timeline
-gsap.set('.top-hex > *', {transformOrigin: "top right", scale: 0});
-gsap.set('.middle-hex-cluster .mid-blue-hex', {transformOrigin: "10% 60%", scale: 0});
-gsap.set('.under-layer', {transformOrigin: "bottom left", x: "-50%", y: "50%", scale: 0})
-gsap.set('.mid-layer', {transformOrigin: "top left", x: "-50%", y: "-50%", scale: 0})
-gsap.set('.top-layer', {transformOrigin: "bottom right", x: "60%", y: "60%", scale: 0})
-gsap.set('.menu-shadow', {opacity: 0});
-
-// let blueMenuAnimations = gsap.timeline({scrollTrigger: {trigger: '.menu-blue', start:"10% 80%", markers: true}});
-// let purpleMenuAnimations = gsap.timeline({scrollTrigger: {trigger: '.menu-purple', start: '-150% top', markers: true}});                                                                                                                                                           
-
-
-// blueMenuAnimations
-//     .from('.menu-blue', {duration: 3, ease: "power1.inOut", drawSVG: 0})
-
-    // .to('.top-hex > *', {stagger: -.03, delay: 3, keyframes: [{duration: .5, scale: 1.3, ease: "power1.inOut"}, {duration: .5,scale: 1, ease: "power1.inOut"}]}, "-=.92")
-
-//     .from(".tm-left > .tm-left-mi", {duration: .8, stagger: .10, keyframes: [{opacity: .5, scale: .9, x:-25, ease: "power1.outIn"}, {opacity: 1, scale: 1, x:0, ease: "power1.outIn"}]}, "-=.8")
-//     .from(".tm-right > .tm-right-mi", {duration: .8, stagger: .10, keyframes: [{opacity: .5, scale: .9, x:-25, ease: "power1.outIn"}, {opacity: 1, scale: 1, x:0, ease: "power1.outIn"}]}, "-=1")
-//     .to('.menu-shadow', {duration: .8, ease: "power1.inout", opacity: .8}, "-=2")
-
-//     .to('.mid-blue-hex', {stagger: -0.05, keyframes: [{duration: .4,scale: 1.3, ease: "power1.inOut"}, {duration: .5,scale: 1, ease: "power1.inOut"}]}, "-=.8")
-//     .to('.mid-purp-hex', {stagger: .04, keyframes: [{duration: .4, ease: "power1.inOut"}, {duration: .5, scale: 1, x: "0%", y: "0%", ease: "back"}]}, "-=.7")
-// ;
-
-
-gsap.set('.sandwich-menu > *', {transformOrigin: "center", scale: .8, opacity: 0, y: -20});
-gsap.set('.sandwich-title', {opacity: 0, y:20})
-gsap.set('.tacos-menu > *', {transformOrigin: "center", scale: .8, opacity: 0, y: -20});
-gsap.set('.tacos-title', {opacity: 0, y:-20})
-
-// purpleMenuAnimations
-//     .from('.menu-purple', {duration: 3, ease: "power1.inOut", drawSVG: 0})
-//     .to('.sandwich-title', {duration: 1, opacity:1, y: 0}, "-=1")
-//     .to('.tacos-title', {duration: 1, opacity:1, y: 0}, "-=.8")
-//     .to('.sandwich-menu > *', {duration: .8, stagger: .10, keyframes: [{opacity: .5, scale: .9, y:25, ease: "power1.outIn"}, {opacity: 1, scale: 1, y:0, ease: "power1.outIn"}]})
-//     .to('.tacos-menu > *', {duration: .8, stagger: .10, keyframes: [{opacity: .5, scale: .9, y:25, ease: "power1.outIn"}, {opacity: 1, scale: 1, y:0, ease: "power1.outIn"}]}, "-=0.8")
-
-// ;
+secondMenuTl.set(purpSVG, {visibility: "visible"})
+secondMenuTl.from(purpSVG, {duration: 3, ease: "power1.inOut", drawSVG: 0})
+secondMenuTl.to('.sandwich-title', {duration: 1, opacity:1, y: 0}, "-=1")
+secondMenuTl.to('.tacos-title', {duration: 1, opacity:1, y: 0}, "-=.8")
+secondMenuTl.to('.sandwich-menu > *', {duration: .8, stagger: .10, keyframes: [{opacity: .5, scale: .9, y:25, ease: "power1.outIn"}, {opacity: 1, scale: 1, y:0, ease: "power1.outIn"}]})
+secondMenuTl.to('.tacos-menu > *', {duration: .8, stagger: .10, keyframes: [{opacity: .5, scale: .9, y:25, ease: "power1.outIn"}, {opacity: 1, scale: 1, y:0, ease: "power1.outIn"}]}, "-=0.8")
 
 //IMAGE COLLAGE / CUSTOM MODAL CAROUSEL
 
