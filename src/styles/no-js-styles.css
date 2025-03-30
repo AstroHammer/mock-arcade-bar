@@ -1,6 +1,33 @@
+.intro-blue {
+    visibility: visible;
+}
+.intro-purple {
+    visibility: visible;
+}
+.top-hex > * {
+    visibility: visible;
+}
+.mid-blue-hex {
+    visibility: visible;    
+}
+.mid-purp-hex {
+    visibility: visible;
+}
 .menu-blue {
     visibility: visible;
 }
 .menu-purple {
     visibility: visible;
+}
+.tm-left > * {
+    opacity: 1;
+}
+.tm-right > * {
+    opacity: 1;
+}
+.top-hex > * {
+    scale: 1;
+}
+.sandwich-menu > *, .tacos-menu > *, .tacos-title, .sandwich-title {
+    opacity: 1;
 }

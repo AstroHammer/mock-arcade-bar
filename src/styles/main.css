@@ -9,6 +9,15 @@ body {
     color: white;
     position: relative;
 }
+#cover {
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    background: rgb(34, 136, 219);
+    z-index: 9999 !important;
+}
 h1 {
     font-size: 3rem;
 }
@@ -489,8 +498,22 @@ button {
     linear-gradient(20deg, black 1%, transparent 50%);
 }
 
-
 /* making hex script better */
+.intro-blue {
+    visibility: hidden;
+}
+.intro-purple {
+    visibility: hidden;
+}
+.top-hex > * {
+    visibility: hidden;
+}
+.mid-blue-hex {
+    visibility: hidden;    
+}
+.mid-purp-hex {
+    visibility: hidden;
+}
 .tm-left > * {
     transform-origin: center;
     opacity: 0;
@@ -505,7 +528,9 @@ button {
 .menu-purple {
     visibility: hidden;
 }
-
+.sandwich-menu > *, .tacos-menu > *, .tacos-title, .sandwich-title {
+    opacity: 0;
+}
 
 
 
