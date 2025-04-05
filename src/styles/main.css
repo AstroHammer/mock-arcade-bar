@@ -270,6 +270,7 @@ button {
     top: 0;
     opacity: 0;
     border-radius: 50%;
+    will-change: transform;
 }
 .bluepulse {
     background: #ceeeff;
