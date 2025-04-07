@@ -21,7 +21,22 @@ const sectionTwo = document.querySelector('.section-2');
 let bluepulsetl = [];
 let purppulsetl = [];
 
+
+// falsy/truthy variables
+let blueIntroComplete = false;
+let purpIntroComplete = false;
 let menuDrawComplete = false;
+let insideSectionOne = false;
+let insideSectionTwo = false;
+
+
+//need to separate call logic
+//1. run pulses when draw is complete
+//2. run pulses when entering targetSection (only if draw is complete)
+
+
+
+//reset and stop when leaving targetSection
 
 //blue
 gsap.fromTo(".intro-blue", 
@@ -41,6 +56,12 @@ gsap.fromTo(".intro-blue",
             } else {
                 console.log('hold bluepulse');
             }
+            // if (insideSectionOne) {
+            //     blueIntroComplete = true;
+            //     beginBluePulses();
+            // } else {
+            //     console.log('hold bluepulse');
+            // }
         }
     }
 )
@@ -55,13 +76,22 @@ function beginBluePulses() {
         console.log('section one trigger worked')
         bluepulsetl.push(animateBluePulses(".lcd > .bluepulse.regular", 2.8, 0, 1, "#intro-blue-path", sectionOne));
         bluepulsetl.push(animateBluePulses(".lcd > .bluepulse.small", 3, 1, 2, "#intro-blue-path", sectionOne));
-    } else if (ScrollTrigger.isInViewport(sectionTwo)) {
+    } 
+    if (ScrollTrigger.isInViewport(sectionTwo)) {
         console.log('section two trigger worked')
         bluepulsetl.push(animateBluePulses(".menu-container > .bluepulse.pleft", 2.5, 0, 1, "#menu-blue-path-left", sectionTwo))
         bluepulsetl.push(animateBluePulses(".menu-container > .bluepulse.pright", 2.5, 0, 1, "#menu-blue-path-right", sectionTwo))
     }
-    // bluepulsetl.push(animateBluePulses(".lcd > .bluepulse.regular", 2.8, 0, 1));
-    // bluepulsetl.push(animateBluePulses(".lcd > .bluepulse.small", 3, 1, 2));
+    // if (insideSectionOne) {
+    //     console.log('section one trigger worked')
+    //     bluepulsetl.push(animateBluePulses(".lcd > .bluepulse.regular", 2.8, 0, 1, "#intro-blue-path", insideSectionOne));
+    //     bluepulsetl.push(animateBluePulses(".lcd > .bluepulse.small", 3, 1, 2, "#intro-blue-path", insideSectionOne));
+    // } 
+    // if (insideSectionTwo) {
+    //     console.log('section two trigger worked')
+    //     bluepulsetl.push(animateBluePulses(".menu-container > .bluepulse.pleft", 2.5, 0, 1, "#menu-blue-path-left", insideSectionTwo))
+    //     bluepulsetl.push(animateBluePulses(".menu-container > .bluepulse.pright", 2.5, 0, 1, "#menu-blue-path-right", insideSectionTwo))
+    // }
 }
 function animateBluePulses(targetPulse, duration, delay, repeatDelay, pathAlign, targetSection) {
     let blueTl = gsap.timeline();
@@ -83,6 +113,9 @@ function animateBluePulses(targetPulse, duration, delay, repeatDelay, pathAlign,
         //seems like this conditional fixed some weird stuff that would happen when resizing outside the section and scrolling back into it. Pulses got all wonky...
         addEventListener('resize', refreshBluePulse);
     }
+    // if (targetSection) {
+    //     addEventListener('resize', refreshBluePulse);
+    // }
     return blueTl;
 }
 
@@ -137,6 +170,10 @@ function animatePurpPulses(targetPulse, duration, delay, repeatDelay) {
     }
     return purpTl;
 }
+
+//possible idea
+//use truthy/falsy variables inside of triggerController to control when we're inside and outside of a section to then determine what actions should be executed
+
 function triggerController(targetSection) {
     gsap.timeline({
         scrollTrigger: {
@@ -145,12 +182,30 @@ function triggerController(targetSection) {
             start: "top 50%",
             end: "bottom 50%",
             markers: true,
-            // would only call section one trigger
+            onEnter: () => {
+                if (menuDrawComplete) {
+                    beginBluePulses();
+                }
+            },
             // onEnter: () => {
-            //     if (menuDrawComplete) {
-            //         beginBluePulses();
+            //     if (targetSection == sectionOne) {
+            //         if (blueIntroComplete && purpIntroComplete && insideSectionOne) {
+            //             beginBluePulses();
+            //             beginPurpPulses();
+            //         }
+            //     }
+            //     if (targetSection == sectionTwo) {
+            //         if (menuDrawComplete && insideSectionTwo) {
+            //             beginBluePulses();
+            //             beginPurpPulses();
+            //         }
             //     }
             // },
+            onEnterBack: () => {
+                console.log('onEnterBack')
+                beginBluePulses();
+                beginPurpPulses();
+            },
             onLeave: () => {
                 console.log('onLeave')
                 bluepulsetl.forEach(tl => tl.pause(0));
@@ -160,10 +215,8 @@ function triggerController(targetSection) {
                 purppulsetl.forEach(tl => tl.kill());
                 purppulsetl = [];
             },
-            onEnterBack: () => {
-                console.log('onEnterBack')
-                beginBluePulses();
-                beginPurpPulses();
+            onLeaveBack: () => {
+                
             }
         }
     })
@@ -246,13 +299,16 @@ function showBottomMenu(secondMenuTl) {
     secondMenuTl.set(purpSVG, {visibility: "visible"})
     //new modular attempt
     secondMenuTl.from(purpSVG, {duration: 3, ease: "power1.inOut", drawSVG: 0, onComplete: () => {
-        menuDrawComplete = true;
         if (ScrollTrigger.isInViewport(sectionTwo)) {
+            menuDrawComplete = true;
             beginBluePulses();
             // beginPurpPulses();
-        } else {
-            console.log('hold menu pulses');
         }
+        // if (insideSectionTwo) {
+        //     menuDrawComplete = true;
+        //     beginBluePulses();
+        //     beginPurpPulses();
+        // }
     }})
     secondMenuTl.to('.sandwich-title', {duration: 1, opacity:1, y: 0}, "-=1")
     secondMenuTl.to('.tacos-title', {duration: 1, opacity:1, y: 0}, "-=.8")
