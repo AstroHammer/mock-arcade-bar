@@ -52,7 +52,27 @@ function determinePurpPulseStart(sectionKey) {
         console.log(`[${sectionKey}] Waiting for both conditions`);
     }
 }
+function determineMenuPulses(sectionKey) {
+    const section = sectionState[sectionKey];
+    if (section.inside && section.menuDrawComplete) {
+        beginPurpPulses(sectionKey);
+        beginBluePulses(sectionKey);
+    } else {
+        console.log(`[${sectionKey}] Waiting for both conditions`);
+    }
+}
 
+// function determineAllPulses(sectionKey) {
+//     const section = sectionState[sectionKey];
+//     if (section.inside && section.blueDrawComplete) {
+//         beginBluePulses(sectionKey);
+//     } else if (section.inside && section.purpDrawComplete) {
+//         beginPurpPulses(sectionKey);
+//     } else if (section.inside && section.menuDrawComplete) {
+//         beginPurpPulses(sectionKey);
+//         beginBluePulses(sectionKey);
+//     }
+// }
 //Kill pulses
 function killAllPulses() {
     bluepulsetl.forEach(tl => tl.pause(0));
@@ -76,19 +96,15 @@ gsap.fromTo(".intro-blue",
         ease:"none", 
         drawSVG: "100%",
         onComplete: () => {
-            // if (ScrollTrigger.isInViewport(sectionOne)) {
-            //     beginBluePulses();
-            // } else {
-            //     console.log('hold bluepulse');
-            // }
             sectionState.sectionOne.blueDrawComplete = true;
+            // determineAllPulses("sectionOne");
             determineBluePulseStart("sectionOne");
         }
     }
 )
 
 function beginBluePulses(sectionKey) {
-    killAllPulses();
+    
     gsap.set(".lcd > .bluepulse", { opacity: 0 }); //starting opacity seemed to get messed up upon resizing/scrolling, had to apply reset
     //new modular attempt
     if (sectionKey === "sectionOne") {
@@ -139,22 +155,23 @@ gsap.fromTo(".intro-purple",
         drawSVG: "100%",
         onComplete: () => {
             sectionState.sectionOne.purpDrawComplete = true;
+            // determineAllPulses("sectionOne");
             determinePurpPulseStart("sectionOne");
         }
     }
 )
 function beginPurpPulses(sectionKey) {
-    killAllPulses();
+    
     gsap.set(".rcd > .purppulse", { opacity: 0 });//starting opacity seemed to get messed up upon resizing/scrolling, had to apply reset
     if (sectionKey === "sectionOne") {
         purppulsetl.push(animatePurpPulses(".rcd > .purppulse.regular", 3.5, 0, 1, "#intro-purple-path", sectionKey));
         purppulsetl.push(animatePurpPulses(".rcd > .purppulse.small", 4, 1, 1.5, "#intro-purple-path", sectionKey));
     }
     if (sectionKey === "sectionTwo") {
-        purppulsetl.push(animatePurpPulses(".menu-container > purppulse.ptr", 3, 0, 1, "#menu-purp-path-top-right", sectionKey));
-        purppulsetl.push(animatePurpPulses(".menu-container > purppulse.pbl", 3, 0, 1, "#menu-purp-path-btm-left", sectionKey));
-        purppulsetl.push(animatePurpPulses(".menu-container > purppulse.pbr", 3, 0, 1, "#menu-purp-path-btm-right", sectionKey));
-        purppulsetl.push(animatePurpPulses(".menu-container > purppulse.ptl", 3, 0, 1, "#menu-purp-path-top-left", sectionKey));
+        purppulsetl.push(animatePurpPulses(".menu-container > .purppulse.ptr", 3, 0, 1, "#menu-purp-path-top-right", sectionKey));
+        purppulsetl.push(animatePurpPulses(".menu-container > .purppulse.pbl", 3, 0, 1, "#menu-purp-path-btm-left", sectionKey));
+        purppulsetl.push(animatePurpPulses(".menu-container > .purppulse.pbr", 3, 0, 1, "#menu-purp-path-btm-right", sectionKey));
+        purppulsetl.push(animatePurpPulses(".menu-container > .purppulse.ptl", 3, 0, 1, "#menu-purp-path-top-left", sectionKey));
     }
 }
 function animatePurpPulses(targetPulse, duration, delay, repeatDelay, pathAlign, targetSection) {
@@ -194,14 +211,17 @@ function triggerController(targetSection, sectionKey) {
             markers: true,
             onEnter: () => {
                 sectionState[sectionKey].inside = true;
-                determineBluePulseStart(sectionKey);
-            },
-            onEnterBack: () => {
-                // beginBluePulses();
-                // beginPurpPulses();
-                sectionState[sectionKey].inside = true;
+                // determineAllPulses(sectionKey);
                 determineBluePulseStart(sectionKey);
                 determinePurpPulseStart(sectionKey);
+                determineMenuPulses(sectionKey);
+            },
+            onEnterBack: () => {
+                sectionState[sectionKey].inside = true;
+                // determineAllPulses(sectionKey);
+                determineBluePulseStart(sectionKey);
+                determinePurpPulseStart(sectionKey);
+                determineMenuPulses(sectionKey);
             },
             onLeave: () => {
                 killAllPulses();
@@ -293,8 +313,10 @@ function showBottomMenu(secondMenuTl) {
     //new modular attempt
     secondMenuTl.from(purpSVG, {duration: 3, ease: "power1.inOut", drawSVG: 0, onComplete: () => {
         sectionState.sectionTwo.menuDrawComplete = true;
-        determineBluePulseStart("sectionTwo");
-        determinePurpPulseStart("sectionTwo");
+        determineMenuPulses("sectionTwo");
+        // determineAllPulses("sectionTwo");
+        // determineBluePulseStart("sectionTwo");
+        // determinePurpPulseStart("sectionTwo");
     }})
     secondMenuTl.to('.sandwich-title', {duration: 1, opacity:1, y: 0}, "-=1")
     secondMenuTl.to('.tacos-title', {duration: 1, opacity:1, y: 0}, "-=.8")
