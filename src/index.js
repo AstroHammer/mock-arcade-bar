@@ -134,10 +134,12 @@ function animateBluePulses(targetPulse, duration, delay, repeatDelay, pathAlign,
         repeat: -1,
         keyframes: [{opacity: 1, duration: .1}, {opacity: 1, duration: 10},{opacity: 0, duration: .1}]
     });
-    if (targetSection.inside === true) {
-        //seems like this conditional fixed some weird stuff that would happen when resizing outside the section and scrolling back into it. Pulses got all wonky...
-        addEventListener('resize', refreshBluePulse);
-    }
+    // if (sectionState[targetSection].inside === true) {
+    //     //seems like this conditional fixed some weird stuff that would happen when resizing outside the section and scrolling back into it. Pulses got all wonky...
+    //     addEventListener('resize', () => {
+    //         refreshBluePulse(targetSection);
+    //     })
+    // }
     return blueTl;
 }
 
@@ -191,15 +193,20 @@ function animatePurpPulses(targetPulse, duration, delay, repeatDelay, pathAlign,
         repeat: -1,
         keyframes: [{opacity: 1, duration: .1}, {opacity: 1, duration: 10},{opacity: 0, duration: .1}]
     });
-    if (targetSection.inside === true) {
+    if (sectionState[targetSection].inside === true) {
         //seems like this conditional fixed some weird stuff that would happen when resizing outside the section and scrolling back into it. Pulses got all wonky...
         addEventListener('resize', refreshPurpPulse);
     }
     return purpTl;
 }
 
-//possible idea
-//use truthy/falsy variables inside of triggerController to control when we're inside and outside of a section to then determine what actions should be executed
+//determine what section im in
+//add event listener for resize
+//kill pulses of that section
+//run determine pulses function
+//remove event listener
+
+
 
 function triggerController(targetSection, sectionKey) {
     gsap.timeline({
@@ -237,21 +244,15 @@ function triggerController(targetSection, sectionKey) {
 triggerController(sectionOne, "sectionOne");
 triggerController(sectionTwo, "sectionTwo");
 
-function refreshBluePulse() {
-    if (bluepulsetl) {
-        console.log('bluepulsetl truthy')
-        bluepulsetl.forEach(tl => tl.pause(0));
-    }
+function refreshBluePulse(targetSection) {
+    killAllPulses();
     removeEventListener('resize', refreshBluePulse);
-    beginBluePulses();
+    determineBluePulseStart(targetSection);
 }
-function refreshPurpPulse() {
-    if (purppulsetl) {
-        console.log('purppulsetl truthy')
-        purppulsetl.forEach(tl => tl.pause(0));
-    }
+function refreshPurpPulse(targetSection) {
+    killAllPulses();
     removeEventListener('resize', refreshPurpPulse);
-    beginPurpPulses();
+    determinePurpPulseStart(targetSection);
 }
 
 
