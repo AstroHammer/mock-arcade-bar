@@ -91,6 +91,17 @@
                     <path id="menu-blue-path-left" class="blue-svg menu-blue" d="M88.5 209V772H528" stroke="#0B9EF5" stroke-width="5"/>
                     <path id="menu-blue-path-right" class="blue-svg menu-blue" d="M86 208H832V696H525.5V770.5" stroke="#0B9EF5" stroke-width="5"/>
                 </g>
+                <circle class="pulse bluepulse pleft" r="5" fill="#ceeeff" filter="url(#pulse-glow)"></circle>
+                <circle class="pulse bluepulse pright" r="5" fill="#ceeeff" filter="url(#pulse-glow)"></circle>
+                <defs>
+                    <filter id="pulse-glow" x="-50%" y="-50%" width="200%" height="200%">
+                      <feGaussianBlur in="SourceGraphic" stdDeviation="3" result="blur"/>
+                      <feMerge>
+                        <feMergeNode in="blur"/>
+                        <feMergeNode in="SourceGraphic"/>
+                      </feMerge>
+                    </filter>
+                </defs>
                 <g class="menu-btm-left-purple-border">
                     <path id="menu-purp-path-top-right" class="purple-svg menu-purple" d="M89 803H497V1440" stroke="#FF00FF" stroke-width="5"/>
                     <path id="menu-purp-path-btm-left" class="purple-svg menu-purple" d="M91 801V1438H499" stroke="#FF00FF" stroke-width="5"/>
@@ -99,6 +110,10 @@
                     <path id="menu-purp-path-btm-right" class="purple-svg menu-purple" d="M831 862V1429H519" stroke="#FF00FF" stroke-width="5"/>
                     <path id="menu-purp-path-top-left" class="purple-svg menu-purple" d="M833 864H521.5V1431" stroke="#FF00FF" stroke-width="5"/>
                 </g>
+                <circle class="pulse purppulse ptr" r="5" fill="#ffa6ff" filter="url(#pulse-glow)"></circle>
+                <circle class="pulse purppulse pbl" r="5" fill="#ffa6ff" filter="url(#pulse-glow)"></circle>
+                <circle class="pulse purppulse pbr" r="5" fill="#ffa6ff" filter="url(#pulse-glow)"></circle>
+                <circle class="pulse purppulse ptl" r="5" fill="#ffa6ff" filter="url(#pulse-glow)"></circle>
                 <g class="top-hex-cluster">
                     <g class="top-hex-10 top-hex">
                         <path d="M54.0321 188.667L78.6667 197.493L83.3409 223.24L63.3805 240.161L38.7459 231.336L34.0717 205.589L54.0321 188.667Z" fill="black" fill-opacity="0.55"/>
@@ -344,14 +359,14 @@
                 </clipPath>
                 </defs>
             </svg>
-            <div class="pulse bluepulse pleft"></div>
-            <div class="pulse bluepulse pright"></div>
+            <!-- <div class="pulse bluepulse pleft"></div>
+            <div class="pulse bluepulse pright"></div> -->
             
-            <div class="pulse purppulse ptr"></div>
+            <!-- <div class="pulse purppulse ptr"></div>
             <div class="pulse purppulse pbl"></div>
 
             <div class="pulse purppulse pbr"></div>
-            <div class="pulse purppulse ptl"></div>
+            <div class="pulse purppulse ptl"></div> -->
         </div>
         <div class="menu-bg-c">
             <div class="menu-bg menu-top-bg">

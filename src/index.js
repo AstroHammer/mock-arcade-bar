@@ -20,7 +20,7 @@ const sectionOne = document.querySelector('.section-1-wrapper');
 const sectionTwo = document.querySelector('.section-2');
 let bluepulsetl = [];
 let purppulsetl = [];
-
+const resizeHandlers = {};
 
 // falsy/truthy object
 const sectionState = {
@@ -40,16 +40,12 @@ function determineBluePulseStart(sectionKey) {
     const section = sectionState[sectionKey];
     if (section.inside && section.blueDrawComplete) {
         beginBluePulses(sectionKey);
-    } else {
-        console.log(`[${sectionKey}] Waiting for both conditions`);
     }
 }
 function determinePurpPulseStart(sectionKey) {
     const section = sectionState[sectionKey];
     if (section.inside && section.purpDrawComplete) {
         beginPurpPulses(sectionKey);
-    } else {
-        console.log(`[${sectionKey}] Waiting for both conditions`);
     }
 }
 function determineMenuPulses(sectionKey) {
@@ -57,22 +53,9 @@ function determineMenuPulses(sectionKey) {
     if (section.inside && section.menuDrawComplete) {
         beginPurpPulses(sectionKey);
         beginBluePulses(sectionKey);
-    } else {
-        console.log(`[${sectionKey}] Waiting for both conditions`);
     }
 }
 
-// function determineAllPulses(sectionKey) {
-//     const section = sectionState[sectionKey];
-//     if (section.inside && section.blueDrawComplete) {
-//         beginBluePulses(sectionKey);
-//     } else if (section.inside && section.purpDrawComplete) {
-//         beginPurpPulses(sectionKey);
-//     } else if (section.inside && section.menuDrawComplete) {
-//         beginPurpPulses(sectionKey);
-//         beginBluePulses(sectionKey);
-//     }
-// }
 //Kill pulses
 function killAllPulses() {
     bluepulsetl.forEach(tl => tl.pause(0));
@@ -97,28 +80,24 @@ gsap.fromTo(".intro-blue",
         drawSVG: "100%",
         onComplete: () => {
             sectionState.sectionOne.blueDrawComplete = true;
-            // determineAllPulses("sectionOne");
             determineBluePulseStart("sectionOne");
         }
     }
 )
 
 function beginBluePulses(sectionKey) {
-    
     gsap.set(".lcd > .bluepulse", { opacity: 0 }); //starting opacity seemed to get messed up upon resizing/scrolling, had to apply reset
-    //new modular attempt
+
     if (sectionKey === "sectionOne") {
-        console.log('section one trigger worked')
-        bluepulsetl.push(animateBluePulses(".lcd > .bluepulse.regular", 2.8, 0, 1, "#intro-blue-path", sectionKey));
-        bluepulsetl.push(animateBluePulses(".lcd > .bluepulse.small", 3, 1, 2, "#intro-blue-path", sectionKey));
+        bluepulsetl.push(animateBluePulses(".lcd > .bluepulse.regular", 2.8, 0, 1, "#intro-blue-path"));
+        bluepulsetl.push(animateBluePulses(".lcd > .bluepulse.small", 3, 1, 2, "#intro-blue-path"));
     }
     if (sectionKey === "sectionTwo") {
-        console.log('section two trigger worked')
-        bluepulsetl.push(animateBluePulses(".menu-container > .bluepulse.pleft", 2.5, 0, 1, "#menu-blue-path-left", sectionKey))
-        bluepulsetl.push(animateBluePulses(".menu-container > .bluepulse.pright", 2.5, 0, 1, "#menu-blue-path-right", sectionKey))
+        bluepulsetl.push(animateBluePulses(".bluepulse.pleft", 2.5, 0, 1, "#menu-blue-path-left"))
+        bluepulsetl.push(animateBluePulses(".bluepulse.pright", 2.5, 0, 1, "#menu-blue-path-right"))
     }
 }
-function animateBluePulses(targetPulse, duration, delay, repeatDelay, pathAlign, targetSection) {
+function animateBluePulses(targetPulse, duration, delay, repeatDelay, pathAlign) {
     let blueTl = gsap.timeline();
     blueTl.to(targetPulse, {
         motionPath: {
@@ -134,12 +113,7 @@ function animateBluePulses(targetPulse, duration, delay, repeatDelay, pathAlign,
         repeat: -1,
         keyframes: [{opacity: 1, duration: .1}, {opacity: 1, duration: 10},{opacity: 0, duration: .1}]
     });
-    // if (sectionState[targetSection].inside === true) {
-    //     //seems like this conditional fixed some weird stuff that would happen when resizing outside the section and scrolling back into it. Pulses got all wonky...
-    //     addEventListener('resize', () => {
-    //         refreshBluePulse(targetSection);
-    //     })
-    // }
+
     return blueTl;
 }
 
@@ -157,26 +131,25 @@ gsap.fromTo(".intro-purple",
         drawSVG: "100%",
         onComplete: () => {
             sectionState.sectionOne.purpDrawComplete = true;
-            // determineAllPulses("sectionOne");
             determinePurpPulseStart("sectionOne");
         }
     }
 )
 function beginPurpPulses(sectionKey) {
-    
     gsap.set(".rcd > .purppulse", { opacity: 0 });//starting opacity seemed to get messed up upon resizing/scrolling, had to apply reset
+
     if (sectionKey === "sectionOne") {
-        purppulsetl.push(animatePurpPulses(".rcd > .purppulse.regular", 3.5, 0, 1, "#intro-purple-path", sectionKey));
-        purppulsetl.push(animatePurpPulses(".rcd > .purppulse.small", 4, 1, 1.5, "#intro-purple-path", sectionKey));
+        purppulsetl.push(animatePurpPulses(".rcd > .purppulse.regular", 3.5, 0, 1, "#intro-purple-path"));
+        purppulsetl.push(animatePurpPulses(".rcd > .purppulse.small", 4, 1, 1.5, "#intro-purple-path"));
     }
     if (sectionKey === "sectionTwo") {
-        purppulsetl.push(animatePurpPulses(".menu-container > .purppulse.ptr", 3, 0, 1, "#menu-purp-path-top-right", sectionKey));
-        purppulsetl.push(animatePurpPulses(".menu-container > .purppulse.pbl", 3, 0, 1, "#menu-purp-path-btm-left", sectionKey));
-        purppulsetl.push(animatePurpPulses(".menu-container > .purppulse.pbr", 3, 0, 1, "#menu-purp-path-btm-right", sectionKey));
-        purppulsetl.push(animatePurpPulses(".menu-container > .purppulse.ptl", 3, 0, 1, "#menu-purp-path-top-left", sectionKey));
+        purppulsetl.push(animatePurpPulses(".purppulse.ptr", 3, 0, 1, "#menu-purp-path-top-right"));
+        purppulsetl.push(animatePurpPulses(".purppulse.pbl", 3, 0, 1, "#menu-purp-path-btm-left"));
+        purppulsetl.push(animatePurpPulses(".purppulse.pbr", 3, 0, 1, "#menu-purp-path-btm-right"));
+        purppulsetl.push(animatePurpPulses(".purppulse.ptl", 3, 0, 1, "#menu-purp-path-top-left"));
     }
 }
-function animatePurpPulses(targetPulse, duration, delay, repeatDelay, pathAlign, targetSection) {
+function animatePurpPulses(targetPulse, duration, delay, repeatDelay, pathAlign) {
     let purpTl = gsap.timeline();
     purpTl.to(targetPulse, {
         motionPath: {
@@ -193,67 +166,55 @@ function animatePurpPulses(targetPulse, duration, delay, repeatDelay, pathAlign,
         repeat: -1,
         keyframes: [{opacity: 1, duration: .1}, {opacity: 1, duration: 10},{opacity: 0, duration: .1}]
     });
-    if (sectionState[targetSection].inside === true) {
-        //seems like this conditional fixed some weird stuff that would happen when resizing outside the section and scrolling back into it. Pulses got all wonky...
-        addEventListener('resize', refreshPurpPulse);
-    }
+
     return purpTl;
 }
 
-//determine what section im in
-//add event listener for resize
-//kill pulses of that section
-//run determine pulses function
-//remove event listener
-
-
-
 function triggerController(targetSection, sectionKey) {
+    const enterSection = () => {
+        sectionState[sectionKey].inside = true;
+
+        determineBluePulseStart(sectionKey);
+        determinePurpPulseStart(sectionKey);
+        determineMenuPulses(sectionKey);
+
+        // Create and store the handler
+        const handler = () => {
+            killAllPulses();
+            determineBluePulseStart(sectionKey);
+            determinePurpPulseStart(sectionKey);
+            determineMenuPulses(sectionKey);
+        };
+
+        resizeHandlers[sectionKey] = handler;
+        window.addEventListener('resize', handler);
+    };
+
+    const leaveSection = () => {
+        killAllPulses();
+        sectionState[sectionKey].inside = false;
+
+        if (resizeHandlers[sectionKey]) {
+            window.removeEventListener('resize', resizeHandlers[sectionKey]);
+            resizeHandlers[sectionKey] = null;
+        }
+    };
+
     gsap.timeline({
         scrollTrigger: {
             trigger: targetSection,
-            endTrigger: targetSection, //test removed
             start: "top 50%",
             end: "bottom 50%",
             markers: true,
-            onEnter: () => {
-                sectionState[sectionKey].inside = true;
-                // determineAllPulses(sectionKey);
-                determineBluePulseStart(sectionKey);
-                determinePurpPulseStart(sectionKey);
-                determineMenuPulses(sectionKey);
-            },
-            onEnterBack: () => {
-                sectionState[sectionKey].inside = true;
-                // determineAllPulses(sectionKey);
-                determineBluePulseStart(sectionKey);
-                determinePurpPulseStart(sectionKey);
-                determineMenuPulses(sectionKey);
-            },
-            onLeave: () => {
-                killAllPulses();
-                sectionState[sectionKey].inside = false;
-            },
-            onLeaveBack: () => {
-                killAllPulses();
-                sectionState[sectionKey].inside = false;
-            }
+            onEnter: enterSection,
+            onEnterBack: enterSection,
+            onLeave: leaveSection,
+            onLeaveBack: leaveSection
         }
-    })
+    });
 }
 triggerController(sectionOne, "sectionOne");
 triggerController(sectionTwo, "sectionTwo");
-
-function refreshBluePulse(targetSection) {
-    killAllPulses();
-    removeEventListener('resize', refreshBluePulse);
-    determineBluePulseStart(targetSection);
-}
-function refreshPurpPulse(targetSection) {
-    killAllPulses();
-    removeEventListener('resize', refreshPurpPulse);
-    determinePurpPulseStart(targetSection);
-}
 
 
 //MENU
@@ -315,9 +276,6 @@ function showBottomMenu(secondMenuTl) {
     secondMenuTl.from(purpSVG, {duration: 3, ease: "power1.inOut", drawSVG: 0, onComplete: () => {
         sectionState.sectionTwo.menuDrawComplete = true;
         determineMenuPulses("sectionTwo");
-        // determineAllPulses("sectionTwo");
-        // determineBluePulseStart("sectionTwo");
-        // determinePurpPulseStart("sectionTwo");
     }})
     secondMenuTl.to('.sandwich-title', {duration: 1, opacity:1, y: 0}, "-=1")
     secondMenuTl.to('.tacos-title', {duration: 1, opacity:1, y: 0}, "-=.8")
