@@ -11,6 +11,7 @@ let preShow = document.querySelector('#cover-show');
 window.addEventListener('load', showPage);
 
 function showPage() {
+    console.log('has loaded')
     preShow.style.display = "none";
 }
 
@@ -205,7 +206,6 @@ function triggerController(targetSection, sectionKey) {
             trigger: targetSection,
             start: "top 50%",
             end: "bottom 50%",
-            markers: true,
             onEnter: enterSection,
             onEnterBack: enterSection,
             onLeave: leaveSection,
@@ -546,3 +546,18 @@ function animateBg(image) {
 
 gsap.to(".section-3-title", {scrollTrigger: {trigger: ".section-3-tc", start: "bottom 90%", end: "bottom 70%", scrub: true}, opacity: 1, translateY: 0})
 
+
+
+
+// next steps
+
+
+// 1.) work on improving intro UI 
+// or
+// 2.) work on improving performance, accessibility, load time, seo
+
+// 1.) intro svgs start ginormous, repaint small
+// --adjust sizing methods for svgs
+
+// 2.) border images are LCP, legible font, meta desc
+// --optimize html and img file; additionally, do so for all other files (img, video, font)

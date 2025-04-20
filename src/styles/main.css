@@ -271,7 +271,15 @@ button {
     opacity: 0;
     border-radius: 50%;
 }
-
+#cover-show {
+    background-color: blue;
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 999 !important;
+}
 .bluepulse {
     background: #ceeeff;
     /* box-shadow: 0 0 10px 5px #0B9EF5, 0 0 15px 5px #0B9EF5, 0 0 10px 5px #0B9EF5; */
