@@ -465,7 +465,7 @@ button {
     right: 0;
     bottom: 30%;
     z-index: 3;
-    background: url("/src/styles/Menu-BG/galaga-bg2.png") center no-repeat;
+    background: url("/src/styles/Menu-BG/galaga-bg2.webp") center no-repeat;
     background-size: cover;
 }
 .menu-btm-bg {
